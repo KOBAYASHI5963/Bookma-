@@ -15,7 +15,7 @@
       <nav class="navbar navbar-light bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="#">Bookma! ʕ•ᴥ•ʔ</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
@@ -24,15 +24,19 @@
                 <a class="nav-link active text-white" aria-current="page" href="#">Myページ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">My本棚</a>
+                <a class="nav-link text-white " href="#">My本棚</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="#">ほしい本</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-6 " type="search" placeholder="キーワードを入力" aria-label="Search">
-              <button class="btn btn-outline-primary" type="submit">検索</button>
+            <form>
+              <div class="input-group input-group-sm">
+                <input type="text" class="form-control" placeholder="キーワードを検索">
+                  <div class="input-group-btn">
+                    <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                   </div>
+              </div>
             </form>
           </div>
         </div>
