@@ -61,7 +61,7 @@
             </div>
             
             <div class="carousel-item">
-              <img src="https://lh3.googleusercontent.com/proxy/7YOuWcWG_uhfpmUhXXKjxshA7xNXujV8fumepp1j5O8UeUk_uBemYmgbmBmyRRBy_VsfqcKfgwSSjTz6e3nToLX-FpjDqZ8vcUKTOToFq1L4wQ" class="d-block" style="width:100%" alt="...">
+              <img src="https://lh3.googleusercontent.com/proxy/2OnAQhe6GkEtKN_eTl1mLM32LcoCTwq-XjTOdhmw-YmT1_O6VetIJOWP_2B7eMiPRBG5trqhZsGE2L9WCdDfoU9rUI-esAVCO1vZ5dldrmatDQ" class="d-block" style="width:100%" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h class="display-6">あっ！</h>
                     <p class="display-6">これだ！</p>
@@ -69,10 +69,10 @@
             </div>
 
             <div class="carousel-item">
-              <img src="https://lh3.googleusercontent.com/proxy/qpetJtjkGVgNiSC4vXSsKKRsV_X0ihXIwL2soqqemvzHd4tObpfboku98b2XYa-xoIHnO9iiw-DKCxNhADCHjx2_lxlX4vrBqoS6K3wvbaxYGD3fOohrq0C__TTucd6VVtjyrYFAJ3GwjoVnVRi6uT98zBRDyYSX7VwmE-ic1Gx9w39jvA" class="d-block " style="width:1450px; height:800px;;" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                <h class="display-3">今すぐ購入だ！</h>
-                <p class="display-4">出品もしてみよう！</p>
+              <img src="http://livedoor.blogimg.jp/momovie2/imgs/5/3/5367bd17.jpg" class="d-block " style="width:100%" alt="...">
+                <div class="carousel-caption d-none d-md-block ">
+                <h class="display-3 text-dark">今すぐ購入だ！</h>
+                <p class="display-4 text-dark">出品もしてみよう！</p>
                 </div>
             </div>
 
@@ -94,17 +94,23 @@
         <h5 class=" py-3">新しく出品された本</h5>
       </div>
       <div class="row">
-        <div class="col-md-3 col-12 ">
+        <div class="col-md-2 col-12 ">
           <img src="https://amd-pctr.c.yimg.jp/r/iwiz-amd/20210902-00000035-san-000-8-view.jpg" style="width:200px; height:50;" alt="">
         </div>
-        <div class="col-md-3 col-12 ">
+        <div class="col-md-2 col-12 ">
           <img src="https://images-na.ssl-images-amazon.com/images/I/81wKgx+I5fL.jpg"  style="width:200px; height:50;" alt="">
         </div>
-        <div class="col-md-3 col-12 ">
+        <div class="col-md-2 col-12 ">
           <img src="https://hr-engagement.jp/wp-content/uploads/2020/05/29043be388f971cef4025ecbcc5c9c57.jpg" style="width:200px; height:50;" alt="">
         </div>
-        <div class="col-md-3 col-12 ">
+        <div class="col-md-2 col-12 ">
           <img src="https://images-na.ssl-images-amazon.com/images/I/51sPGsTuF0L._SX350_BO1,204,203,200_.jpg" style="width:200px; height:50;" alt="">
+        </div>
+        <div class="col-md-2 col-12 ">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/51VPFSM57AL.jpg"  style="width:200px; height:50;" alt="">
+        </div>
+        <div class="col-md-2 col-12 ">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/71AaRkqJI8L.jpg"  style="width:200px; height:50;" alt="">
         </div>
       </div>
     </div>
