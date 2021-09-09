@@ -69,7 +69,7 @@
             </div>
 
             <div class="carousel-item">
-              <img src="http://livedoor.blogimg.jp/momovie2/imgs/5/3/5367bd17.jpg" class="d-block " style="width:100%" alt="...">
+              <img src="https://media.istockphoto.com/photos/opened-book-picture-id541152594" class="d-block " style="width:100%" alt="...">
                 <div class="carousel-caption d-none d-md-block ">
                 <h class="display-3 text-dark">今すぐ購入だ！</h>
                 <p class="display-4 text-dark">出品もしてみよう！</p>
