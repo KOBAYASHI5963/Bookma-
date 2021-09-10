@@ -12,9 +12,39 @@
   </head>
   <body class="bg-light"> 
     <header>
-      <nav class="navbar navbar-light bg-dark">
+
+    <nav class="navbar navbar-light bg-white">
+      <div class="container-fluid">
+      <a class="navbar-brand text-black" href="#">Bookma! ʕ•ᴥ•ʔ</a>
+        <ul class="navbar-nav mr-auto"></ul>
+          <ul class="navbar-nav">
+            @if (Auth::check())
+              <li class="dropdown-item"><a href="{{ route('users.index') }}"></a></li>
+              <li class="dropdown-item"><a href="{{ route('users.show',Auth::id()) }}">マイページ</a></li>
+              <li class="dropdown-item"><a href="{{ route('logout.get') }}">ログアウト</a></li>
+            @else
+              <li class="nav-item dropdown">
+              <li class="nav-item"><a href="{{ route('signup.get')}}" class="nav-link">新規会員登録</a></li>
+              <li class="nav-item"><a href="{{ route('login')}}" class="nav-link">ログイン</a></li>
+            @endif
+          </ul>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-light bg-white">    
+      <form>
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control" placeholder="キーワードを検索">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          </div>
+        </div>
+      </form>
+    </nav>
+
+      <!-- <nav class="navbar navbar-light bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand text-white" href="#">Bookma! ʕ•ᴥ•ʔ</a>
+          
           <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,11 +70,11 @@
             </form>
           </div>
         </div>
-      </nav>
+      </nav> -->
     </header>
 
     <!--スライドショー-->
-    <div class="keyvisual"> 
+    <!-- <div class="keyvisual"> 
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
           <ol class="carousel-indicators">
             <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
@@ -88,7 +118,7 @@
         </div>
     </div>
 
-    <div class="container bg-whte py-5 my-5">
+    <div class="container bg-whte py-5 my-5"> -->
     <!--詳細-->
       <div id="column">
         <h5 class=" py-3">新しく出品された本</h5>

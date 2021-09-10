@@ -27,7 +27,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/top', 'TopController@index')->name('toppage');
-});
