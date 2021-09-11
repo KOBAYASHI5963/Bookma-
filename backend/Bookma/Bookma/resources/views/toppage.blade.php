@@ -11,114 +11,27 @@
     <title>Bookma!</title>
   </head>
   <body class="bg-light"> 
+    
     <header>
-
-    <nav class="navbar navbar-light bg-white">
-      <div class="container-fluid">
-      <a class="navbar-brand text-black" href="#">Bookma! ʕ•ᴥ•ʔ</a>
-        <ul class="navbar-nav mr-auto"></ul>
-          <ul class="navbar-nav">
-            @if (Auth::check())
-              <li class="dropdown-item"><a href="{{ route('users.index') }}"></a></li>
-              <li class="dropdown-item"><a href="{{ route('users.show',Auth::id()) }}">マイページ</a></li>
-              <li class="dropdown-item"><a href="{{ route('logout.get') }}">ログアウト</a></li>
-            @else
-              <li class="nav-item dropdown">
-              <li class="nav-item"><a href="{{ route('signup.get')}}" class="nav-link">新規会員登録</a></li>
-              <li class="nav-item"><a href="{{ route('login')}}" class="nav-link">ログイン</a></li>
-            @endif
-          </ul>
-      </div>
-    </nav>
-
-    <nav class="navbar navbar-light bg-white">    
-      <form>
-        <div class="input-group input-group-sm">
-          <input type="text" class="form-control" placeholder="キーワードを検索">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-          </div>
-        </div>
-      </form>
-    </nav>
-
-      <!-- <nav class="navbar navbar-light bg-dark">
+      <nav class="navbar navbar-light bg-dark">
         <div class="container-fluid">
-          
-          <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="#">Myページ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white " href="#">My本棚</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="#">ほしい本</a>
-              </li>
+        <a class="navbar-brand text-white" href="#">Bookma! ʕ•ᴥ•ʔ</a>
+          <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav text-white">
+              @if (Auth::check())
+                <li class="dropdown-item"><a href="{{ route('users.index') }}"></a></li>
+                <li class="dropdown-item"><a href="{{ route('users.show',Auth::id()) }}">マイページ</a></li>
+                <li class="dropdown-item"><a href="{{ route('logout.get') }}">ログアウト</a></li>
+              @else
+                <li class="nav-item dropdown">
+                <li class="nav-item"><a href="{{ route('signup.get')}}" class="nav-link">新規会員登録</a></li>
+                <li class="nav-item"><a href="{{ route('login')}}" class="nav-link">ログイン</a></li>
+              @endif
             </ul>
-            <form>
-              <div class="input-group input-group-sm">
-                <input type="text" class="form-control" placeholder="キーワードを検索">
-                  <div class="input-group-btn">
-                    <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                   </div>
-              </div>
-            </form>
-          </div>
         </div>
-      </nav> -->
+      </nav>
     </header>
-
-    <!--スライドショー-->
-    <!-- <div class="keyvisual"> 
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="https://img2.finalfantasyxiv.com/accimg2/00/48/0048be4c4298913db22486822bdb22230bf853cb.jpg" class="d-block " style="width:100%"  alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                      <h class="display-4">欲しい本がきっと見つかる！</h>
-                    <p class="display-4">さあ、探してみよう！</p>
-                </div>
-            </div>
-            
-            <div class="carousel-item">
-              <img src="https://lh3.googleusercontent.com/proxy/2OnAQhe6GkEtKN_eTl1mLM32LcoCTwq-XjTOdhmw-YmT1_O6VetIJOWP_2B7eMiPRBG5trqhZsGE2L9WCdDfoU9rUI-esAVCO1vZ5dldrmatDQ" class="d-block" style="width:100%" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h class="display-6">あっ！</h>
-                    <p class="display-6">これだ！</p>
-                </div>
-            </div>
-
-            <div class="carousel-item">
-              <img src="https://media.istockphoto.com/photos/opened-book-picture-id541152594" class="d-block " style="width:100%" alt="...">
-                <div class="carousel-caption d-none d-md-block ">
-                <h class="display-3 text-dark">今すぐ購入だ！</h>
-                <p class="display-4 text-dark">出品もしてみよう！</p>
-                </div>
-            </div>
-
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </a>
-        </div>
-    </div>
-
-    <div class="container bg-whte py-5 my-5"> -->
+    
     <!--詳細-->
       <div id="column">
         <h5 class=" py-3">新しく出品された本</h5>
