@@ -34,6 +34,7 @@
           @endif
         </ul>
       </div>
+      
       <form>
         <div class="input-group input-group-sm">
           <input type="text" class="form-control" placeholder="キーワードを検索">
