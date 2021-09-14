@@ -23,8 +23,20 @@
         <ul class="navbar-nav text-white">
           @if (Auth::check())
           <div class="d-flex justify-content-end">
-            <li class="nav-item"><a href="{{ route('users.show',Auth::id()) }}" class="btn btn-danger btn-sm" tabindex="-1" role="button" aria-pressed="true">マイページ</a></li>
-            <li class="nav-item"><a href="{{ route('logout.get') }}" class="btn btn-primary btn-sm" tabindex="-1" role="button" aria-pressed="true">ログアウト</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user-alt text-white"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ route('users.show',Auth::id()) }}">マイページ</a>
+              <a class="dropdown-item" href="{{ route('logout.get') }}">ログアウト</a>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="#" class="nav-item nav-link text-white" style="padding-left: 0;"><i class="far fa-star text-white mr-2"></i>お気に入り</a></li>
+          <li class="nav-item"><a href="#" class="nav-item nav-link text-white"><i class="fas fa-book-open"></i>出品する</a></li>
+
           </div>
           @else
           <div class="d-flex justify-content-end">
@@ -34,7 +46,7 @@
           @endif
         </ul>
       </div>
-      
+
       <form>
         <div class="input-group input-group-sm">
           <input type="text" class="form-control" placeholder="キーワードを検索">
@@ -73,6 +85,18 @@
       <img src="https://images-na.ssl-images-amazon.com/images/I/71AaRkqJI8L.jpg" style="width:200px; height:50;" alt="">
     </div>
   </div>
+  </div>
+
+  <div id="column">
+    <h5 class=" py-3">出品一覧</h5>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ジャンル
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">漫画</a></li>
+            <li><a class="dropdown-item" href="#">小説</a></li>
+            <li><a class="dropdown-item" href="#">ビジネス本</a></li>
+          </ul>
   </div>
 
   <!-- Optional JavaScript; choose one of the two! -->
