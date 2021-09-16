@@ -23,7 +23,6 @@
         <ul class="navbar-nav text-white">
           @if (Auth::check())
           <div class="d-flex justify-content-end">
-
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user-alt text-white"></i>
@@ -33,10 +32,8 @@
               <a class="dropdown-item" href="{{ route('logout.get') }}">ログアウト</a>
             </div>
           </li>
-
           <li class="nav-item"><a href="#" class="nav-item nav-link text-white" style="padding-left: 0;"><i class="far fa-star text-white mr-2"></i>お気に入り</a></li>
           <li class="nav-item"><a href="#" class="nav-item nav-link text-white"><i class="fas fa-book-open"></i>出品する</a></li>
-
           </div>
           @else
           <div class="d-flex justify-content-end">
@@ -46,7 +43,6 @@
           @endif
         </ul>
       </div>
-
       <form>
         <div class="input-group input-group-sm">
           <input type="text" class="form-control" placeholder="キーワードを検索">
