@@ -56,7 +56,6 @@
 
   <img  src="https://t4.ftcdn.net/jpg/02/57/62/15/240_F_257621504_iTEdInhbLzmfLWVvHtXI5GCC80yocQtB.jpg" class="d-block w-100" alt="...">
  
-
   <!--詳細-->
   <div id="column">
     <h5 class=" py-3">新しく出品された本</h5>
