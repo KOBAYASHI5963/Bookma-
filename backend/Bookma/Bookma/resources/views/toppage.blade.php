@@ -54,7 +54,33 @@
     </nav>
   </header>
 
-  <img  src="https://t4.ftcdn.net/jpg/02/57/62/15/240_F_257621504_iTEdInhbLzmfLWVvHtXI5GCC80yocQtB.jpg" class="d-block w-100" alt="...">
+  <style>
+.example{
+    position: relative;
+}
+.example img{
+    width: 100%;
+    height: auto;
+}
+.example>div{
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    /*コレ*/transform: translate(-50%,-50%);
+    color: #EEEEEE;
+    font-size: 200%;
+    font-weight: bold;
+}
+</style>
+<div class="example">
+    <img src="https://t4.ftcdn.net/jpg/02/57/62/15/240_F_257621504_iTEdInhbLzmfLWVvHtXI5GCC80yocQtB.jpg" class="d-block w-100" alt="">
+    <div>
+      <h1>気軽に出品できる</h1>
+      <h1>あなたの欲しい本が見つかる</h1>
+    </div>
+</div>
+
+
  
   <!--詳細-->
   <div id="column">
@@ -63,7 +89,7 @@
 
   <div class="row">
     <div class="col-md-2 col-12 ">
-      <img  src="https://amd-pctr.c.yimg.jp/r/iwiz-amd/20210902-00000035-san-000-8-view.jpg" style="width:200px; height:50;" alt="">
+      <img  src="https://images-na.ssl-images-amazon.com/images/I/61iQ1gOJ7kL._SX316_BO1,204,203,200_.jpg" style="width:200px; height:50;" alt="">
     </div>
 
     <div class="col-md-2 col-12 ">
@@ -85,7 +111,7 @@
     <div class="col-md-2 col-12 ">
       <img src="https://images-na.ssl-images-amazon.com/images/I/71AaRkqJI8L.jpg" style="width:200px; height:50;" alt="">
     </div>
-    
+
   </div>
   </div>
 
