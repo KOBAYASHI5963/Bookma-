@@ -140,18 +140,15 @@
 </body>
 
 <footer>
-
 <div class="footer py-2">
   <p class="text-white">by kobayashi.</p>
 </div>
-
 <style scoped>
 .footer {
   background-color: #25324F;
   text-align: center;
 }
 </style>
-
 </footer>
 
 </html>
