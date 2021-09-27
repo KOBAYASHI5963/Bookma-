@@ -54,7 +54,17 @@
     </nav>
   </header>
 
-  <style>
+
+<div class="example">
+    <img src="https://t4.ftcdn.net/jpg/02/57/62/15/240_F_257621504_iTEdInhbLzmfLWVvHtXI5GCC80yocQtB.jpg" class="d-block w-100" alt="">
+    <div>
+      <h1>BOOKマーケットで</h1>
+      <h1>気軽に出品できる</h1>
+      <h1>あなたのほしい本が見つかる</h1>
+    </div>
+</div>
+
+<style>
 .example{
     position: relative;
 }
@@ -62,7 +72,7 @@
     width: 100%;
     height: auto;
 }
-.example>div{
+.example div{
     position: absolute;
     left: 20%;
     top: 40%;
@@ -72,60 +82,132 @@
     font-weight: bold;
 }
 </style>
-<div class="example">
-    <img src="https://t4.ftcdn.net/jpg/02/57/62/15/240_F_257621504_iTEdInhbLzmfLWVvHtXI5GCC80yocQtB.jpg" class="d-block w-100" alt="">
-    <div>
-      <h1>気軽に出品できる</h1>
-      <h1>あなたの欲しい本が見つかる</h1>
-    </div>
-</div>
-
 
  
   <!--詳細-->
-  <div id="column">
-    <h5 class=" py-3">新しく出品された本</h5>
+  <div class="new-book">
+      <div id="column">
+        <h5 class=" py-3">新しく出品された本</h5>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-12 ">
+          <img  src="https://images-na.ssl-images-amazon.com/images/I/61iQ1gOJ7kL._SX316_BO1,204,203,200_.jpg" style="width:200px; height:50;" alt="">
+        </div>
+
+        <div class="col-md-2 col-12 ">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/81wKgx+I5fL.jpg" style="width:200px; height:50;" alt="">
+        </div>
+
+        <div class="col-md-2 col-12 ">
+          <img src="https://hr-engagement.jp/wp-content/uploads/2020/05/29043be388f971cef4025ecbcc5c9c57.jpg" style="width:200px; height:50;" alt="">
+        </div>
+
+        <div class="col-md-2 col-12 ">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/51sPGsTuF0L._SX350_BO1,204,203,200_.jpg" style="width:200px; height:50;" alt="">
+        </div>
+
+        <div class="col-md-2 col-12 ">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/51VPFSM57AL.jpg" style="width:200px; height:50;" alt="">
+        </div>
+
+        <div class="col-md-2 col-12 ">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/71AaRkqJI8L.jpg" style="width:200px; height:50;" alt="">
+        </div>
+
+      </div>
+      </div>
+
+      <div id="column">
+        <h5 class=" py-3">出品一覧</h5>
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ジャンル
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">漫画</a></li>
+                <li><a class="dropdown-item" href="#">小説</a></li>
+                <li><a class="dropdown-item" href="#">ビジネス本</a></li>
+              </ul>
+      </div>
+
+
+
+
+  
+
+    <div class="container">
+
+      <div class="content-top-title">
+        <h1>人生にもっと本を。</h1>
+      </div>
+      
+      <div class="mt-5 explanation">
+        <div class="card-deck row">
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">検索する</h4>
+                <p class="card-text">検索ボックスにて、「ジャンル」、「著者」、「出版社」などから選び、または気になるワードで自由に検索してみてください。</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">購入</h4>
+                <p class="card-text">本詳細画面から、好きな本を購入できます。まずは会員登録し、気になる本をお気に入り登録するなど、自身のタイミングで購入しましょう。</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">リクエスト</h4>
+                <p class="card-text">自身が欲しい本をリクエストすることができます。出品者の方は気になるリクエストがあればその方にメッセージを送ってやりとりができます。</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-2 col-12 ">
-      <img  src="https://images-na.ssl-images-amazon.com/images/I/61iQ1gOJ7kL._SX316_BO1,204,203,200_.jpg" style="width:200px; height:50;" alt="">
-    </div>
 
-    <div class="col-md-2 col-12 ">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/81wKgx+I5fL.jpg" style="width:200px; height:50;" alt="">
-    </div>
+<script>
+export default {
+  data() {
+    return {
+    }
+  },
+}
+</script>
 
-    <div class="col-md-2 col-12 ">
-      <img src="https://hr-engagement.jp/wp-content/uploads/2020/05/29043be388f971cef4025ecbcc5c9c57.jpg" style="width:200px; height:50;" alt="">
-    </div>
+<style scoped>
+.new-book {
+  height: auto;
+  background: #F6F6F4;
+}
+.content-top-title {
+  text-align: center;
+  margin-top: 60px;
+}
+.content-top-title h1{
+  font-weight: bold;
+  color: #566985;
+}
+.card .card-title{
+  font-weight: bold;
+  text-align: center;
+}
+.explanation {
+  margin-bottom: 120px;
+}
+</style>
 
-    <div class="col-md-2 col-12 ">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/51sPGsTuF0L._SX350_BO1,204,203,200_.jpg" style="width:200px; height:50;" alt="">
-    </div>
 
-    <div class="col-md-2 col-12 ">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/51VPFSM57AL.jpg" style="width:200px; height:50;" alt="">
-    </div>
 
-    <div class="col-md-2 col-12 ">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/71AaRkqJI8L.jpg" style="width:200px; height:50;" alt="">
-    </div>
-
-  </div>
-  </div>
-
-  <div id="column">
-    <h5 class=" py-3">出品一覧</h5>
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            ジャンル
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">漫画</a></li>
-            <li><a class="dropdown-item" href="#">小説</a></li>
-            <li><a class="dropdown-item" href="#">ビジネス本</a></li>
-          </ul>
-  </div>
 
   
   <!-- Optional JavaScript; choose one of the two! -->
