@@ -167,7 +167,34 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
+      <div class="card-deck row">
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">検索する</h4>
+                <p class="card-text">検索ボックスにて、「ジャンル」、「著者」、「出版社」などから選び、または気になるワードで自由に検索してみてください。</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">購入</h4>
+                <p class="card-text">本詳細画面から、好きな本を購入できます。まずは会員登録し、気になる本をお気に入り登録するなど、自身のタイミングで購入しましょう。</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">リクエスト</h4>
+                <p class="card-text">自身が欲しい本をリクエストすることができます。出品者の方は気になるリクエストがあればその方にメッセージを送ってやりとりができます。</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
