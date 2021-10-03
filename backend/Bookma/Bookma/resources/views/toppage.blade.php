@@ -120,59 +120,18 @@
 
       <div id="column">
         <h5 class=" py-3">出品一覧</h5>
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                ジャンル
+              <a class="nav-link" href="#"  aria-expanded="false">
+              Bookma! ʕ•ᴥ•ʔ
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">漫画</a></li>
-                <li><a class="dropdown-item" href="#">小説</a></li>
-                <li><a class="dropdown-item" href="#">ビジネス本</a></li>
-              </ul>
+              
       </div>
-
-      <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Home</li>
-  </ol>
-</nav>
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Library</li>
-  </ol>
-</nav>
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
-  </ol>
-</nav>
-
-<ul class="nav flex-column">
-  <ol class="breadcrumb">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
-
   
 
     <div class="container">
 
       <div class="content-top-title">
         <h1>人生にもっと本を。</h1>
+
       </div>
       
       <div class="mt-5 explanation">
@@ -180,7 +139,7 @@
           <div class="col-sm-4">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">検索する</h4>
+                <h4 class="card-title">検索</h4>
                 <p class="card-text">検索ボックスにて、「ジャンル」、「著者」、「出版社」などから選び、または気になるワードで自由に検索してみてください。</p>
               </div>
             </div>
@@ -268,6 +227,59 @@ export default {
 </style>
 
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">ジャンル一覧</li>
+  </ol>
+</nav>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">小説・文学</a></li>
+    <li class="breadcrumb-item"><a href="#">経済・ビジネス</a></li>
+    <li class="breadcrumb-item"><a href="#">漫画・コミック</a></li>
+    <li class="breadcrumb-item"><a href="#">ライトノベル</a></li>
+    <li class="breadcrumb-item"><a href="#">暮らし・実用</a></li>
+    <li class="breadcrumb-item"><a href="#">雑誌</a></li>
+    <li class="breadcrumb-item"><a href="#">文庫</a></li>
+    <li class="breadcrumb-item"><a href="#">エッセイ・自伝・ノンフィクション</a></li>
+    <li class="breadcrumb-item"><a href="#">歴史・地理・民俗</a></li>
+    <li class="breadcrumb-item"><a href="#">新書・選書・ブックレット</a></li>
+  </ol>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">言語・語学・辞典</a></li>
+    <li class="breadcrumb-item"><a href="#">コンピュータ・IT・情報科学</a></li>
+    <li class="breadcrumb-item"><a href="#">自然科学・環境</a></li>
+    <li class="breadcrumb-item"><a href="#">技術・工学・農学</a></li>
+    <li class="breadcrumb-item"><a href="#">医学</a></li>
+    <li class="breadcrumb-item"><a href="#">社会・時事・政治・行政</a></li>
+    <li class="breadcrumb-item"><a href="#">哲学・思想・宗教・心理</a></li>
+    <li class="breadcrumb-item"><a href="#">法学・法律</a></li>
+    <li class="breadcrumb-item"><a href="#">資格・検定・就職</a></li>
+  </ol>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">教育・学習参考書</a></li>
+    <li class="breadcrumb-item"><a href="#">趣味・ホビー</a></li>
+    <li class="breadcrumb-item"><a href="#">旅行・地図</a></li>
+    <li class="breadcrumb-item"><a href="#">エンタメ・テレビ・タレント</a></li>
+    <li class="breadcrumb-item"><a href="#">芸術・アート</a></li>
+    <li class="breadcrumb-item"><a href="#">ゲーム・アニメ・サブカルチャー</a></li>
+    <li class="breadcrumb-item"><a href="#">スポーツ</a></li>
+    <li class="breadcrumb-item"><a href="#">児童書・絵本</a></li>
+    <li class="breadcrumb-item"><a href="#">写真集</a></li>
+    <li class="breadcrumb-item"><a href="#">ラブロマンス</a></li>
+  </ol>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">BL（ボーイズラブ）</a></li>
+    <li class="breadcrumb-item"><a href="#">TL（ティーンズラブ）</a></li>
+    <li class="breadcrumb-item"><a href="#">オーディオブック</a></li>
+  </ol>
+
+</nav>
+
 
   
   <!-- Optional JavaScript; choose one of the two! -->
@@ -283,19 +295,102 @@ export default {
 </body>
 
 <footer>
+  <div class="footer py-2">
+    <p class="text-white">by kobayashi.</p>
+  </div>
 
-<div class="footer py-2">
-  <p class="text-white">by kobayashi.</p>
-</div>
-
-<style scoped>
-.footer {
-  background-color: #25324F;
-  text-align: center;
-}
-</style>
-
+  <style scoped>
+  .footer {
+    background-color: #25324F;
+    text-align: center;
+  }
+  </style>
 </footer>
+
+<footer2 id="footer02" class="footer outer-block">
+<div class="inner-block">
+        <div class="wrap">
+          <div class="logo">
+            <a href="#">Bookma! ʕ•ᴥ•ʔ</a>
+          </div>
+          <div class="cont">
+            <div class="c-btn">
+              <a href="#">CONTACT</a>
+            </div>
+            <ul class="nav">
+              <li><a href="#">WORKS</a></li>
+              <li><a href="#">BLOG</a></li>
+              <li><a href="#">RECRUIT</a></li>
+              <li><a href="#">COMPANY</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><!-- /inner-block -->
+      <div class="copyright">
+        COPYRIGHT © Bookma Inc. All rights Reserved.
+      </div>
+    </footer2>
+
+
+    <style scoped>
+  
+#footer02 {
+  background: #222;
+}
+ 
+.ie #footer02 .logo img,
+#footer02 .logo {
+  display: inline-block;
+  width: 120px;
+}
+ 
+#footer02 .nav li a {
+  padding: 15px;
+  color: #ccc;
+}
+ 
+#footer02 .c-btn {
+  margin-left: 25px;
+}
+ 
+ 
+@media screen and (min-width: 641px) {
+  #footer02 .logo {
+    padding: 10px 0;
+  }
+ 
+  #footer02 .wrap {
+    padding: 20px 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+  #footer02 .cont {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+ 
+  #footer02 .nav {
+    display: inline-block;
+  }
+ 
+  #footer02 .nav li {
+    display: inline-block;
+  }
+ 
+  #footer02 .nav li a:hover {
+    color: #ca353b;
+  }
+}
+  </style>
 
 </html>
 
