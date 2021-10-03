@@ -208,7 +208,7 @@
           <div class="col-sm-4">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">検索する</h4>
+                <h4 class="card-title">検索</h4>
                 <p class="card-text">検索ボックスにて、「ジャンル」、「著者」、「出版社」などから選び、または気になるワードで自由に検索してみてください。</p>
               </div>
             </div>
