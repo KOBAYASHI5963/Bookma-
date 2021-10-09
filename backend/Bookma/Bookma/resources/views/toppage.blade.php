@@ -43,14 +43,6 @@
           @endif
         </ul>
       </div>
-      <form>
-        <div class="input-group input-group-sm">
-          <input type="text" class="form-control" placeholder="キーワードを検索">
-          <div class="input-group-btn">
-            <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
-          </div>
-        </div>
-      </form>
     </nav>
   </header>
 
@@ -168,7 +160,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">チャット</h4>
-                <p class="card-text">本の語り合いや購入の際に金額交渉、本の状況などチャット機能を利用して確認することや雑談する子も可能です。</p>
+                <p class="card-text">本の語り合いや購入の際に金額交渉、本の状況などチャット機能を利用して確認することや雑談することも可能です。</p>
               </div>
             </div>
           </div>
@@ -296,7 +288,14 @@ export default {
 
 <footer>
   <div class="footer py-2">
-    <p class="text-white">by kobayashi.</p>
+  <form>
+    <div class="input-group input-group-sm">
+       <input type="text" class="form-control" placeholder="キーワードを検索">
+        <div class="input-group-btn">
+         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+       </div>
+    </div>
+  </form>
   </div>
 
   <style scoped>
@@ -315,13 +314,13 @@ export default {
             </div>
             <div class="cont">
                 <div class="c-btn">
-                  <a href="#">CONTACT</a>
+                  <a href="#">出品する</a>
                 </div>
                 <ul class="nav">
-                  <li><a href="#">WORKS</a></li>
-                  <li><a href="#">BLOG</a></li>
-                  <li><a href="#">RECRUIT</a></li>
-                  <li><a href="#">COMPANY</a></li>
+                  <li><a href="#">会員登録</a></li>
+                  <li><a href="#">カートを見る</a></li>
+                  <li><a href="#">お気に入り</a></li>
+                  <li><a href="#">My本棚</a></li>
                 </ul>
             </div>
           </div>
@@ -345,7 +344,7 @@ export default {
  
 #footer02 .nav li a {
   padding: 15px;
-  color: #ccc;
+  color: #2d384e
 }
  
 #footer02 .c-btn {
