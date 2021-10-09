@@ -218,6 +218,8 @@ export default {
 }
 </style>
 
+ 
+<div class="sarch">
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -272,6 +274,14 @@ export default {
 
 </nav>
 
+</div>
+
+<style>
+
+.sarch {
+  margin-top:100px;
+}
+</style>
 
   
   <!-- Optional JavaScript; choose one of the two! -->
