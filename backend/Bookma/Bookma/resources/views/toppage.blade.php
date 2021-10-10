@@ -116,27 +116,27 @@
 
       <div class="row">
         <div class="col-md-2 col-12 ">
-          <img  src="https://images-na.ssl-images-amazon.com/images/I/61iQ1gOJ7kL._SX316_BO1,204,203,200_.jpg" style="width:200px; height:50;" alt="">
+          <img  src="https://www.famitsu.com/images/000/192/206/y_5e3bd8bc551c7.jpg" style="width:200px; height:50;" alt="">
         </div>
 
         <div class="col-md-2 col-12 ">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/81wKgx+I5fL.jpg" style="width:200px; height:50;" alt="">
+          <img src="https://cv.bkmkn.kodansha.co.jp/9784062621700/9784062621700_w.jpg" style="width:200px; height:50;" alt="">
         </div>
 
         <div class="col-md-2 col-12 ">
-          <img src="https://hr-engagement.jp/wp-content/uploads/2020/05/29043be388f971cef4025ecbcc5c9c57.jpg" style="width:200px; height:50;" alt="">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/71KyRWTlIoL.jpg" style="width:200px; height:50;" alt="">
         </div>
 
         <div class="col-md-2 col-12 ">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/51sPGsTuF0L._SX350_BO1,204,203,200_.jpg" style="width:200px; height:50;" alt="">
+          <img src="https://image.honto.jp/item/1/265/0324/7858/03247858_1.png" style="width:200px; height:50;" alt="">
         </div>
 
         <div class="col-md-2 col-12 ">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/51VPFSM57AL.jpg" style="width:200px; height:50;" alt="">
+          <img src="https://cache.arukikata.co.jp/com_img/guidebook/frontpage/9784058012666.jpg" style="width:200px; height:50;" alt="">
         </div>
 
         <div class="col-md-2 col-12 ">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/71AaRkqJI8L.jpg" style="width:200px; height:50;" alt="">
+          <img src="https://www.chuya-online.com/img.php?image=60914.jpg&s=l" style="width:200px; height:50;" alt="">
         </div>
 
              
@@ -192,7 +192,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">レビュー</h4>
-                <p class="card-text">届いた本の状態や出品者とのやりとりをレビューすることが可能です。また、本についてのレビューをすることもできますのでオススメの本の良さも共有してみましょう。</p>
+                <p class="card-text">届いた本の状態や出品者とのやりとり、本についてのレビューをすることが可能です。オススメの本の良さも共有してみましょう。</p>
               </div>
             </div>
           </div>
