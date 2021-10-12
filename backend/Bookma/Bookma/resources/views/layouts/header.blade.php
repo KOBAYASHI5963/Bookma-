@@ -1,4 +1,5 @@
-<header>
+@section('header')
+<header class="header">
     <nav class="navbar navbar-light bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand text-white" href="#">Bookma! ʕ•ᴥ•ʔ</a>
@@ -27,4 +28,5 @@
         </ul>
       </div>
     </nav>
-  </header>
+</header>
+@endsection

@@ -1,21 +1,4 @@
-
-<div class="search py-2">
-  <form>
-    <div class="input-group input-group-sm">
-       <input type="text" class="form-control" placeholder="キーワードを検索">
-        <div class="input-group-btn">
-         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
-       </div>
-    </div>
-  </form>
-  </div>
-
-  <style scoped>
-  .search {
-    background-color: #25324F;
-    text-align: center;
-  }
-  </style>
+@section('d')
 
 <div class="genre">
 
@@ -80,3 +63,22 @@
   margin-top:100px;
 }
 </style>
+
+<div class="search py-2">
+  <form>
+    <div class="input-group input-group-sm">
+       <input type="text" class="form-control" placeholder="キーワードを検索">
+        <div class="input-group-btn">
+         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+       </div>
+    </div>
+  </form>
+  </div>
+
+  <style scoped>
+  .search {
+    background-color: #25324F;
+    text-align: center;
+  }
+  </style>
+@endsection('d')

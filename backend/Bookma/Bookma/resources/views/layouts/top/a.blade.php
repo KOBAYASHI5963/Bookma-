@@ -1,3 +1,4 @@
+@section('a')
 <div id="column">
         <h5 class=" py-3">新しく出品された本</h5>
       </div>
@@ -29,3 +30,4 @@
 
       </div>
 </div>
+@endsection('a')

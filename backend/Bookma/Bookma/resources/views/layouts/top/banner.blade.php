@@ -1,3 +1,4 @@
+@section('banner')
 <div class="example">
     <img src="https://t4.ftcdn.net/jpg/02/57/62/15/240_F_257621504_iTEdInhbLzmfLWVvHtXI5GCC80yocQtB.jpg" class="d-block w-100" alt="">
     <div>
@@ -25,3 +26,4 @@
     font-weight: bold;
 }
 </style>
+@endsection('banner')

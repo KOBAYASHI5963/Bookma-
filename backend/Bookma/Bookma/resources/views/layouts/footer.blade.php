@@ -1,3 +1,4 @@
+@section('footer')
 <footer id="footer" class="footer outer-block">
   <div class="inner-block">
           <div class="wrap">
@@ -21,6 +22,7 @@
         COPYRIGHT © Bookma Inc. All rights Reserved.
       </div>
 </footer>
+
 
 
     <style scoped>
@@ -70,5 +72,6 @@
   #footer .nav li a:hover {
     color: #ca353b;
   }
-}
+
   </style>
+@endsection

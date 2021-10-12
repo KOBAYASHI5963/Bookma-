@@ -1,3 +1,4 @@
+@section('c')
 <div class="container">
 
       <div class="content-top-title">
@@ -63,3 +64,4 @@
       </div>
 
 </div>
+@endsection('c')
