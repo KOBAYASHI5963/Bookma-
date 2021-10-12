@@ -31,14 +31,15 @@
   background: #222;
 }
  
-#footer .logo {
+#footer .logo a {
   display: inline-block;
   width: 120px;
+  color: #ffffff
 }
  
 #footer .nav li a {
   padding: 15px;
-  color: #2d384e
+  color: #ffffff
 }
  
 #footer .c-btn {
@@ -71,6 +72,12 @@
  
   #footer .nav li a:hover {
     color: #ca353b;
+  }
+
+  #footer .copyright {
+    color: #ffffff;
+    text-align: center
+    
   }
 
   </style>
