@@ -9,6 +9,7 @@
  
 @include('layouts.header')
  
+
 @include('layouts.top.banner')
 @include('layouts.top.a')
 @include('layouts.top.b')
@@ -16,5 +17,4 @@
 @include('layouts.top.d')
  
 
- 
 @include('layouts.footer')
