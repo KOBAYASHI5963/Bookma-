@@ -20,6 +20,6 @@ class TopController extends Controller
      */
     public function index()
     {
-        return view('toppage');
+        return view('pages.top');
     }
 }

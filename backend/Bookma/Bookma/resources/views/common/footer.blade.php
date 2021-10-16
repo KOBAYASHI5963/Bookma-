@@ -1,4 +1,3 @@
-@section('footer')
 <footer id="footer" class="footer outer-block">
   <div class="inner-block">
           <div class="wrap">
@@ -81,4 +80,3 @@
   }
 
   </style>
-@endsection

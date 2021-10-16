@@ -1,4 +1,3 @@
-@section('b')
 <div id="column">
         <h5 class=" py-3">出品一覧</h5>
 
@@ -30,4 +29,3 @@
      
       </div>
 </div>
-@endsection('b')

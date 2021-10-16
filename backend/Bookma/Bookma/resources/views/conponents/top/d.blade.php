@@ -1,5 +1,3 @@
-@section('d')
-
 <div class="genre">
 
 <nav aria-label="breadcrumb">
@@ -81,4 +79,3 @@
     text-align: center;
   }
   </style>
-@endsection('d')
