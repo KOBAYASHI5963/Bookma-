@@ -11,7 +11,7 @@
               <i class="fas fa-user-alt text-white"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('users.show',Auth::id()) }}">マイページ</a>
+              <a class="dropdown-item" href="{{ route('myPage',Auth::id()) }}">マイページ</a>
               <a class="dropdown-item" href="{{ route('logout.get') }}">ログアウト</a>
             </div>
           </li>
