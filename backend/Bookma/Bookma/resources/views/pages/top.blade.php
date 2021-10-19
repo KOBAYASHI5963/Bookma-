@@ -4,9 +4,9 @@
 
 <!-- ここにページ毎のコンテンツを書く -->
 @include('conponents.top.banner')
-@include('conponents.top.a')
-@include('conponents.top.b')
-@include('conponents.top.c')
-@include('conponents.top.d')
+@include('conponents.top.newArriva')
+@include('conponents.top.list')
+@include('conponents.top.bookLife.blade.php')
+@include('conponents.top.genreSarch.blade.php')
 
 @endsection
