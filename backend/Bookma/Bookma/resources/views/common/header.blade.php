@@ -1,7 +1,7 @@
 <header class="header">
     <nav class="navbar navbar-light bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">Bookma! ʕ•ᴥ•ʔ</a>
+        <a class="navbar-brand text-white" href="{{ route('top') }}">Bookma! ʕ•ᴥ•ʔ</a>
         <ul class="navbar-nav mr-auto"></ul>
         <ul class="navbar-nav text-white">
           @if (Auth::check())
