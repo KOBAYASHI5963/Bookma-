@@ -2,7 +2,7 @@
   <div class="inner-block">
           <div class="wrap">
             <div class="logo">
-              <a href="#">Bookma! ʕ•ᴥ•ʔ</a>
+              <a href="{{ route('top') }}">Bookma! ʕ•ᴥ•ʔ</a>
             </div>
             <div class="cont">
                 <div class="c-btn">
