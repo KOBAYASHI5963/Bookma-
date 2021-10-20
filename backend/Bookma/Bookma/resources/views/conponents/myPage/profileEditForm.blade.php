@@ -5,7 +5,6 @@
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             
-            
             <button type="submit" class="btn btn-primary">メッセージ送信</button>
           </form>
         </div>
