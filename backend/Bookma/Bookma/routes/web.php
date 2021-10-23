@@ -26,7 +26,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
 
-    Route::get('/myPage/profileEdit', 'MypageController@profileEdit')->name('myPage');
+    Route::get('/myPage/profile', 'MypageController@profile')->name('myPage');
+    Route::get('/myPage/profileEdit', 'MypageController@profileEdit')->name('profileEdit');
     
 });
 
