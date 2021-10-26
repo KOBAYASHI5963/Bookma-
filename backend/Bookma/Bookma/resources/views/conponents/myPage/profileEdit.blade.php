@@ -6,7 +6,20 @@
 
 
 <div class="mb-3">
-  <label for="exampleInputEmail1" class="form-label">メッセージ</label>
-  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  <label for="exampleInputEmail1" class="form-label">プロフィール編集</label>
+  <h3>基本情報</h3>
 </div>
+
+<form>
+    <label for="exampleInputEmail1" class="form-label">ニックネーム</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <p>※20文字以内</p>
+</form>
+
+<form>
+    <label for="exampleInputEmail1" class="form-label">自己紹介</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">         
+</form>
+
+<h3>プロフィールアイコン</h3>
 
