@@ -19,6 +19,7 @@
   <form>
     <label for="exampleInputEmail1" class="form-label">自己紹介</label>
     <p><textarea name="msg" cols="100" rows="10"></textarea></p>
+  
     <p>※1000文字以内</p>         
   </form>
 
