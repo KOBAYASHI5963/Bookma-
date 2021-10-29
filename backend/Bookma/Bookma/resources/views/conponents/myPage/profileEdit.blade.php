@@ -27,7 +27,6 @@
 
    <button type="submit" class="btn btn-primary">画像をアップロード</button>
         
-
      <div class="d-grid col-2 mx-auto">
   <button class="btn btn-warning" type="button">変更する</button>
 </div>
