@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/myPage/profile', 'MypageController@profile')->name('myPage');
     Route::get('/myPage/profileEdit', 'MypageController@profileEdit')->name('profileEdit');
+    Route::get('/myPage/purchasedItem', 'MypageController@purchaseHistory')->name('purchaseHistory');
     
 });
 
