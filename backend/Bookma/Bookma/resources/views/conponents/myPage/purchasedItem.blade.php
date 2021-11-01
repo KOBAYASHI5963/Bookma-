@@ -9,6 +9,7 @@
     <p>取引中</p>
     </div>
     
+    
     <div class="col-sm">
     <p>過去の取引</p>
     </div>
