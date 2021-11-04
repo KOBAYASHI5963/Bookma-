@@ -2,16 +2,12 @@
   <h3>購入した商品</h3>
 </div>
 
-
-<div class="row">
-
-    <div class="col-sm">
-    <p>取引中</p>
+  <ul class="nav">
+    <div class="col-6">
+      <li><a href="#">取引中</a></li>
     </div>
-
-    <div class="col-sm">
-    <p>過去の取引</p>
+    <div class="col-6">
+      <li><a href="#">過去の取引</a></li>
     </div>
-
-</div>
+  </ul>
 
