@@ -18,5 +18,9 @@ class MypageController extends Controller
     {
         return view('pages.myPage.purchaseHistory');
     }
+    public function favorites()
+    {
+        return view('pages.myPage.favorite');
+    }
    
 }
