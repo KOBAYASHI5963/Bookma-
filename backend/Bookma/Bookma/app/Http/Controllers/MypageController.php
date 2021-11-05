@@ -22,5 +22,13 @@ class MypageController extends Controller
     {
         return view('pages.myPage.favorite');
     }
+    public function follow()
+    {
+        return view('pages.myPage.followList');
+    }
+    public function messages()
+    {
+        return view('pages.myPage.messagesList');
+    }
    
-}
+};
