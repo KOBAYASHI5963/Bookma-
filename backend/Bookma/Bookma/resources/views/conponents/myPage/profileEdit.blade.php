@@ -24,13 +24,31 @@
           <p>現在のアイコン</p>
         </div>   
     </div>
+    
 
    <button type="submit" class="btn btn-primary">画像をアップロード</button>
   
-     <div class="d-grid col-2 mx-auto">
+     <div class="d-grid col-3 mx-auto">
   <button class="btn btn-warning" type="button">変更する</button>
 </div>
    </div>
 
+<input id="file-sample" type="file">
+<img id="file-preview">
+
 </div>
+
+<script>
+document.getElementById('file-sample').addEventListener('change', function (e) {
+  // 1枚だけ表示する
+  var file = e.target.files[0];
+
+  // ファイルのブラウザ上でのURLを取得する
+  var blobUrl = window.URL.createObjectURL(file);
+
+  // img要素に表示
+  var img = document.getElementById('file-preview');
+  img.src = blobUrl;
+});
+</script>
 
