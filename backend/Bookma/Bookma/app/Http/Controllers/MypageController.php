@@ -14,9 +14,13 @@ class MypageController extends Controller
     {
         return view('pages.myPage.profileEdit');
     }
-    public function purchaseHistory()
+    public function purchaseHistoryTransaction()
     {
-        return view('pages.myPage.purchaseHistory');
+        return view('pages.myPage.purchaseHistoryTransaction');
+    }
+    public function purchaseHistoryPastTransaction()
+    {
+        return view('pages.myPage.purchaseHistoryPastTransaction');
     }
     public function favorites()
     {
