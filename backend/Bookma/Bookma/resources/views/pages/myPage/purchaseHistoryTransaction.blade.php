@@ -12,6 +12,7 @@
     </div>
     <div class="col-sm-9 col-xs-12">
     @include('conponents.myPage.purchasedItem')
+    <h8>現在取引中のものはありません。<h8>
     </div>
   </div> 
 
