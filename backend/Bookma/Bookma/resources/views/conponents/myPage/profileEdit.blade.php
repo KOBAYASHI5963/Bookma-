@@ -6,7 +6,7 @@
   <form>
     <label for="exampleInputEmail1" class="form-label">ニックネーム</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <p>※20文字以内</p>
+    <p class="mt-3">※20文字以内</p>
   </form>
 
   <form>

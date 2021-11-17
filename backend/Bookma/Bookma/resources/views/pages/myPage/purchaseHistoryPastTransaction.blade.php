@@ -11,7 +11,7 @@
      @include('conponents.myPage.purchaserMenu')
     </div>
     <div class="col-sm-9 col-xs-12">
-    @include('conponents.myPage.purchasedItem')
+    @include('conponents.myPage.pastPurchasedItem')
     </div>
   </div> 
 

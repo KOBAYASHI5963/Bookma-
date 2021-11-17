@@ -1,4 +1,4 @@
-<div class="mb-3">
+div class="mb-3">
   <h3>購入した商品</h3>
 </div>
 
