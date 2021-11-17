@@ -10,7 +10,6 @@
       <a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="{{ route('purchaseHistory_past_transaction') }}" role="tab" aria-controls="pills-profile" aria-selected="false">過去の取引</a>
     </li>
   </ul>
-<div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">現在取引中のものはありません。</div>
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">過去の取引はありません。</div>
+<div id="pills-tabContent">
+  <div id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">現在取引中のものはありません。</div>
 </div>
