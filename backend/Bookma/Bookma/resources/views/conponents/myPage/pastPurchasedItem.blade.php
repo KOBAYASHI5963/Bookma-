@@ -14,37 +14,80 @@
   <div id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">過去の取引はありません。</div>
 </div>
 
-<div class="card w-75 mt-3">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
+
+<div class="card mb-3" style="max-width: 540px;">
+<a class="page-link" href="#">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">呪術廻戦1巻</h5>
+        <p class="card-text">¥350</p>
+        <p class="card-text">ほぼ新品</p>
+        <p class="card-text"><small class="text-muted">2019年11月17日 15:06</small></p>
+      </div>
+    </div>
+  </div></a>
 </div>
 
-<div class="card w-75 mt-3">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
+
+<div class="card mb-3" style="max-width: 540px;">
+<a class="page-link" href="#">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">るるぶ沖縄ドライブ'22</h5>
+        <p class="card-text">¥750</p>
+        <p class="card-text">やや汚れあり</p>
+        <p class="card-text"><small class="text-muted">2020年1月30日 0:43</small></p>
+      </div>
+    </div>
+  </div></a>
 </div>
 
-<div class="card w-75 mt-3">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
+
+<div class="card mb-3" style="max-width: 540px;">
+<a class="page-link" href="#">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">旺文社国語辞典</h5>
+        <p class="card-text">¥1200</p>
+        <p class="card-text">新品</p>
+        <p class="card-text"><small class="text-muted">2020年4月8日 10:29</small></p>
+      </div>
+    </div>
+  </div></a>
 </div>
 
-<div class="card w-75 mt-3 mb-3">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
+
+<div class="card mb-3" style="max-width: 540px;">
+<a class="page-link" href="#">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">リアル鬼ごっこ</h5>
+        <p class="card-text">¥300</p>
+        <p class="card-text">汚れ傷あり</p>
+        <p class="card-text"><small class="text-muted">2021年5月3日 12:32
+        </small></p>
+      </div>
+    </div>
+  </div></a>
 </div>
+
+
 
 <nav aria-label="...">
   <ul class="pagination">
