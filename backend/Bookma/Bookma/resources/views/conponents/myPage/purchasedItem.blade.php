@@ -14,37 +14,42 @@
   <div id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">現在取引中のものはありません。</div>
 </div>
 
-<div class="card w-75 mt-3">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
+
+<div class="card mb-3" style="max-width: 540px;">
+<a class="page-link" href="#">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">MEN’S NON-NO メンズノンノ 1999年 12月号</h5>
+        <p class="card-text">¥2600</p>
+        <p class="card-text">傷汚れあり</p>
+        <p class="card-text"><small class="text-muted">発送中</small></p>
+      </div>
+    </div>
+  </div></a>
 </div>
 
-<div class="card w-75 mt-3">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
+
+<div class="card mb-3" style="max-width: 540px;">
+<a class="page-link" href="#">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">【週刊少年サンデー】カラーページ切り抜き『金色のガッシュ!!』</h5>
+        <p class="card-text">¥400</p>
+        <p class="card-text">やや汚れあり</p>
+        <p class="card-text"><small class="text-muted">発送準備中</small></p>
+      </div>
+    </div>
+  </div></a>
 </div>
 
-<div class="card w-75 mt-3">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
-</div>
-
-<div class="card w-75 mt-3 mb-3">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
-</div>
 
 <nav aria-label="...">
   <ul class="pagination">
