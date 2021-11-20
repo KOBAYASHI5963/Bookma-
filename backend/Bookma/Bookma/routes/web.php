@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/myPage/favorite', 'MypageController@favorites')->name('favorites');
     Route::get('/myPage/followList', 'MypageController@follow')->name('followList');
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
+    Route::get('/myPage/purchasedItemList/pastDetailItem', 'PurchasedItemListPageController@pastDetailItem')->name('past_detail_item');
     
 });
 
