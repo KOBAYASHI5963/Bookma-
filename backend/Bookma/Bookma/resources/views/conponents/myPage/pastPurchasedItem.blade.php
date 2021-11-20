@@ -16,7 +16,7 @@
 
 
 <div class="card mb-3" style="max-width: 540px;">
-<a class="page-link" href="#">
+<a class="page-link" href="{{ route('past_detail_item') }}">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="" alt="...">

@@ -1,11 +1,3 @@
-body {
-  display: flex;
-  flex-flow: column;
-  min-height: 100vh;
-}
-main {
-  flex: 1;
-}
 .example{
     position: relative;
 }
@@ -30,10 +22,7 @@ main {
   text-align: center;
   margin-top: 60px;
 }
-.content-top-title h1{
-  font-weight: bold;
-  color: #566985;
-}
+
 .card .card-title{
   font-weight: bold;
   text-align: center;
@@ -94,4 +83,24 @@ main {
   #footer02 .nav li a:hover {
     color: #ca353b;
   }
-}
+
+
+
+
+
+  @media screen and (max-width:767px) {
+    /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .content-top-title h1{
+      font-weight: bold;
+      color: #566985;
+      font-size: 35px;
+    }
+  }
+  @media screen and (min-width:768px){
+    /*画面サイズが768px以上の場合読み込む（PC）*/
+    .content-top-title h1{
+      font-weight: bold;
+      color: #566985;
+    }
+  }
+  
