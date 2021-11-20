@@ -1,0 +1,28 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+  .jumbotron { 
+    background:url(https://t4.ftcdn.net/jpg/02/57/62/15/240_F_257621504_iTEdInhbLzmfLWVvHtXI5GCC80yocQtB.jpg) center no-repeat; 
+    background-size: cover;
+    height: 300px;
+  }
+
+  p {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+  .jumbotron { 
+    background:url(https://t4.ftcdn.net/jpg/02/57/62/15/240_F_257621504_iTEdInhbLzmfLWVvHtXI5GCC80yocQtB.jpg) center no-repeat; 
+    background-size: cover;
+    height: 500px;
+  }
+
+  p {
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+  }
+}
