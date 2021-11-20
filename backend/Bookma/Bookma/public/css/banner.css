@@ -6,7 +6,7 @@
     height: 300px;
   }
 
-  p {
+  .jumbotron-title {
     color: white;
     font-weight: bold;
     font-size: 20px;
@@ -20,7 +20,7 @@
     height: 500px;
   }
 
-  p {
+  .jumbotron-title {
     color: white;
     font-weight: bold;
     font-size: 40px;

@@ -1,8 +1,8 @@
 <div class="jumbotron">
     <div class="container">
-        <p>BOOKマーケットで</p>
-        <p>気軽に出品できる</p>
-        <p>あなたのほしい本が見つかる</p>
+        <p class="jumbotron-title">BOOKマーケットで</p>
+        <p class="jumbotron-title">気軽に出品できる</p>
+        <p class="jumbotron-title">あなたのほしい本が見つかる</p>
     </div>
 </div>
 
