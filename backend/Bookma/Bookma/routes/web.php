@@ -28,12 +28,19 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
 
+
     // 購入者メニュー
+
     Route::get('/myPage/profileEdit', 'MypageController@profileEdit')->name('profileEdit');
+
     Route::get('/myPage/purchasedItem/transaction', 'MypageController@purchaseHistoryTransaction')->name('purchaseHistory_transaction');
+    
     Route::get('/myPage/pastPurchasedItem/pastTransaction', 'MypageController@purchaseHistoryPastTransaction')->name('purchaseHistory_past_transaction');
+
     Route::get('/myPage/favorite', 'MypageController@favorites')->name('favorites');
+
     Route::get('/myPage/followList', 'MypageController@follow')->name('followList');
+    
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
 
     // 出品者メニュー
