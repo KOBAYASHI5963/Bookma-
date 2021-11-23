@@ -28,7 +28,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
 
-    Route::get('/myPage/profile', 'MypageController@profile')->name('myPage');
+
+    // 購入者メニュー
 
     Route::get('/myPage/profileEdit', 'MypageController@profileEdit')->name('profileEdit');
 
@@ -41,14 +42,27 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/myPage/followList', 'MypageController@follow')->name('followList');
     
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
-    
+
+    // 出品者メニュー
+    //プロフィール編集
+    Route::get('/myPage/seller/profileEdit', 'MypageController@sellerProfileEdit')->name('sellerProfileEdit');
+    //出品商品
+    Route::get('/myPage/seller/books', 'MypageController@sellerbooks')->name('sellerbooks');
+    //振込口座設定
+    Route::get('/myPage/seller/TransferAccountSetting', 'MypageController@sellerTransferAccountSetting')->name('sellerTransferAccountSetting');
+    //売上履歴
+    Route::get('/myPage/seller/salesHistoryt', 'MypageController@sellerSalesHistory')->name('sellerSalesHistory');
+    //振込申請履歴
+    Route::get('/myPage/seller/transferApplicationHistory', 'MypageController@sellerTransferApplicationHistory')->name('sellerTransferApplicationHistory');
+    //振込申請
+    Route::get('/myPage/seller/transferApplication', 'MypageController@sellerTransferApplication')->name('sellerTransferApplication');
+    //手数料について説明
+    Route::get('/myPage/seller/commission', 'MypageController@sellerCommission')->name('sellerCommission');
 });
 
 
 // 本の詳細ページ
 Route::get('/book/{id}', 'BookController@show')->name('book.show');
-
-Route::get('/transaction/{id}', 'TransactionController@show')->name('transaction.show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
