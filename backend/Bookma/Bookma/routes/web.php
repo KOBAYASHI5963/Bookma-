@@ -29,11 +29,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
 
     Route::get('/myPage/profile', 'MypageController@profile')->name('myPage');
+
     Route::get('/myPage/profileEdit', 'MypageController@profileEdit')->name('profileEdit');
+
     Route::get('/myPage/purchasedItem/transaction', 'MypageController@purchaseHistoryTransaction')->name('purchaseHistory_transaction');
+    
     Route::get('/myPage/pastPurchasedItem/pastTransaction', 'MypageController@purchaseHistoryPastTransaction')->name('purchaseHistory_past_transaction');
+
     Route::get('/myPage/favorite', 'MypageController@favorites')->name('favorites');
+
     Route::get('/myPage/followList', 'MypageController@follow')->name('followList');
+    
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
     
 });

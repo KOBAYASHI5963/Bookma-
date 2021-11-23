@@ -18,7 +18,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-item nav-link text-white"><i class="far fa-star text-white mr-2"></i>お気に入り</a>
+        <a href="{{ route('favorites') }}" class="nav-item nav-link text-white"><i class="far fa-star text-white mr-2"></i>お気に入り</a>
       </li>
       <li class="nav-item">
         <a href="#" class="nav-item nav-link text-white"><i class="fas fa-book-open mr-2"></i>出品する</a>
