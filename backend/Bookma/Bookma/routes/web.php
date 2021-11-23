@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth']], function () {
 // 本の詳細ページ
 Route::get('/book/{id}', 'BookController@show')->name('book.show');
 
+Route::get('/transaction/{id}', 'TransactionController@show')->name('transaction.show');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 

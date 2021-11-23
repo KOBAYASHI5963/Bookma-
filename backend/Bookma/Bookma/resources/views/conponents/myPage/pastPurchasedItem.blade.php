@@ -16,7 +16,7 @@
 
 
 <div class="card mb-3" style="max-width: 540px;">
-<a class="page-link" href="{{ route('book.show', ['id' => 1]) }}">
+<a class="page-link" href="{{ route('transaction.show', ['id' => 1]) }}">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="" alt="...">
