@@ -6,10 +6,8 @@ use Illuminate\Http\Request;
 
 class MypageController extends Controller
 {
-    public function profile()
-    {
-        return view('pages.myPage.profile');
-    }
+
+    // 購入者メニュー
     public function profileEdit()
     {
         return view('pages.myPage.profileEdit');
@@ -35,4 +33,34 @@ class MypageController extends Controller
         return view('pages.myPage.messagesList');
     }
    
+
+    // 出品者メニュー
+    public function sellerProfileEdit()
+    {
+        return view('pages.myPage.seller.profileEdit');
+    }
+    public function sellerbooks()
+    {
+        return view('pages.myPage.seller.books');
+    }
+    public function sellerTransferAccountSetting()
+    {
+        return view('pages.myPage.seller.transferAccountSetting');
+    }
+    public function sellerSalesHistory()
+    {
+        return view('pages.myPage.seller.salesHistory');
+    }
+    public function sellerTransferApplicationHistory()
+    {
+        return view('pages.myPage.seller.transferApplicationHistory');
+    }
+    public function sellerTransferApplication()
+    {
+        return view('pages.myPage.seller.transferApplication');
+    }
+    public function sellerCommission()
+    {
+        return view('pages.myPage.seller.commission');
+    }
 };
