@@ -11,7 +11,7 @@
                 <ul class="nav">
                   <li><a href="#">会員登録</a></li>
                   <li><a href="#">カートを見る</a></li>
-                  <li><a href="#">お気に入り</a></li>
+                  <li><a href="{{ route('favorites') }}">お気に入り</a></li>
                   <li><a href="#">My本棚</a></li>
                 </ul>
             </div>

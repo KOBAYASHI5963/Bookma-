@@ -30,17 +30,23 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     // 購入者メニュー
-
+    //プロフィール編集
     Route::get('/myPage/profileEdit', 'MypageController@profileEdit')->name('profileEdit');
-
+   //購入履歴
+   //取引中
     Route::get('/myPage/purchasedItem/transaction', 'MypageController@purchaseHistoryTransaction')->name('purchaseHistory_transaction');
-    
+
+    //過去の取引
     Route::get('/myPage/pastPurchasedItem/pastTransaction', 'MypageController@purchaseHistoryPastTransaction')->name('purchaseHistory_past_transaction');
 
-    Route::get('/myPage/favorite', 'MypageController@favorites')->name('favorites');
+    Route::get('/transaction/{id}', 'TransactionController@show')->name('transaction.show');
 
+    //お気に入り一覧
+    Route::get('/myPage/favorites', 'MypageController@favorites')->name('favorites');
+
+    //フォローリスト
     Route::get('/myPage/followList', 'MypageController@follow')->name('followList');
-    
+    //メッセージ
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
 
     // 出品者メニュー
@@ -61,8 +67,9 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-// 本の詳細ページ
-Route::get('/book/{id}', 'BookController@show')->name('book.show');
+  // 本の詳細ページ1
+  Route::get('/book/{id}', 'BookController@show')->name('book.show');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

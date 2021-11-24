@@ -3,11 +3,11 @@
 </div>
 
     <div class="text-right">
-      <a href="#">編集する</a>
+      <a href="#"><i class="fas fa-pencil-alt"></i>編集する</a>
     </div>
 
-  <div class="card mb-3" style="max-width: 540px;">
-<a class="page-link" href="{{ route('book.show', ['id' => 2]) }}">
+  <div class="card mb-3 mt-3">
+<a class="page-link" href="{{ route('book.show', ['id' => 1]) }}">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="" alt="...">
@@ -15,7 +15,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">ワールドトリガー20巻</h5>
-        <p class="card-text">¥300</p>
+        <p class="card-text">¥440</p>
       </div>
     </div>
   </div></a>
