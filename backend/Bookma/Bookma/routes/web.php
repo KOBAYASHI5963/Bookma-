@@ -52,7 +52,7 @@ Route::group(['middleware' => ['auth']], function () {
     // 出品者メニュー
     //プロフィール編集
     Route::get('/myPage/seller/profileEdit', 'MypageController@sellerProfileEdit')->name('sellerProfileEdit');
-    //出品商品
+    //出品本
     Route::get('/myPage/seller/books', 'MypageController@sellerbooks')->name('sellerbooks');
     //振込口座設定
     Route::get('/myPage/seller/TransferAccountSetting', 'MypageController@sellerTransferAccountSetting')->name('sellerTransferAccountSetting');
