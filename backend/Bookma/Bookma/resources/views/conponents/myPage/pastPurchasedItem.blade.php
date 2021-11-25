@@ -16,7 +16,7 @@
 
 
 <div class="card mb-3" style="max-width: 540px;">
-<a class="page-link" href="{{ route('past_detail_item') }}">
+<a class="page-link" href="{{ route('transaction.show', ['id' => 1]) }}">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="" alt="...">
@@ -34,7 +34,7 @@
 
 
 <div class="card mb-3" style="max-width: 540px;">
-<a class="page-link" href="#">
+<a class="page-link" href="{{ route('book.show', ['id' => 2]) }}">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="" alt="...">
@@ -52,7 +52,7 @@
 
 
 <div class="card mb-3" style="max-width: 540px;">
-<a class="page-link" href="#">
+<a class="page-link" href="{{ route('book.show', ['id' => 3]) }}">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="" alt="...">
@@ -70,7 +70,7 @@
 
 
 <div class="card mb-3" style="max-width: 540px;">
-<a class="page-link" href="#">
+<a class="page-link" href="{{ route('book.show', ['id' => 4]) }}">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="" alt="...">

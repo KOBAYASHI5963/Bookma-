@@ -1,26 +1,26 @@
 <div class="mb-3">
-  <h3>お気に入り一覧</h3>
+  <h3>ログインユーザーの出品本一覧</h3>
 </div>
 
-    <div class="text-right">
-      <a href="#"><i class="fas fa-pencil-alt"></i>編集する</a>
-    </div>
 
-  <div class="card mb-3 mt-3">
-<a class="page-link" href="{{ route('book.show', ['id' => 1]) }}">
+
+<div class="card mb-3 mt-3">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">ワールドトリガー20巻</h5>
-        <p class="card-text">¥440</p>
+        <h5 class="card-title">1%の努力</h5>
+        <p class="card-text">¥1500</p>
+        <div>
+          <a class="btn btn-success btn" href="#" >編集</a>
+          <a class="btn btn-danger btn" href="#" >削除</a>
+        </div>
       </div>
     </div>
-  </div></a>
+  </div>
 </div>
-
 
 <nav aria-label="...">
   <ul class="pagination">

@@ -9,7 +9,7 @@
       <a href="{{ route('profileEdit') }}"><li class="list-group-item">プロフィール編集</li></a>
       <a href="{{ route('purchaseHistory_transaction') }}"><li class="list-group-item">購入履歴</li></a>
       <a href="{{ route('favorites') }}"><li class="list-group-item">お気に入り一覧</li></a>
-      <a href="{{ route('followList') }}"><li class="list-group-item">フォロー一覧</li></a>
+      <a href="{{ route('followList') }}"><li class="list-group-item">フォローリスト</li></a>
       <a href="{{ route('messagesList') }}"><li class="list-group-item">メッセージ</li></a>
       <a href=""><li class="list-group-item">出品一覧</li></a>
     </ul>

@@ -1,5 +1,5 @@
 <div class="select-user d-flex justify-content-end">
-      <button type="button" class="btn btn-primary">購入者メニュー</button>
-      <button type="button" class="btn btn-secondary">出品者メニュー</button>
-   </div>
+      <a href="{{ route('profileEdit') }}" class="btn btn-primary mr-2">購入者メニュー</a>
+      <a href="{{ route('sellerProfileEdit') }}" class="btn btn-secondary">出品者メニュー</a>
+</div>
 

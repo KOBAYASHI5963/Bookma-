@@ -13,12 +13,12 @@
           <i class="fas fa-user-alt text-white"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ route('myPage',Auth::id()) }}">マイページ</a>
+          <a class="dropdown-item" href="{{ route('profileEdit') }}">マイページ</a>
           <a class="dropdown-item" href="{{ route('logout.get') }}">ログアウト</a>
         </div>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-item nav-link text-white"><i class="far fa-star text-white mr-2"></i>お気に入り</a>
+        <a href="{{ route('favorites') }}" class="nav-item nav-link text-white"><i class="far fa-star text-white mr-2"></i>お気に入り</a>
       </li>
       <li class="nav-item">
         <a href="#" class="nav-item nav-link text-white"><i class="fas fa-book-open mr-2"></i>出品する</a>
