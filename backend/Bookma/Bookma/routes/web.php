@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
     //振込口座設定
     Route::get('/myPage/seller/TransferAccountSetting', 'MypageController@sellerTransferAccountSetting')->name('sellerTransferAccountSetting');
     //売上履歴
-    Route::get('/myPage/seller/salesHistoryt', 'MypageController@sellerSalesHistory')->name('sellerSalesHistory');
+    Route::get('/myPage/seller/salesHistory', 'MypageController@sellerSalesHistory')->name('sellerSalesHistory');
     //振込申請履歴
     Route::get('/myPage/seller/transferApplicationHistory', 'MypageController@sellerTransferApplicationHistory')->name('sellerTransferApplicationHistory');
     //振込申請
