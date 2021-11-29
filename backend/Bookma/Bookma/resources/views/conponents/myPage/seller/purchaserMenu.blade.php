@@ -13,6 +13,7 @@
       <a href="{{ route('sellerTransferApplicationHistory') }}"><li class="list-group-item">振込申請履歴</li></a>
       <a href="{{ route('sellerTransferApplication') }}"><li class="list-group-item">振込申請</li></a>
       <a href="{{ route('sellerCommission') }}"><li class="list-group-item">手数料等について</li></a>
+      <a href="{{ route('sellerSalesBooks') }}"><li class="list-group-item">出品する</li></a>
     </ul>
 </div>
 

@@ -14,7 +14,7 @@
   </div>
   <div class="card-body">
     <div>
-      <h7 class="card-text">申請可能金額が1,000円以上となった場合に、振込申請振込申請をすることができます。</h7>
+      <h7 class="card-text">申請可能金額が1,000円以上となった場合に、振込申請をすることができます。</h7>
     </div>
     <div>
       <h7 class="card-text">また、本の出品には以下の手数料がかかります。</h7>

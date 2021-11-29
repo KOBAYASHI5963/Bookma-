@@ -64,6 +64,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/myPage/seller/transferApplication', 'MypageController@sellerTransferApplication')->name('sellerTransferApplication');
     //手数料について説明
     Route::get('/myPage/seller/commission', 'MypageController@sellerCommission')->name('sellerCommission');
+
+    //出品する
+    Route::get('/myPage/seller/salesBooks', 'MypageController@sellerSalesBooks')->name('sellerSalesBooks');
 });
 
 
