@@ -2,8 +2,6 @@
   <h3>ログインユーザーの出品本一覧</h3>
 </div>
 
-
-
 <div class="card mb-3 mt-3">
   <div class="row g-0">
     <div class="col-md-4">
