@@ -94,28 +94,23 @@
           <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg">
           <option selected>選択してください</option>
           <option value="1">未定
-</option>
-          <option value="2">らくらくブックマ便
-</option>
-          <option value="3">ゆうゆうブックマ便
-</option>
-          <option value="4">梱包・発送ブックマ便
-</option>
-          <option value="5">ゆうメール
-</option>
-          <option value="6">レターパック
-</option>
-          <option value="7">普通郵便（定形・定形外）
-</option>
-          <option value="8">クロネコヤマト
-</option>
-</option>
-          <option value="9">ゆうパック
-</option>
-          <option value="10">クリックポスト
-</option>
-          <option value="11">ゆうパケット
-</option>
+
+          </option>
+                    <option value="2">ゆうメール
+          </option>
+                    <option value="3">レターパック
+          </option>
+                    <option value="4">普通郵便（定形・定形外）
+          </option>
+                    <option value="5">クロネコヤマト
+          </option>
+          </option>
+                    <option value="6">ゆうパック
+          </option>
+                    <option value="7">クリックポスト
+          </option>
+                    <option value="8">ゆうパケット
+          </option>
          </select>
         </div>
 
