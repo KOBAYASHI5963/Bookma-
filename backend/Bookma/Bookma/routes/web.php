@@ -57,13 +57,16 @@ Route::group(['middleware' => ['auth']], function () {
     //振込口座設定
     Route::get('/myPage/seller/TransferAccountSetting', 'MypageController@sellerTransferAccountSetting')->name('sellerTransferAccountSetting');
     //売上履歴
-    Route::get('/myPage/seller/salesHistoryt', 'MypageController@sellerSalesHistory')->name('sellerSalesHistory');
+    Route::get('/myPage/seller/salesHistory', 'MypageController@sellerSalesHistory')->name('sellerSalesHistory');
     //振込申請履歴
     Route::get('/myPage/seller/transferApplicationHistory', 'MypageController@sellerTransferApplicationHistory')->name('sellerTransferApplicationHistory');
     //振込申請
     Route::get('/myPage/seller/transferApplication', 'MypageController@sellerTransferApplication')->name('sellerTransferApplication');
     //手数料について説明
     Route::get('/myPage/seller/commission', 'MypageController@sellerCommission')->name('sellerCommission');
+
+    //出品する
+    Route::get('/myPage/seller/salesBooks', 'MypageController@sellerSalesBooks')->name('sellerSalesBooks');
 });
 
 

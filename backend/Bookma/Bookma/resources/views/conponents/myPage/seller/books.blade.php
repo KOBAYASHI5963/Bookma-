@@ -2,8 +2,6 @@
   <h3>ログインユーザーの出品本一覧</h3>
 </div>
 
-
-
 <div class="card mb-3 mt-3">
   <div class="row g-0">
     <div class="col-md-4">
@@ -14,6 +12,7 @@
         <h5 class="card-title">1%の努力</h5>
         <p class="card-text">¥1500</p>
         <div>
+        <p class="card-text"><small class="text-muted">出品日時：2019年11月17日 15:06</small></p>
           <a class="btn btn-success btn" href="#" >編集</a>
           <a class="btn btn-danger btn" href="#" >削除</a>
         </div>

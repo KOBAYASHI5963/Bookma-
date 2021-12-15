@@ -63,4 +63,8 @@ class MypageController extends Controller
     {
         return view('pages.myPage.seller.commission');
     }
+    public function sellerSalesBooks()
+    {
+        return view('pages.myPage.seller.salesBooks');
+    }
 };

@@ -6,7 +6,7 @@
             </div>
             <div class="cont">
                 <div class="c-btn">
-                  <a href="#">出品する</a>
+                  <a href="{{ route('sellerSalesBooks') }}">出品する</a>
                 </div>
                 <ul class="nav">
                   <li><a href="#">会員登録</a></li>

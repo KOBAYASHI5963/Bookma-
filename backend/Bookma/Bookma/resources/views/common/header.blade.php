@@ -21,7 +21,7 @@
         <a href="{{ route('favorites') }}" class="nav-item nav-link text-white"><i class="far fa-star text-white mr-2"></i>お気に入り</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-item nav-link text-white"><i class="fas fa-book-open mr-2"></i>出品する</a>
+        <a href="{{ route('sellerSalesBooks') }}" class="nav-item nav-link text-white"><i class="fas fa-book-open mr-2"></i>出品する</a>
       </li>
     @else
       <li class="nav-item"><a href="{{ route('signup.get')}}" class="btn btn-danger btn-sm" tabindex="-1" role="button" aria-pressed="true">新規会員登録</a></li>
