@@ -12,7 +12,11 @@
     </div>
     <div class="col-sm-9 col-xs-12">
 
-     @include('conponents.myPage.profileEdit')
+     @include('conponents.myPage.profileEdit', 
+     [
+      'user' => $user, 
+      'userProfile' => $userProfile
+     ])
     </div>
   </div> 
 

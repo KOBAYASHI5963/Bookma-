@@ -18,8 +18,27 @@ class MypageController extends Controller
     // 購入者メニュー
     public function profileEdit()
     {
-        return view('pages.myPage.profileEdit');
+        $user = Auth::user();
+        $userProfile = UserProfile::select('*')
+                            ->where('user_id', $user->id)
+                            ->first();
+
+        return view('pages.myPage.profileEdit',compact('user','userProfile'));
     }
+
+    public function profileEditStore(Request $request)
+    {
+        dd($request->all());
+
+        $user = Auth::user();
+        $userProfile = UserProfile::select('*')
+                            ->where('user_id', $user->id)
+                            ->first();
+
+        return view('pages.myPage.profileEdit',compact('user','userProfile'));
+    }
+
+
     public function purchaseHistoryTransaction()
     {
         return view('pages.myPage.purchaseHistoryTransaction');
