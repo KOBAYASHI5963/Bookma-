@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    
+    // リレーション
+    Public function userInformation()
+  {
+    return $this->hasOne('App\UserInformation');
+  }
 }
