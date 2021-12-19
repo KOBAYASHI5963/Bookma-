@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserInformation extends Model
+class UserProfile extends Model
 {
-    protected $table = 'user_informations';
+    protected $table = 'user_profiles';
 
     protected $fillable = [
         'user_id', 'profile_image', 'introduce'

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\UserProdile;
+use App\UserProfile;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,10 +66,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'scope' => 0,
             'password' => Hash::make($data['password']),
         ]);
+        // ここでユーザーprofileテーブルにも保存する
+        $this->createProfile($user->id);
+        return $user;
+    }
+
+    protected function createProfile($userId) {
+        $user_information = new UserProfile();
+        $user_information->user_id = $userId;
+        $user_information->save();
     }
 }
