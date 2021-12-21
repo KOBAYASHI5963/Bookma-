@@ -17,7 +17,7 @@
 
     <label for="exampleInputEmail1" class="form-label">自己紹介</label>
     <p>
-      <textarea cols="100" rows="10" name='introduce'>{{$userProfile->intoroduce}}</textarea>
+      <textarea cols="100" rows="10" name='introduce'>{{$userProfile->introduce}}</textarea>
     </p>
     <p>※1000文字以内</p>
     @if($errors->has('introduce'))

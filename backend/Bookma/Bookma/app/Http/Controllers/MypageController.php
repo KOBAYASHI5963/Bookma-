@@ -54,7 +54,7 @@ class MypageController extends Controller
         $user->save();
         $userProfile->save();
 
-        return view('pages.myPage.profileEdit',compact('user','userProfile'));
+        return redirect()->route('profileEdit');
     }
 
 
