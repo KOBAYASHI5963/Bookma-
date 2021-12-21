@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Storage;
 use App\UserProfile;
 use App\User;
 
+// リクエスト
+use App\Http\Requests\EditUserProfileRequest;
+
 class MypageController extends Controller
 {
 
@@ -26,14 +29,30 @@ class MypageController extends Controller
         return view('pages.myPage.profileEdit',compact('user','userProfile'));
     }
 
-    public function profileEditStore(Request $request)
+    public function profileEditStore(EditUserProfileRequest $request)
     {
-        dd($request->all());
-
         $user = Auth::user();
         $userProfile = UserProfile::select('*')
-                            ->where('user_id', $user->id)
+                            ->where('user_id', Auth::id())
                             ->first();
+
+        $user->name = $request->name;
+
+        if($request->introduce) {
+            $userProfile->introduce = $request->introduce;
+        }
+
+        if($request->file('profile_image')) {
+            $profileImage = $request->file('profile_image');
+            // バケットの`profileImages`フォルダへアップロード
+            $path = Storage::disk('s3')->put('profileImages', $profileImage, 'public');
+            // アップロードした画像のフルパスを取得
+            $image_path = Storage::disk('s3')->url($path);
+            $userProfile->profile_image = $image_path;
+        }
+
+        $user->save();
+        $userProfile->save();
 
         return view('pages.myPage.profileEdit',compact('user','userProfile'));
     }
