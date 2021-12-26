@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShippingMethodsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateShippingMethodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shipping_methods', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('means')->comment('発送手段 ex.ゆうパック等');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateShippingMethodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipping_methods');
+        Schema::dropIfExists('categories');
     }
 }
