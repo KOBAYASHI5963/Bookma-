@@ -15,7 +15,6 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('book_id')->constrained()->comment('外部キー');
             $table->string('name');
             $table->timestamps();
         });
