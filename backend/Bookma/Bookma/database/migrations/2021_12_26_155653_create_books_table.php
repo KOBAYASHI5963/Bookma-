@@ -20,6 +20,10 @@ class CreateBooksTable extends Migration
             $table->integer('price')->comment('本の値段');
             $table->text('content')->nullable()->comment('本の内容文');
             $table->foreignId('category_id')->constrained()->comment('外部キー');
+            $table->integer('shipping_bearer')->comment('配送料負担者（1.出品者,2.購入者）');
+            $table->foreignId('shipping_method_id')->constrained()->comment('外部キー');
+            $table->string('delivery_area')->comment('発送場所');
+            $table->string('delivery_days')->comment('発送日数');
             $table->timestamps();
         });
     }
