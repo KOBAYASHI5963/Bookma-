@@ -15,7 +15,6 @@ class CreateShippingMethodsTable extends Migration
     {
         Schema::create('shipping_methods', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('book_id')->constrained()->comment('外部キー');
             $table->string('means')->comment('発送手段 ex.ゆうパック等');
             $table->timestamps();
         });
