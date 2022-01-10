@@ -30,8 +30,10 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     // 購入者メニュー
-    //プロフィール編集
+    //プロフィール編集ページ表示
     Route::get('/myPage/profileEdit', 'MypageController@profileEdit')->name('profileEdit');
+    //プロフィール編集
+    Route::post('/myPage/profileEdit', 'MypageController@profileEditStore')->name('profileEditStore');
    //購入履歴
    //取引中
     Route::get('/myPage/purchasedItem/transaction', 'MypageController@purchaseHistoryTransaction')->name('purchaseHistory_transaction');
@@ -50,8 +52,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
 
     // 出品者メニュー
-    //プロフィール編集
-    Route::get('/myPage/seller/profileEdit', 'MypageController@sellerProfileEdit')->name('sellerProfileEdit');
     //出品本
     Route::get('/myPage/seller/books', 'MypageController@sellerbooks')->name('sellerbooks');
     //振込口座設定
