@@ -38,9 +38,8 @@ class MypageController extends Controller
 
         $user->name = $request->name;
 
-        if($request->introduce) {
+        $request->introduce
             $userProfile->introduce = $request->introduce;
-        }
 
         if($request->file('profile_image')) {
             $profileImage = $request->file('profile_image');
