@@ -6,7 +6,6 @@
 
 <div class="card my-3">
     <ul class="list-group list-group-flush accout_setting">
-      <a href="{{ route('sellerProfileEdit') }}"><li class="list-group-item">プロフィール編集</li></a>
       <a href="{{ route('sellerbooks') }}"><li class="list-group-item">出品本</li></a>
       <a href="{{ route('sellerTransferAccountSetting') }}"><li class="list-group-item">振込口座設定</li></a>
       <a href="{{ route('sellerSalesHistory') }}"><li class="list-group-item">売上履歴</li></a>

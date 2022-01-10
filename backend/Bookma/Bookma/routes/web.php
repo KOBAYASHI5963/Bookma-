@@ -52,8 +52,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
 
     // 出品者メニュー
-    //プロフィール編集
-    Route::get('/myPage/seller/profileEdit', 'MypageController@sellerProfileEdit')->name('sellerProfileEdit');
     //出品本
     Route::get('/myPage/seller/books', 'MypageController@sellerbooks')->name('sellerbooks');
     //振込口座設定
