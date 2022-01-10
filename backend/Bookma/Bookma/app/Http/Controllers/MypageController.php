@@ -38,9 +38,8 @@ class MypageController extends Controller
 
         $user->name = $request->name;
 
-        if($request->introduce) {
+        $request->introduce
             $userProfile->introduce = $request->introduce;
-        }
 
         if($request->file('profile_image')) {
             $profileImage = $request->file('profile_image');
@@ -83,7 +82,7 @@ class MypageController extends Controller
     // 出品者メニュー
     public function sellerProfileEdit()
     {
-        return view('pages.myPage.seller.profileEdit');
+        return view('pages.myPage.seller.profileEdit',compact('user'));
     }
     public function sellerbooks()
     {
