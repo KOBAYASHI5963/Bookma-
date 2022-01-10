@@ -82,7 +82,7 @@ class MypageController extends Controller
     // 出品者メニュー
     public function sellerProfileEdit()
     {
-        return view('pages.myPage.seller.profileEdit',compact('user'));
+        return view('pages.myPage.seller.profileEdit');
     }
     public function sellerbooks()
     {
