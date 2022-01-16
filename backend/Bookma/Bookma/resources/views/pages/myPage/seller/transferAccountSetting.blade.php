@@ -11,7 +11,16 @@
      @include('conponents.myPage.seller.purchaserMenu')
     </div>
     <div class="col-sm-9 col-xs-12">
-     @include('conponents.myPage.seller.transferAccountSetting')
+
+    @if(isset($transferAccountSetting))
+     @include('conponents.myPage.seller.transferAccountSettingUpdate',
+     [
+      'user' => $user, 
+      'transferAccountSetting' => $transferAccountSetting
+     ])
+    @else
+     @include('conponents.myPage.seller.transferAccountSettingCreate')
+    @endif
     </div>
   </div> 
 
