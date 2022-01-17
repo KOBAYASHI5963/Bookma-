@@ -9,52 +9,68 @@
       
       <form method="POST" action="{{ route('sellerTransferAccountSettingUpdate') }}" enctype="multipart/form-data">
    {{ csrf_field() }}
-
-        <p class="card-text"><small class="text-muted">銀行名</small></p>
-        <button type="button" class="btn btn-danger btn-sm">必須</button>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->bank_name}}" name="bank_name">
+        
+       <div class="mb-3">
+          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <label for="exampleInputEmail1" class="form-label">銀行名</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->bank_name}}" name="bank_name">
+        <div id="emailHelp" class="form-text"><small class="text-muted">例：みずほ</small></div>
+       </div>
         @if($errors->has('bank_name'))
         <div class="alert alert-success" role="alert">
             {{ $errors->first('bank_name') }}
         </div>
         @endif
-
-        <p class="card-text"><small class="text-muted">銀行コード</small></p>
-        <button type="button" class="btn btn-danger btn-sm">必須</button>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->bank_code}}" name="bank_code">
+        
+        <div class="mb-3">
+          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <label for="exampleInputEmail1" class="form-label">銀行コード(4桁)</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->bank_code}}" name="bank_code">
+          <div id="emailHelp" class="form-text"><small class="text-muted">例：1234</small></div>
+        </div>
         @if($errors->has('bank_code'))
         <div class="alert alert-success" role="alert">
             {{ $errors->first('bank_code') }}
         </div>
         @endif
-
-        <p class="card-text"><small class="text-muted">支店名</small></p>
-        <button type="button" class="btn btn-danger btn-sm">必須</button>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->branch_name}}" name="branch_name">
+        
+        <div class="mb-3">
+          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <label for="exampleInputEmail1" class="form-label">支店名</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->branch_name}}" name="branch_name">
+          <div id="emailHelp" class="form-text"><small class="text-muted">例：新宿</small></div>
+        </div>
         @if($errors->has('branch_name'))
         <div class="alert alert-success" role="alert">
             {{ $errors->first('branch_name') }}
         </div>
         @endif
 
-        <p class="card-text"><small class="text-muted">支店コード</small></p>
-        <button type="button" class="btn btn-danger btn-sm">必須</button>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->branch_code}}" name="branch_code">
+        <div class="mb-3">
+          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <label for="exampleInputEmail1" class="form-label">支店コード(3桁)</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->branch_code}}" name="branch_code">
+          <div id="emailHelp" class="form-text"><small class="text-muted">例：123</small></div>
+        </div>
         @if($errors->has('branch_code'))
         <div class="alert alert-success" role="alert">
             {{ $errors->first('branch_code') }}
         </div>
         @endif
-
-        <p class="card-text"><small class="text-muted">預金種別</small></p>
-        <button type="button" class="btn btn-danger btn-sm">必須</button>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="deposit_type" id="inlineRadio1" value="普通" {{ $transferAccountSetting->deposit_type == '普通' ? 'checked' : '' }}>
-        <label class="form-check-label" for="inlineRadio1">普通</label>
-        </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="deposit_type" id="inlineRadio2" value="当座" {{ $transferAccountSetting->deposit_type == '当座' ? 'checked' : '' }}>
-        <label class="form-check-label" for="inlineRadio2">当座</label>
+       
+        <div class="mb-3">
+          <div>
+            <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+            <label for="exampleInputEmail1" class="form-label">預金種別</label>
+          </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="deposit_type" id="inlineRadio1" value="普通" {{ $transferAccountSetting->deposit_type == '普通' ? 'checked' : '' }}>
+              <label class="form-check-label" for="inlineRadio1">普通</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="deposit_type" id="inlineRadio2" value="当座" {{ $transferAccountSetting->deposit_type == '当座' ? 'checked' : '' }}>
+              <label class="form-check-label" for="inlineRadio2">当座</label>
+            </div>
         </div>
         @if($errors->has(''))
         <div class="alert alert-success" role="alert">
@@ -62,23 +78,30 @@
         </div>
         @endif
 
-        <p class="card-text"><small class="text-muted">口座番号</small></p>
-        <button type="button" class="btn btn-danger btn-sm">必須</button>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->account_number}}" name="account_number">
+        <div class="mb-3">
+          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <label for="exampleInputEmail1" class="form-label">口座番号(7桁)</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->account_number}}" name="account_number">
+          <div id="emailHelp" class="form-text"><small class="text-muted">例：1234567</small></div>
+        </div>
         @if($errors->has('account_number'))
         <div class="alert alert-success" role="alert">
             {{ $errors->first('account_number') }}
         </div>
         @endif
-
-        <p class="card-text"><small class="text-muted">口座名義（全角カタカナ）</small></p>
-        <button type="button" class="btn btn-danger btn-sm">必須</button>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->account_name}}" name="account_name">
+        
+        <div class="mb-3">
+          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <label for="exampleInputEmail1" class="form-label">口座名義（全角カタカナ）</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->account_name}}" name="account_name">
+          <div id="emailHelp" class="form-text"><small class="text-muted">例：ブックマ</small></div>
+       </div>
         @if($errors->has('account_name'))
         <div class="alert alert-success" role="alert">
             {{ $errors->first('account_name') }}
         </div>
-        @endif
+        @endif 
+        
 
         <input class="btn btn-info btn" type="submit" value="更新">
         <a class="btn btn-secondary btn" href="{{ route('sellerTransferAccountSetting') }}" >戻る</a>
