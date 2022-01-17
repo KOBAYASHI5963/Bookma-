@@ -43,4 +43,10 @@ class User extends Authenticatable
   {
     return $this->hasOne('App\UserInformation');
   }
+
+    Public function transferAccountSetting()
+  {
+    return $this->hasOne('App\TransferAccountSetting');
+  }
+  
 }

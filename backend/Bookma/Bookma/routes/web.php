@@ -54,8 +54,17 @@ Route::group(['middleware' => ['auth']], function () {
     // 出品者メニュー
     //出品本
     Route::get('/myPage/seller/books', 'MypageController@sellerbooks')->name('sellerbooks');
+    
     //振込口座設定
     Route::get('/myPage/seller/TransferAccountSetting', 'MypageController@sellerTransferAccountSetting')->name('sellerTransferAccountSetting');
+
+
+    //振込口座設定(編集更新)
+    Route::post('/myPage/seller/TransferAccountSetting/update', 'MypageController@sellerTransferAccountSettingUpdate')->name('sellerTransferAccountSettingUpdate');
+    
+    //振込口座設定(新規作成)
+    Route::post('/myPage/seller/TransferAccountSetting', 'MypageController@sellerTransferAccountSettingCreate')->name('sellerTransferAccountSettingCreate');
+    
     //売上履歴
     Route::get('/myPage/seller/salesHistory', 'MypageController@sellerSalesHistory')->name('sellerSalesHistory');
     //振込申請履歴
