@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
+use App\TransferAccountSetting;
 use App\UserProfile;
 use App\User;
 
 // リクエスト
 use App\Http\Requests\EditUserProfileRequest;
+use App\Http\Requests\TransferAccountSettingRequest;
 
 class MypageController extends Controller
 {
@@ -38,7 +40,7 @@ class MypageController extends Controller
 
         $user->name = $request->name;
 
-        $request->introduce;
+        $userProfile->introduce = $request->introduce;
 
         if($request->file('profile_image')) {
             $profileImage = $request->file('profile_image');
@@ -85,8 +87,54 @@ class MypageController extends Controller
     }
     public function sellerTransferAccountSetting()
     {
-        return view('pages.myPage.seller.transferAccountSetting');
+        $user = Auth::user();
+        $transferAccountSetting = TransferAccountSetting::select('*')
+                            ->where('user_id', $user->id)
+                            ->first();
+                       
+        return view('pages.myPage.seller.transferAccountSetting',compact('user','transferAccountSetting'));
     }
+    
+    public function sellerTransferAccountSettingUpdate(TransferAccountSettingRequest $request)
+    {
+        $user = Auth::user();
+        $transferAccountSetting = TransferAccountSetting::select('*')
+                            ->where('user_id', Auth::id())
+                            ->first();
+
+        $transferAccountSetting->bank_name = $request->bank_name;
+        $transferAccountSetting->bank_code = $request->bank_code;
+        $transferAccountSetting->branch_name = $request->branch_name;
+        $transferAccountSetting->branch_name = $request->branch_code;
+        $transferAccountSetting->deposit_type = $request->deposit_type;
+        $transferAccountSetting->account_number = $request->account_number;
+        $transferAccountSetting->account_name = $request->account_name;
+
+        $user->save();
+        $transferAccountSetting->save();
+
+        return redirect()->route('sellerTransferAccountSetting');
+    }
+    
+    public function sellerTransferAccountSettingCreate(TransferAccountSettingRequest $request)
+    {
+        
+        $transferAccountSetting = new transferAccountSetting;
+
+        $transferAccountSetting->user_id = Auth::id();
+        $transferAccountSetting->bank_name = $request->bank_name;
+        $transferAccountSetting->bank_code = $request->bank_code;
+        $transferAccountSetting->branch_name = $request->branch_name;
+        $transferAccountSetting->branch_code = $request->branch_code;
+        $transferAccountSetting->deposit_type = $request->deposit_type;
+        $transferAccountSetting->account_number = $request->account_number;
+        $transferAccountSetting->account_name = $request->account_name;
+
+        $transferAccountSetting->save();
+
+        return redirect()->route('sellerTransferAccountSetting');
+    }
+
     public function sellerSalesHistory()
     {
         return view('pages.myPage.seller.salesHistory');

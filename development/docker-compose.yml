@@ -36,7 +36,6 @@ services:
     ports:
       - 13306:3306
 
-
   phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
