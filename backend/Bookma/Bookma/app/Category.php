@@ -12,10 +12,10 @@ class Category extends Model
         'name'
     ];
 
-// リレーション
-Public function books()
-{
-  return $this->hasMany('App\Book');
-}
+    // リレーション
+    Public function books()
+    {
+    return $this->hasMany('App\Book');
+    }
 
 }

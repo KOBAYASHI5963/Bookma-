@@ -13,9 +13,9 @@ class ShippingArea extends Model
     ];
 
     // リレーション
-Public function books()
-{
-  return $this->hasMany('App\Book');
-}
+    Public function books()
+    {
+    return $this->hasMany('App\Book');
+    }
 
 }
