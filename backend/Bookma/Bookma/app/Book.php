@@ -17,4 +17,20 @@ class Book extends Model
   {
     return $this->belongsTo('App\User');
   }
+
+  Public function Category()
+  {
+    return $this->belongsToMany('App\Category');
+  }
+
+  Public function ShippingAreas()
+  {
+    return $this->belongsToMany('App\ShippingAreas');
+  }
+
+  Public function ShippingMethods()
+  {
+    return $this->belongsToMany('App\ShippingMethods');
+  }
+  
 }
