@@ -23,12 +23,12 @@ class Book extends Model
     return $this->belongsTo('App\Category');
   }
 
-  Public function shippingAreas()
+  Public function shippingArea()
   {
     return $this->belongsTo('App\ShippingArea');
   }
 
-  Public function shippingMethods()
+  Public function shippingMethod()
   {
     return $this->belongsTo('App\ShippingMethod');
   }
