@@ -76,6 +76,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     //出品する
     Route::get('/myPage/seller/salesBooks', 'MypageController@sellerSalesBooks')->name('sellerSalesBooks');
+    //出品する(新規作成)
+    Route::post('/myPage/seller/salesBooks', 'MypageController@sellerSalesBooksCreate')->name('sellerSalesBooksCreate');
 });
 
 

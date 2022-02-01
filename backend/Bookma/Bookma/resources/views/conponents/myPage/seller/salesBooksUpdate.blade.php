@@ -60,12 +60,17 @@
         </div>
         <form>
           <label for="exampleInputEmail1" class="form-label">商品名</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$sellerSalesBooks->title}}" name="title">
           <p class="mt-2">※40文字以内</p>
+          @if($errors->has('title'))
+          <div class="alert alert-success" role="alert">
+              {{ $errors->first('title') }}
+          </div>
+          @endif
         </form>
         <form>
           <label for="exampleInputEmail1" class="form-label">商品名の説明</label></label>
-          <textarea name="msg" cols="100" rows="10"></textarea>
+          <textarea name="explanation" cols="100" rows="10"></textarea>
           <p>※1000文字以内</p>
         </form>
 

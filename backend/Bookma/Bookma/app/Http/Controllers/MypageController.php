@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
+use App\Category;
+use App\ProductCondition;
+use App\ShippingArea;
+use App\SippingMethod;
+use App\Book;
 use App\TransferAccountSetting;
 use App\UserProfile;
 use App\User;
@@ -16,6 +21,7 @@ use App\User;
 // リクエスト
 use App\Http\Requests\EditUserProfileRequest;
 use App\Http\Requests\TransferAccountSettingRequest;
+use App\Http\Requests\SellerSalesBooksRequest;
 
 class MypageController extends Controller
 {
@@ -153,6 +159,33 @@ class MypageController extends Controller
     }
     public function sellerSalesBooks()
     {
-        return view('pages.myPage.seller.salesBooks');
+        $categories = Category::all();
+        $productConditions = ProductCondition::all();
+        $shippingAreas = ShippingArea::all();
+        $sippingMethods = SippingMethod::all();
+
+        return view('pages.myPage.seller.salesBooks',compact('categories','productConditions','shippingAreas','sippingMethods'));
     }
+
+    public function sellerSalesBooksCreate(sellerSalesBooksRequest $request)
+    {
+        
+        $book = new Book;
+
+        $book->user_id = Auth::id();
+        $book->category_id = $request->category_id;
+        $book->product_condition = $request->product_condition;
+        $book->shipping_method_id = $request->shipping_method_id;
+        $book->title = $request->title;
+        $book->content = $request->content;
+        $book->shipping_bearer = $request->shipping_bearer;
+        $book->shipping_area = $request->shipping_area;
+        $book->delivery_days = $request->delivery_days;
+        $book->price = $request->price;
+
+        $book->save();
+
+        return redirect()->route('sellerbooks');
+    }
+
 };
