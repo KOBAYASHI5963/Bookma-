@@ -11,4 +11,11 @@ class Category extends Model
     protected $fillable = [
         'name'
     ];
+
+// リレーション
+Public function books()
+{
+  return $this->hasMany('App\Book');
+}
+
 }

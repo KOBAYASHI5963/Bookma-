@@ -11,4 +11,11 @@ class ShippingArea extends Model
     protected $fillable = [
         'area'
     ];
+
+    // リレーション
+Public function books()
+{
+  return $this->hasMany('App\Book');
+}
+
 }

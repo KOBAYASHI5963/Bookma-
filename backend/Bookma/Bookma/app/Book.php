@@ -18,19 +18,19 @@ class Book extends Model
     return $this->belongsTo('App\User');
   }
 
-  Public function Category()
+  Public function category()
   {
-    return $this->belongsToMany('App\Category');
+    return $this->belongsTo('App\Category');
   }
 
-  Public function ShippingAreas()
+  Public function shippingAreas()
   {
-    return $this->belongsToMany('App\ShippingAreas');
+    return $this->belongsTo('App\ShippingArea');
   }
 
-  Public function ShippingMethods()
+  Public function shippingMethods()
   {
-    return $this->belongsToMany('App\ShippingMethods');
+    return $this->belongsTo('App\ShippingMethod');
   }
   
 }

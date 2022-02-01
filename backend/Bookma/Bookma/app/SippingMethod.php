@@ -11,4 +11,11 @@ class SippingMethod extends Model
     protected $fillable = [
         'means'
     ];
+
+    // リレーション
+Public function books()
+{
+  return $this->hasMany('App\Book');
+}
+
 }

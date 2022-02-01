@@ -11,4 +11,12 @@ class ProductCondition extends Model
     protected $fillable = [
         'condition'
     ];
+
+    // リレーション
+Public function books()
+{
+  return $this->hasMany('App\Book');
+}
+
+
 }
