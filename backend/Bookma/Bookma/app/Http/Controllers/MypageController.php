@@ -170,20 +170,20 @@ class MypageController extends Controller
     public function sellerSalesBooksCreate(sellerSalesBooksRequest $request)
     {
         
-        $Book = new Book;
+        $book = new Book;
 
-        $Book->user_id = Auth::id();
-        $Book->category_id = $request->category_id;
-        $Book->product_condition = $request->product_condition;
-        $Book->shipping_method_id = $request->shipping_method_id;
-        $Book->title = $request->title;
-        $Book->content = $request->content;
-        $Book->shipping_bearer = $request->shipping_bearer;
-        $Book->shipping_area = $request->shipping_area;
-        $Book->delivery_days = $request->delivery_days;
-        $Book->price = $request->price;
+        $book->user_id = Auth::id();
+        $book->category_id = $request->category_id;
+        $book->product_condition = $request->product_condition;
+        $book->shipping_method_id = $request->shipping_method_id;
+        $book->title = $request->title;
+        $book->content = $request->content;
+        $book->shipping_bearer = $request->shipping_bearer;
+        $book->shipping_area = $request->shipping_area;
+        $book->delivery_days = $request->delivery_days;
+        $book->price = $request->price;
 
-        $Book->save();
+        $book->save();
 
         return redirect()->route('sellerbooks');
     }
