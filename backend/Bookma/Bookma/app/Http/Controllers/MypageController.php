@@ -89,7 +89,11 @@ class MypageController extends Controller
     // 出品者メニュー
     public function sellerbooks()
     {
-        return view('pages.myPage.seller.books');
+        $user = Auth::user();
+        $books = Book::all();
+        
+
+        return view('pages.myPage.seller.books',compact('user','books'));
     }
     public function sellerTransferAccountSetting()
     {
