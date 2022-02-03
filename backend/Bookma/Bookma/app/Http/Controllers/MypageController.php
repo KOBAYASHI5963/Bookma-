@@ -90,9 +90,11 @@ class MypageController extends Controller
     public function sellerbooks()
     {
         $user = Auth::user();
-        $books = Book::all();
-        
-
+        $books = Book::select('*')
+                ->where('user_id', Auth::id())
+                ->get();
+    
+       
         return view('pages.myPage.seller.books',compact('user','books'));
     }
     public function sellerTransferAccountSetting()
