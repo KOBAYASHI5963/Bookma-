@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -89,7 +88,12 @@ class MypageController extends Controller
     // 出品者メニュー
     public function sellerbooks()
     {
-        return view('pages.myPage.seller.books');
+        $books = Book::select('*')
+                ->where('user_id', Auth::id())
+                ->paginate(5);
+    
+       
+        return view('pages.myPage.seller.books',compact('books'));
     }
     public function sellerTransferAccountSetting()
     {

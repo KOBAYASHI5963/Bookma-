@@ -8,31 +8,19 @@
       <img src="" alt="...">
     </div>
     <div class="col-md-8">
+    @foreach($books as $book)
       <div class="card-body">
-        <h5 class="card-title">1%の努力</h5>
-        <p class="card-text">¥1500</p>
+        <h5 class="card-title">{{ $book->title }}</h5>
+        <p class="card-text">{{ $book->price }}</p>
         <div>
-        <p class="card-text"><small class="text-muted">出品日時：2019年11月17日 15:06</small></p>
+        <p class="card-text"><small class="text-muted">出品日時：{{ $book->update_at }}</small></p>
           <a class="btn btn-success btn" href="#" >編集</a>
           <a class="btn btn-danger btn" href="#" >削除</a>
         </div>
       </div>
+    @endforeach
+     {{ $books->links() }}
     </div>
   </div>
 </div>
 
-<nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <span class="page-link"><</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active" aria-current="page">
-      <span class="page-link">2</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">></a>
-    </li>
-  </ul>
-</nav>
