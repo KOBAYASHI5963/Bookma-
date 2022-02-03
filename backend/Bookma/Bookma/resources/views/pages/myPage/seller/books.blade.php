@@ -13,7 +13,6 @@
     <div class="col-sm-9 col-xs-12">
      @include('conponents.myPage.seller.books',
      [
-      'user' => $user, 
       'books' => $books
      ])
     </div>
