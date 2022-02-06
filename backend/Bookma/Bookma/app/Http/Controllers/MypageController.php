@@ -163,12 +163,33 @@ class MypageController extends Controller
     }
     public function sellerSalesBooks()
     {
+        $isCreateUpdate = 0;
         $categories = Category::all();
         $productConditions = ProductCondition::all();
         $shippingAreas = ShippingArea::all();
         $sippingMethods = SippingMethod::all();
 
-        return view('pages.myPage.seller.salesBooks',compact('categories','productConditions','shippingAreas','sippingMethods'));
+        return view('pages.myPage.seller.salesBooks',compact('categories','productConditions','shippingAreas','sippingMethods','isCreateUpdate'));
+    }
+
+    public function sellerSalesBooksUpdate(sellerSalesBooksRequest $request, $id)
+    {
+
+        $book = Book::find($id);
+
+        $book->category_id = $request->category_id;
+        $book->product_condition = $request->product_condition;
+        $book->shipping_method_id = $request->shipping_method_id;
+        $book->title = $request->title;
+        $book->content = $request->content;
+        $book->shipping_bearer = $request->shipping_bearer;
+        $book->shipping_area = $request->shipping_area;
+        $book->delivery_days = $request->delivery_days;
+        $book->price = $request->price;
+        
+        $book->save();
+
+        return redirect()->route('sellerbooks');
     }
 
     public function sellerSalesBooksCreate(sellerSalesBooksRequest $request)
@@ -191,5 +212,19 @@ class MypageController extends Controller
 
         return redirect()->route('sellerbooks');
     }
+
+    public function sellerSalesBooksEdit($id)
+    {
+        $isCreateUpdate = 1;
+        $book = Book::find($id);
+        $categories = Category::all();
+        $productConditions = ProductCondition::all();
+        $shippingAreas = ShippingArea::all();
+        $sippingMethods = SippingMethod::all();
+
+
+        return view('pages.myPage.seller.salesBooks',compact('book','categories','productConditions','shippingAreas','sippingMethods','isCreateUpdate'));
+    }
+
 
 };
