@@ -74,10 +74,14 @@ Route::group(['middleware' => ['auth']], function () {
     //手数料について説明
     Route::get('/myPage/seller/commission', 'MypageController@sellerCommission')->name('sellerCommission');
 
-    //出品する
+    //出品フォームページ
     Route::get('/myPage/seller/salesBooks', 'MypageController@sellerSalesBooks')->name('sellerSalesBooks');
-    //出品する(新規作成)
+    //出品する(ログインユーザーが新規で出品)
     Route::post('/myPage/seller/salesBooks', 'MypageController@sellerSalesBooksCreate')->name('sellerSalesBooksCreate');
+    //出品する(ログインユーザーが出品登録したものを編集するページ)
+    Route::get('/myPage/seller/salesBooks/{id}/edit', 'MypageController@sellerSalesBooksEdit')->name('sellerSalesBooksEdit');
+    //出品する(編集更新)
+    Route::post('/myPage/seller/salesBooks/{id}/update', 'MypageController@sellerSalesBooksUpdate')->name('sellerSalesBooksUpdate');
 });
 
 
