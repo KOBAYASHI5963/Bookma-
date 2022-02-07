@@ -82,6 +82,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/myPage/seller/salesBooks/{id}/edit', 'MypageController@sellerSalesBooksEdit')->name('sellerSalesBooksEdit');
     //出品する(編集更新)
     Route::post('/myPage/seller/salesBooks/{id}/update', 'MypageController@sellerSalesBooksUpdate')->name('sellerSalesBooksUpdate');
+    //出品する(削除)
+    Route::delete('/myPage/seller/salesBooks/{id}/destroy', 'MypageController@sellerSalesBooksDestroy')->name('sellerSalesBooksDestroy');
 });
 
 
