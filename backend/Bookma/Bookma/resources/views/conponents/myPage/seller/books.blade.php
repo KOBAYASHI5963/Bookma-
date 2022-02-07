@@ -13,8 +13,15 @@
         <p class="card-text">{{ $book->price }}</p>
         <div>
         <p class="card-text"><small class="text-muted">出品日時：{{ $book->created_at }}</small></p>
-          <a class="btn btn-success btn" href="{{ route('sellerSalesBooksEdit', ['id' => $book->id]) }}" >編集</a>
-          <a class="btn btn-danger btn" href="#" >削除</a>
+        <div class="d-flex justify-content-start">
+          <a class="btn btn-success btn mr-2" href="{{ route('sellerSalesBooksEdit', ['id' => $book->id]) }}" >編集</a>
+
+          <form action="{{ route('sellerSalesBooksDestroy', ['id' => $book->id]) }}" method="post" id="delete_{{ $book->id }}">
+          @method('DELETE')
+          {{ csrf_field() }}
+            <button  data-id="{{ $book->id }}" class="btn btn-danger" onclick="deletePost(this);">削除</button>
+          </form>
+        </div> 
         </div>
       </div>
     </div>
@@ -22,3 +29,12 @@
 </div>
 @endforeach
 {{ $books->links() }}
+<script>
+function deletePost(e) {
+  'use strict';
+ 
+  if (confirm('本当に削除していいですか?')) {
+  document.getElementById('delete_' + e.dataset.id).submit();
+  }
+}
+</script>

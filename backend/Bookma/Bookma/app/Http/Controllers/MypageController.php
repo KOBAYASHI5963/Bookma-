@@ -226,5 +226,14 @@ class MypageController extends Controller
         return view('pages.myPage.seller.salesBooks',compact('book','categories','productConditions','shippingAreas','sippingMethods','isCreateUpdate'));
     }
 
+    public function sellerSalesBooksDestroy($id)
+    {
+        
+        $book = Book::find($id);
+        $book->delete();
+
+        return redirect()->route('sellerbooks');
+    }
+
 
 };
