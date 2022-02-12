@@ -138,9 +138,9 @@
         <div>
           <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" name="delivery_days">
           <option value="">選択してください</option>
-            <option value="1" @if(old('delivery_days')=='1') selected  @endif>1〜2日で発送</option>
-            <option value="2" @if(old('delivery_days')=='2') selected  @endif>2〜3日で発送</option>
-            <option value="3" @if(old('delivery_days')=='3') selected  @endif>4〜7日で発送</option>
+            <option value="1〜2日で発送" @if(old('delivery_days')=='1〜2日で発送') selected  @endif>1〜2日で発送</option>
+            <option value="2〜3日で発送" @if(old('delivery_days')=='2〜3日で発送') selected  @endif>2〜3日で発送</option>
+            <option value="4〜7日で発送" @if(old('delivery_days')=='4〜7日で発送') selected  @endif>4〜7日で発送</option>
          </select>
         </div>
         @if($errors->has('delivery_days'))

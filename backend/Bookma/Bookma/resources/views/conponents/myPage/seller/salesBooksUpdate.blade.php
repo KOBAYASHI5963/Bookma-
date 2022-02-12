@@ -161,18 +161,18 @@
           <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" name="delivery_days">
           <option value="">選択してください</option>
 
-          @if($book->delivery_days == 1)
-            <option value="1" selected>1〜2日で発送</option>
-            <option value="2" @if(old('delivery_days')=="2") selected @endif>2〜3日で発送</option>
-            <option value="3" @if(old('delivery_days')=='3') selected  @endif>4〜7日で発送</option>
-          @elseif($book->shipping_bearer == 2)
-            <option value="1" @if(old('delivery_days')=="1") selected @endif>1〜2日で発送</option>
-            <option value="2" selected >2〜3日で発送</option>
-            <option value="3" @if(old('delivery_days')=='3') selected  @endif>4〜7日で発送</option>
+          @if($book->delivery_days == "1〜2日で発送")
+            <option value="1〜2日で発送" selected>1〜2日で発送</option>
+            <option value="2〜3日で発送" @if(old('delivery_days')=="2〜3日で発送") selected @endif>2〜3日で発送</option>
+            <option value="4〜7日で発送" @if(old('delivery_days')=='4〜7日で発送') selected  @endif>4〜7日で発送</option>
+          @elseif($book->delivery_days == "2〜3日で発送")
+            <option value="1〜2日で発送" @if(old('delivery_days')=="1〜2日で発送") selected @endif>1〜2日で発送</option>
+            <option value="2〜3日で発送" selected >2〜3日で発送</option>
+            <option value="4〜7日で発送" @if(old('delivery_days')=='4〜7日で発送') selected  @endif>4〜7日で発送</option>
           @else
-            <option value="1" @if(old('delivery_days')=="1") selected @endif>1〜2日で発送</option>
-            <option value="2" @if(old('delivery_days')=='3') selected  @endif>2〜3日で発送</option>
-            <option value="3" selected >4〜7日で発送</option>
+            <option value="1〜2日で発送" @if(old('delivery_days')=="1〜2日で発送") selected @endif>1〜2日で発送</option>
+            <option value="2〜3日で発送" @if(old('delivery_days')=='4〜7日で発送') selected  @endif>2〜3日で発送</option>
+            <option value="4〜7日で発送" selected >4〜7日で発送</option>
           @endif 
          </select>
         </div>
