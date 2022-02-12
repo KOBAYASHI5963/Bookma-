@@ -37,11 +37,11 @@
   <div class="col-8">
     <ul class='list-unstyled'>
       <div class="mt-4">
-        <a href=""><li>{{ $category->name }}</li></a>
-        <li class="mt-3">{{ $productCondition->condition }}</li>
+        <li>{{ $book->category->name }}</li>
+        <li class="mt-3">{{ $book->productCondition->condition }}</li>
         <li class="mt-3">{{ $book->shipping_bearer }}</li>
-        <li class="mt-3">{{ $sippingMethod->means }}</li>
-        <li class="mt-3">{{ $shippingArea->area }}</li>
+        <li class="mt-3">{{ $book->shippingMethod->means }}</li>
+        <li class="mt-3">{{ $book->shippingArea->area }}</li>
         <li class="mt-3">{{ $book->delivery_days }}</li>
       </div>
     </ul>
