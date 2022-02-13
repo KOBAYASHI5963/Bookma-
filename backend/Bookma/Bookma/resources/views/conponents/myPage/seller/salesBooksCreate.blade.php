@@ -9,13 +9,28 @@
       <form method="POST" action="{{ route('sellerSalesBooksCreate') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 
-        <p class="card-text">出品画像<small class="text-muted">(最大10枚)</small></p>
-        <div class="cebter">
-          <div class="item_image mb-3">
-          <span class="border border-secondary"><img src="..." class="rounded mx-auto d-block" alt="..."></span>
-          </div>   
+        <p class="card-text">出品画像<small class="text-muted">(最大5枚)</small></p>
+        <div class="show-book_image">
+          <input id="file-sample" type="file" name="book_image">
+          <img id="file-preview" class="my-4" style="height: 230px; width:400px;">
+          <input id="file-sample" type="file" name="book_image">
+          <img id="file-preview" class="my-4" style="height: 230px; width:400px;">
+          <input id="file-sample" type="file" name="book_image">
+          <img id="file-preview" class="my-4" style="height: 230px; width:400px;">
+          <input id="file-sample" type="file" name="book_image">
+          <img id="file-preview" class="my-4" style="height: 230px; width:400px;">
+          <input id="file-sample" type="file" name="book_image">
+          <img id="file-preview" class="my-4" style="height: 230px; width:400px;">
         </div>
-        
+
+    @if($errors->has('profile_image'))
+    <div class="alert alert-success" role="alert">
+        {{ $errors->first('book_image') }}
+    </div>
+    @endif
+    <div class="text-center mx-auto">
+      <button class="btn btn-warning" type="submit">登録する</button>
+    </div>
 
         <div class="mt-4">
           <div>
