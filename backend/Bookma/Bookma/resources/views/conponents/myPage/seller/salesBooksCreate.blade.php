@@ -10,6 +10,7 @@
     {{ csrf_field() }}
 
         <p class="card-text">出品画像<small class="text-muted">(最大5枚)</small></p>
+        <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">1枚目は画像登録必須</button>
         <div class="show-book_image">
           <input id="file-sample1" type="file" name="book_image1">
           <img id="file-preview1" class="my-4" style="height: 230px; width:400px;">

@@ -9,7 +9,7 @@ class BookImage extends Model
     protected $table = 'book_images';
 
     protected $fillable = [
-        'book_images_url'
+        'book_images_url','book_id'
     ];
 
     // リレーション

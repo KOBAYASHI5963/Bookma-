@@ -58,7 +58,7 @@ class SellerSalesBooksRequest extends FormRequest
             'price.integer' => '本の値段は数字半角でお願いします。',
             'price.min' => '本の値段は300円以上でお願いします。',
             'price.max' => '本の値段は9,999,999円以下でお願いします。',
-            'book_image1.required' => '商品の画像を登録して下さい。',
+            'book_image1.required' => '1枚目の商品画像は必ず登録して下さい。',
             'book_image1.image'  => '画像ファイル以外の登録はできません。',
             'book_image2.image'  => '画像ファイル以外の登録はできません。',
             'book_image3.image'  => '画像ファイル以外の登録はできません。',

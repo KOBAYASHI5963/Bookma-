@@ -211,13 +211,26 @@ class MypageController extends Controller
 
         $book->save();
 
+        $bookImages = [];
         $bookImage1 = $request->file('book_image1');
-        $bookImage2 = $request->file('book_image2');
-        $bookImage3 = $request->file('book_image3');
-        $bookImage4 = $request->file('book_image4');
-        $bookImage5 = $request->file('book_image5');
+        array_push($bookImages,$bookImage1);
 
-        $bookImages = [ $bookImage1,$bookImage2,$bookImage3,$bookImage4,$bookImage5 ];
+        if($request->file('book_image2')) {
+            $bookImage2 = $request->file('book_image2');
+            array_push($bookImages,$bookImage2);
+        }
+        if($request->file('book_image3')) {
+            $bookImage2 = $request->file('book_image3');
+            array_push($bookImages,$bookImage3);
+        }
+        if($request->file('book_image4')) {
+            $bookImage2 = $request->file('book_image4');
+            array_push($bookImages,$bookImage4);
+        }
+        if($request->file('book_image5')) {
+            $bookImage2 = $request->file('book_image5');
+            array_push($bookImages,$bookImage5);
+        }
 
         foreach ($bookImages as $bookImagestore) {
             $bookImage = new BookImage;
