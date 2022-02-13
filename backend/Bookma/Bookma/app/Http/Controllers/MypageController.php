@@ -195,7 +195,7 @@ class MypageController extends Controller
 
     public function sellerSalesBooksCreate(sellerSalesBooksRequest $request)
     {
-        
+
         $book = new Book;
 
         $book->user_id = Auth::id();
@@ -209,19 +209,27 @@ class MypageController extends Controller
         $book->delivery_days = $request->delivery_days;
         $book->price = $request->price;
 
-        $bookImage = BookImage::select('*')
-        ->where('book_id')
-        ->first();
-
-        $BookImage = $request->file('book_image');
-        // バケットの`profileImages`フォルダへアップロード
-        $path = Storage::disk('s3')->put('bookImages', $BookImage, 'public');
-        // アップロードした画像のフルパスを取得
-        $image_path = Storage::disk('s3')->url($path);
-        $bookImage->book_image = $image_path;
-
         $book->save();
-        $bookImage->save();
+
+        $bookImage1 = $request->file('book_image1');
+        $bookImage2 = $request->file('book_image2');
+        $bookImage3 = $request->file('book_image3');
+        $bookImage4 = $request->file('book_image4');
+        $bookImage5 = $request->file('book_image5');
+
+        $bookImages = [ $bookImage1,$bookImage2,$bookImage3,$bookImage4,$bookImage5 ];
+
+        foreach ($bookImages as $bookImagestore) {
+            $bookImage = new BookImage;
+             // バケットの`profileImages`フォルダへアップロード
+            $path = Storage::disk('s3')->put('bookImage', $bookImagestore, 'public');
+            // アップロードした画像のフルパスを取得
+            $image_path = Storage::disk('s3')->url($path);
+            $bookImage->book_images_url = $image_path;
+            $bookImage->book_id = $book->id;
+
+            $bookImage->save();
+        }
 
         return redirect()->route('sellerbooks');
     }
