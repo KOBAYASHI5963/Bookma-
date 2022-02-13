@@ -16,7 +16,7 @@ class CreateBookImagesTable extends Migration
         Schema::create('book_images', function (Blueprint $table) {
             $table->id();
             $table->foreignId('book_id')->constrained()->comment('外部キー');
-            $table->string('url')->comment('出品本の詳細画像');
+            $table->string('book_images_url')->comment('出品本の詳細画像');
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
+use App\BookImage;
 use App\Category;
 use App\ProductCondition;
 use App\ShippingArea;
