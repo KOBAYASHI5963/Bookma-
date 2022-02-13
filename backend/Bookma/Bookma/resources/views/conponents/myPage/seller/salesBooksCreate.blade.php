@@ -14,41 +14,40 @@
         <div class="show-book_image">
           <input id="file-sample1" type="file" name="book_image1">
           <img id="file-preview1" class="my-4" style="height: 230px; width:400px;">
+          @if($errors->has('book_image1'))
+            <div class="alert alert-success" role="alert">
+                {{ $errors->first('book_image1') }}
+            </div>
+          @endif
           <input id="file-sample2" type="file" name="book_image2">
           <img id="file-preview2" class="my-4" style="height: 230px; width:400px;">
+          @if($errors->has('book_image2'))
+            <div class="alert alert-success" role="alert">
+                {{ $errors->first('book_image2') }}
+            </div>
+          @endif
           <input id="file-sample3" type="file" name="book_image3">
           <img id="file-preview3" class="my-4" style="height: 230px; width:400px;">
+          @if($errors->has('book_image3'))
+            <div class="alert alert-success" role="alert">
+                {{ $errors->first('book_image3') }}
+            </div>
+          @endif
           <input id="file-sample4" type="file" name="book_image4">
           <img id="file-preview4" class="my-4" style="height: 230px; width:400px;">
+          @if($errors->has('book_image4'))
+            <div class="alert alert-success" role="alert">
+                {{ $errors->first('book_image4') }}
+            </div>
+          @endif
           <input id="file-sample5" type="file" name="book_image5">
           <img id="file-preview5" class="my-4" style="height: 230px; width:400px;">
         </div>
-
-    @if($errors->has('book_image1'))
-    <div class="alert alert-success" role="alert">
-        {{ $errors->first('book_image1') }}
-    </div>
-    @endif
-    @if($errors->has('book_image2'))
-    <div class="alert alert-success" role="alert">
-        {{ $errors->first('book_image2') }}
-    </div>
-    @endif
-    @if($errors->has('book_image3'))
-    <div class="alert alert-success" role="alert">
-        {{ $errors->first('book_image3') }}
-    </div>
-    @endif
-    @if($errors->has('book_image4'))
-    <div class="alert alert-success" role="alert">
-        {{ $errors->first('book_image4') }}
-    </div>
-    @endif
-    @if($errors->has('book_image5'))
-    <div class="alert alert-success" role="alert">
-        {{ $errors->first('book_image5') }}
-    </div>
-    @endif
+        @if($errors->has('book_image5'))
+          <div class="alert alert-success" role="alert">
+              {{ $errors->first('book_image5') }}
+          </div>
+        @endif
 
         <div class="mt-4">
           <div>
