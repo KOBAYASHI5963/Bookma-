@@ -209,7 +209,19 @@ class MypageController extends Controller
         $book->delivery_days = $request->delivery_days;
         $book->price = $request->price;
 
+        $bookImage = BookImage::select('*')
+        ->where('book_id')
+        ->first();
+
+        $BookImage = $request->file('book_image');
+        // バケットの`profileImages`フォルダへアップロード
+        $path = Storage::disk('s3')->put('bookImages', $BookImage, 'public');
+        // アップロードした画像のフルパスを取得
+        $image_path = Storage::disk('s3')->url($path);
+        $bookImage->book_image = $image_path;
+
         $book->save();
+        $bookImage->save();
 
         return redirect()->route('sellerbooks');
     }
