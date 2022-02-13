@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
+use App\BookImage;
 use App\Category;
 use App\ProductCondition;
 use App\ShippingArea;
@@ -194,7 +195,7 @@ class MypageController extends Controller
 
     public function sellerSalesBooksCreate(sellerSalesBooksRequest $request)
     {
-        
+
         $book = new Book;
 
         $book->user_id = Auth::id();
@@ -209,6 +210,39 @@ class MypageController extends Controller
         $book->price = $request->price;
 
         $book->save();
+
+        $bookImages = [];
+        $bookImage1 = $request->file('book_image1');
+        array_push($bookImages,$bookImage1);
+
+        if($request->file('book_image2')) {
+            $bookImage2 = $request->file('book_image2');
+            array_push($bookImages,$bookImage2);
+        }
+        if($request->file('book_image3')) {
+            $bookImage2 = $request->file('book_image3');
+            array_push($bookImages,$bookImage3);
+        }
+        if($request->file('book_image4')) {
+            $bookImage2 = $request->file('book_image4');
+            array_push($bookImages,$bookImage4);
+        }
+        if($request->file('book_image5')) {
+            $bookImage2 = $request->file('book_image5');
+            array_push($bookImages,$bookImage5);
+        }
+
+        foreach ($bookImages as $bookImagestore) {
+            $bookImage = new BookImage;
+             // バケットの`profileImages`フォルダへアップロード
+            $path = Storage::disk('s3')->put('bookImage', $bookImagestore, 'public');
+            // アップロードした画像のフルパスを取得
+            $image_path = Storage::disk('s3')->url($path);
+            $bookImage->book_images_url = $image_path;
+            $bookImage->book_id = $book->id;
+
+            $bookImage->save();
+        }
 
         return redirect()->route('sellerbooks');
     }

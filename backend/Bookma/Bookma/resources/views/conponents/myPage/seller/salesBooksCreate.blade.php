@@ -9,13 +9,45 @@
       <form method="POST" action="{{ route('sellerSalesBooksCreate') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 
-        <p class="card-text">出品画像<small class="text-muted">(最大10枚)</small></p>
-        <div class="cebter">
-          <div class="item_image mb-3">
-          <span class="border border-secondary"><img src="..." class="rounded mx-auto d-block" alt="..."></span>
-          </div>   
+        <p class="card-text">出品画像<small class="text-muted">(最大5枚)</small></p>
+        <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">1枚目は画像登録必須</button>
+        <div class="show-book_image">
+          <input id="file-sample1" type="file" name="book_image1">
+          <img id="file-preview1" class="my-4" style="height: 230px; width:400px;">
+          @if($errors->has('book_image1'))
+            <div class="alert alert-success" role="alert">
+                {{ $errors->first('book_image1') }}
+            </div>
+          @endif
+          <input id="file-sample2" type="file" name="book_image2">
+          <img id="file-preview2" class="my-4" style="height: 230px; width:400px;">
+          @if($errors->has('book_image2'))
+            <div class="alert alert-success" role="alert">
+                {{ $errors->first('book_image2') }}
+            </div>
+          @endif
+          <input id="file-sample3" type="file" name="book_image3">
+          <img id="file-preview3" class="my-4" style="height: 230px; width:400px;">
+          @if($errors->has('book_image3'))
+            <div class="alert alert-success" role="alert">
+                {{ $errors->first('book_image3') }}
+            </div>
+          @endif
+          <input id="file-sample4" type="file" name="book_image4">
+          <img id="file-preview4" class="my-4" style="height: 230px; width:400px;">
+          @if($errors->has('book_image4'))
+            <div class="alert alert-success" role="alert">
+                {{ $errors->first('book_image4') }}
+            </div>
+          @endif
+          <input id="file-sample5" type="file" name="book_image5">
+          <img id="file-preview5" class="my-4" style="height: 230px; width:400px;">
         </div>
-        
+        @if($errors->has('book_image5'))
+          <div class="alert alert-success" role="alert">
+              {{ $errors->first('book_image5') }}
+          </div>
+        @endif
 
         <div class="mt-4">
           <div>
@@ -186,3 +218,66 @@
       
       </div>
     </div>
+
+    <script>
+  document.getElementById('file-sample1').addEventListener('change', function(e) {
+    
+    var file = e.target.files[0];
+
+    // ファイルのブラウザ上でのURLを取得する
+    var blobUrl = window.URL.createObjectURL(file);
+
+    // img要素に表示
+    var img = document.getElementById('file-preview1');
+    img.src = blobUrl;
+    
+  });
+  document.getElementById('file-sample2').addEventListener('change', function(e) {
+    
+    var file = e.target.files[0];
+
+    // ファイルのブラウザ上でのURLを取得する
+    var blobUrl = window.URL.createObjectURL(file);
+
+    // img要素に表示
+    var img = document.getElementById('file-preview2');
+    img.src = blobUrl;
+    
+  });
+  document.getElementById('file-sample3').addEventListener('change', function(e) {
+    
+    var file = e.target.files[0];
+
+    // ファイルのブラウザ上でのURLを取得する
+    var blobUrl = window.URL.createObjectURL(file);
+
+    // img要素に表示
+    var img = document.getElementById('file-preview3');
+    img.src = blobUrl;
+    
+  });
+  document.getElementById('file-sample4').addEventListener('change', function(e) {
+    
+    var file = e.target.files[0];
+
+    // ファイルのブラウザ上でのURLを取得する
+    var blobUrl = window.URL.createObjectURL(file);
+
+    // img要素に表示
+    var img = document.getElementById('file-preview4');
+    img.src = blobUrl;
+    
+  });
+  document.getElementById('file-sample5').addEventListener('change', function(e) {
+    
+    var file = e.target.files[0];
+
+    // ファイルのブラウザ上でのURLを取得する
+    var blobUrl = window.URL.createObjectURL(file);
+
+    // img要素に表示
+    var img = document.getElementById('file-preview5');
+    img.src = blobUrl;
+    
+  });
+</script>
