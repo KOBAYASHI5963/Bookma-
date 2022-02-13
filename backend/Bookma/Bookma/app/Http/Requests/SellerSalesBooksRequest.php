@@ -24,6 +24,7 @@ class SellerSalesBooksRequest extends FormRequest
     public function rules()
     {
         return [
+            'book_images_url' => 'required|image',
             'category_id' => 'required',
             'product_condition' => 'required',
             'shipping_method_id' => 'required',
@@ -53,6 +54,8 @@ class SellerSalesBooksRequest extends FormRequest
             'price.integer' => '本の値段は数字半角でお願いします。',
             'price.min' => '本の値段は300円以上でお願いします。',
             'price.max' => '本の値段は9,999,999円以下でお願いします。',
+            'book_images_url.required' => '商品の画像を登録して下さい。',
+            'book_images_url.image'  => '画像ファイル以外の登録はできません。',
         ];
     }
 
