@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
-use App\BookImage;
 use App\Category;
 use App\ProductCondition;
 use App\ShippingArea;
@@ -89,12 +89,7 @@ class MypageController extends Controller
     // 出品者メニュー
     public function sellerbooks()
     {
-        $books = Book::select('*')
-                ->where('user_id', Auth::id())
-                ->paginate(5);
-    
-       
-        return view('pages.myPage.seller.books',compact('books'));
+        return view('pages.myPage.seller.books');
     }
     public function sellerTransferAccountSetting()
     {
@@ -164,38 +159,17 @@ class MypageController extends Controller
     }
     public function sellerSalesBooks()
     {
-        $isCreateUpdate = 0;
         $categories = Category::all();
         $productConditions = ProductCondition::all();
         $shippingAreas = ShippingArea::all();
         $sippingMethods = SippingMethod::all();
 
-        return view('pages.myPage.seller.salesBooks',compact('categories','productConditions','shippingAreas','sippingMethods','isCreateUpdate'));
-    }
-
-    public function sellerSalesBooksUpdate(sellerSalesBooksRequest $request, $id)
-    {
-
-        $book = Book::find($id);
-
-        $book->category_id = $request->category_id;
-        $book->product_condition = $request->product_condition;
-        $book->shipping_method_id = $request->shipping_method_id;
-        $book->title = $request->title;
-        $book->content = $request->content;
-        $book->shipping_bearer = $request->shipping_bearer;
-        $book->shipping_area = $request->shipping_area;
-        $book->delivery_days = $request->delivery_days;
-        $book->price = $request->price;
-        
-        $book->save();
-
-        return redirect()->route('sellerbooks');
+        return view('pages.myPage.seller.salesBooks',compact('categories','productConditions','shippingAreas','sippingMethods'));
     }
 
     public function sellerSalesBooksCreate(sellerSalesBooksRequest $request)
     {
-
+        
         $book = new Book;
 
         $book->user_id = Auth::id();
@@ -271,8 +245,8 @@ class MypageController extends Controller
         $book = Book::find($id);
         $book->delete();
 
+
         return redirect()->route('sellerbooks');
     }
-
 
 };

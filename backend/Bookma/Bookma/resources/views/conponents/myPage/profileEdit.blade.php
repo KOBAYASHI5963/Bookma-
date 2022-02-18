@@ -15,17 +15,16 @@
     @endif
 
 
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">自己紹介</label>
-      <textarea class="form-control" name='introduce' id="exampleFormControlTextarea1" rows="3">{{$userProfile->introduce}}</textarea>
-      <p>※1000文字以内</p>
-      @if($errors->has('introduce'))
-      <div class="alert alert-success" role="alert">
-          {{ $errors->first('introduce') }}
-      </div>
-      @endif
+    <label for="exampleInputEmail1" class="form-label">自己紹介</label>
+    <p>
+      <textarea cols="100" rows="10" name='introduce'>{{$userProfile->introduce}}</textarea>
+    </p>
+    <p>※1000文字以内</p>
+    @if($errors->has('introduce'))
+    <div class="alert alert-success" role="alert">
+        {{ $errors->first('introduce') }}
     </div>
-   
+    @endif
 
     <h3>プロフィールアイコン</h3>
     <div class="mypage-profileEdit-left">
@@ -40,13 +39,13 @@
 
 
     <input id="file-sample" type="file" name="profile_image">
-    <img id="file-preview" class="my-4" style="height: 230px; width:400px;">
+    <img id="file-preview" class="my-4">
     @if($errors->has('profile_image'))
     <div class="alert alert-success" role="alert">
         {{ $errors->first('profile_image') }}
     </div>
     @endif
-    <div class="text-center mx-auto">
+    <div class="d-grid col-3 mx-auto">
       <button class="btn btn-warning" type="submit">変更する</button>
     </div>
   </form>

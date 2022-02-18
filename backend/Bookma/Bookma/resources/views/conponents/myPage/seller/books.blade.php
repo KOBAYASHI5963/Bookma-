@@ -2,8 +2,6 @@
   <h3>ログインユーザーの出品本一覧</h3>
 </div>
 
-@if($books->count())
-@foreach($books as $book)
 <div class="card mb-3 mt-3">
   <div class="row g-0">
     <div class="col-md-4">
@@ -11,38 +9,30 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><a href="{{ route('book.show', ['id' => $book->id]) }}" >{{ $book->title }}</a></h5>
-        <p class="card-text">{{ $book->price }}</p>
+        <h5 class="card-title">1%の努力</h5>
+        <p class="card-text">¥1500</p>
         <div>
-        <p class="card-text"><small class="text-muted">出品日時：{{ $book->created_at }}</small></p>
-        <div class="d-flex justify-content-start">
-          <a class="btn btn-success btn mr-2" href="{{ route('sellerSalesBooksEdit', ['id' => $book->id]) }}" >編集</a>
-
-          <form action="{{ route('sellerSalesBooksDestroy', ['id' => $book->id]) }}" method="post" id="delete_{{ $book->id }}">
-          @method('DELETE')
-          {{ csrf_field() }}
-            <button class="btn btn-danger" onclick="deletePost(this);" type="button" data-id="{{ $book->id }}">削除</button>
-          </form>
+        <p class="card-text"><small class="text-muted">出品日時：2019年11月17日 15:06</small></p>
+          <a class="btn btn-success btn" href="#" >編集</a>
+          <a class="btn btn-danger btn" href="#" >削除</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-@endforeach
-{{ $books->links() }}
-@else
-  <div class="mt-5">
-    <h5>※現在出品されている本はありません。</h5>
-  </div>
-  <div class="mt-3">
-    <h5><a href="{{ route('sellerSalesBooks') }}">出品はこちらから</a></h5>
-  </div>
 
-@endif
-<script>
-function deletePost(e) {
-  if (confirm('本当に削除していいですか?')) {
-  document.getElementById('delete_' + e.dataset.id).submit();
-  }
-}
-</script>
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <span class="page-link"><</span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <span class="page-link">2</span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">></a>
+    </li>
+  </ul>
+</nav>
