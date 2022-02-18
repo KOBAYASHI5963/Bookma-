@@ -42,5 +42,5 @@ qa
   {
     return $this->belongsTo('App\BookImage','book_image','id');
   }
-  
+  qb
 }
