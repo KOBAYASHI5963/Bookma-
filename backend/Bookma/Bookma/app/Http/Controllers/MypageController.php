@@ -220,15 +220,15 @@ class MypageController extends Controller
             array_push($bookImages,$bookImage2);
         }
         if($request->file('book_image3')) {
-            $bookImage2 = $request->file('book_image3');
+            $bookImage3 = $request->file('book_image3');
             array_push($bookImages,$bookImage3);
         }
         if($request->file('book_image4')) {
-            $bookImage2 = $request->file('book_image4');
+            $bookImage4 = $request->file('book_image4');
             array_push($bookImages,$bookImage4);
         }
         if($request->file('book_image5')) {
-            $bookImage2 = $request->file('book_image5');
+            $bookImage5 = $request->file('book_image5');
             array_push($bookImages,$bookImage5);
         }
 
@@ -262,7 +262,9 @@ class MypageController extends Controller
 
     public function sellerSalesBooksDestroy($id)
     {
-        
+        $bookImages = BookImage::where('book_id',$id)->get();
+        foreach ($bookImages as $bookImage)
+        $bookImage->delete($id);
         $book = Book::find($id);
         $book->delete();
 
