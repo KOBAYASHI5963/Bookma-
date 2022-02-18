@@ -37,10 +37,10 @@ class Book extends Model
   {
     return $this->belongsTo('App\ProductCondition','product_condition','id');
   }
-qa
+
   Public function BookImage()
   {
     return $this->belongsTo('App\BookImage','book_image','id');
   }
-  qb
+  
 }
