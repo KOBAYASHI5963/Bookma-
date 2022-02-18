@@ -11,12 +11,8 @@
      @include('conponents.myPage.seller.purchaserMenu')
     </div>
     <div class="col-sm-9 col-xs-12">
-    @if(isset($salesBooks))
-     @include('conponents.myPage.seller.salesBooksUpdate',
-     [
-      'user' => $user, 
-      'sellerSalesBooks' => $sellerSalesBooks
-     ])
+    @if($isCreateUpdate == 1)
+     @include('conponents.myPage.seller.salesBooksUpdate')
     @else
      @include('conponents.myPage.seller.salesBooksCreate')
     @endif
