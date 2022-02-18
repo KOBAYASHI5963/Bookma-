@@ -11,13 +11,11 @@
      @include('conponents.myPage.seller.purchaserMenu')
     </div>
     <div class="col-sm-9 col-xs-12">
-     @include('conponents.myPage.seller.books',
-     [
-      'books' => $books
-     ])
+     @include('conponents.myPage.seller.books')
     </div>
   </div> 
 
 </div>
 
 @endsection
+

@@ -1,9 +1,9 @@
 <div>
-  <h2>{{ $book->title }}</h2>
+  <h3>呪術廻戦1巻</h3>
 </div>
 
 <div class="mt-3">
-  <h4>¥{{ $book->price }} (税込)</4>
+  <h5>¥350 (税込) 送料込み</h>
 </div>
 
 <button type="button" class="btn btn-secondary btn-lg" disabled>売り切れました</button>
@@ -14,8 +14,14 @@
       <h4>商品の説明</h>
 </div>
 
+  <ul class='list-unstyled'>  
+    <li>「呪術廻戦 1 両面宿儺」</li>
+    <li>芥見下々</li>
+    <li>定価: ￥ 484</li>
+  </ul>  
+
 <div>
-  <p>{{ $book->content }}</p>
+  <p>類稀な身体能力を持つ高校生・虎杖悠仁は、病床に伏せる祖父の見舞いを日課にしていた。だがある日学校に眠る「呪物」の封印が解かれ、化物が現れてしまう。取り残された先輩を救う為、校舎へ乗り込む虎杖だが!?</p>
 </div>
 
 <div class="mt-5">
@@ -26,6 +32,8 @@
   <div class="col-4">
     <div class="mt-4">
       <p>カテゴリー</p>
+    </div>
+    <div class="mt-5">
       <p>商品の状態</p>
       <p>配送料の負担</p>
       <p>配送の方法</p>
@@ -35,16 +43,16 @@
   </div>
 
   <div class="col-8">
-    <ul class='list-unstyled'>
-      <div class="mt-4">
-        <li>{{ $book->category->name }}</li>
-        <li class="mt-3">{{ $book->productCondition->condition }}</li>
-        <li class="mt-3">{{ $book->shipping_bearer }}</li>
-        <li class="mt-3">{{ $book->shippingMethod->means }}</li>
-        <li class="mt-3">{{ $book->shippingArea->area }}</li>
-        <li class="mt-3">{{ $book->delivery_days }}</li>
-      </div>
-    </ul>
+    <ul class='list-unstyled'>  
+      <a href=""><li>本・音楽・ゲーム</li></a>
+      <a href=""><li>漫画</li></a>
+      <a href=""><li>少年漫画</li></a>
+      <li class="mt-4">目立った傷や汚れなし</li>
+      <li class="mt-3">送料込み(出品者負担)</li>
+      <li class="mt-3">らくらくブックマ便</li>
+      <li class="mt-3">広島県</li>
+      <li class="mt-3">2~3日で発送</li>
+    </ul>  
   </div>
 <div>
 
