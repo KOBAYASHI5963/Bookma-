@@ -263,8 +263,11 @@ class MypageController extends Controller
     public function sellerSalesBooksDestroy($id)
     {
         $bookImages = BookImage::where('book_id',$id)->get();
-        foreach ($bookImages as $bookImage)
-        $bookImage->delete($id);
+        foreach ($bookImages as $bookImage){
+            $bookImage->delete($id);
+            Storage::disk('s3')->delete(parse_url($bookImage->book_images_url)['path']);
+        }
+       
         $book = Book::find($id);
         $book->delete();
 
