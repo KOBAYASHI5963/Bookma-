@@ -42,4 +42,5 @@ class Book extends Model
   {
     return $this->belongsTo('App\BookImage','book_image','id');
   }
+
 }
