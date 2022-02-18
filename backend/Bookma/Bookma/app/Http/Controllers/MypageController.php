@@ -22,6 +22,10 @@ use App\User;
 use App\Http\Requests\EditUserProfileRequest;
 use App\Http\Requests\TransferAccountSettingRequest;
 use App\Http\Requests\SellerSalesBooksRequest;
+use BenSampo\Enum\Rules\Enum;
+
+// Enum
+use App\Enums\IsCreateUpdateBookForm;
 
 class MypageController extends Controller
 {
@@ -164,7 +168,7 @@ class MypageController extends Controller
     }
     public function sellerSalesBooks()
     {
-        $isCreateUpdate = 0;
+        $isCreateUpdate = IsCreateUpdateBookForm::Create;
         $categories = Category::all();
         $productConditions = ProductCondition::all();
         $shippingAreas = ShippingArea::all();
@@ -249,7 +253,7 @@ class MypageController extends Controller
 
     public function sellerSalesBooksEdit($id)
     {
-        $isCreateUpdate = 1;
+        $isCreateUpdate = IsCreateUpdateBookForm::Update;
         $book = Book::find($id);
         $categories = Category::all();
         $productConditions = ProductCondition::all();
