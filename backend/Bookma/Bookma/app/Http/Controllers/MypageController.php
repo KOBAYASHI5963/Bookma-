@@ -92,6 +92,7 @@ class MypageController extends Controller
         $books = Book::select('*')
                 ->where('user_id', Auth::id())
                 ->paginate(5);
+
     
        
         return view('pages.myPage.seller.books',compact('books'));
