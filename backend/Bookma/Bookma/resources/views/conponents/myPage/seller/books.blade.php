@@ -4,11 +4,12 @@
 
 @if($books->count())
 @foreach($books as $book)
-<div class="card mb-3 mt-3">
+<div class="card">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="" alt="...">
+      <img src="{{ $book->BookImages[0]->book_images_url }}" class="my-3" style="height:190px; width:290px;">
     </div>
+    
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"><a href="{{ route('book.show', ['id' => $book->id]) }}" >{{ $book->title }}</a></h5>
