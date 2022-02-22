@@ -22,6 +22,12 @@ use App\User;
 use App\Http\Requests\EditUserProfileRequest;
 use App\Http\Requests\TransferAccountSettingRequest;
 use App\Http\Requests\SellerSalesBooksRequest;
+use BenSampo\Enum\Rules\Enum;
+
+// Enum
+use App\Enums\IsCreateUpdateBookForm;
+// Object
+use App\Object\BookImageObj;
 
 class MypageController extends Controller
 {
@@ -84,7 +90,6 @@ class MypageController extends Controller
     {
         return view('pages.myPage.messagesList');
     }
-   
 
     // 出品者メニュー
     public function sellerbooks()
@@ -94,7 +99,6 @@ class MypageController extends Controller
                 ->paginate(5);
 
     
-       
         return view('pages.myPage.seller.books',compact('books'));
     }
     public function sellerTransferAccountSetting()
@@ -103,13 +107,11 @@ class MypageController extends Controller
         $transferAccountSetting = TransferAccountSetting::select('*')
                             ->where('user_id', $user->id)
                             ->first();
-                       
         return view('pages.myPage.seller.transferAccountSetting',compact('user','transferAccountSetting'));
     }
     
     public function sellerTransferAccountSettingUpdate(TransferAccountSettingRequest $request)
     {
-        $user = Auth::user();
         $transferAccountSetting = TransferAccountSetting::select('*')
                             ->where('user_id', Auth::id())
                             ->first();
@@ -122,15 +124,13 @@ class MypageController extends Controller
         $transferAccountSetting->account_number = $request->account_number;
         $transferAccountSetting->account_name = $request->account_name;
 
-        $user->save();
         $transferAccountSetting->save();
 
         return redirect()->route('sellerTransferAccountSetting');
     }
-    
+
     public function sellerTransferAccountSettingCreate(TransferAccountSettingRequest $request)
     {
-        
         $transferAccountSetting = new transferAccountSetting;
 
         $transferAccountSetting->user_id = Auth::id();
@@ -165,7 +165,7 @@ class MypageController extends Controller
     }
     public function sellerSalesBooks()
     {
-        $isCreateUpdate = 0;
+        $isCreateUpdate = IsCreateUpdateBookForm::Create;
         $categories = Category::all();
         $productConditions = ProductCondition::all();
         $shippingAreas = ShippingArea::all();
@@ -176,9 +176,22 @@ class MypageController extends Controller
 
     public function sellerSalesBooksUpdate(sellerSalesBooksRequest $request, $id)
     {
+        // オブジェクトを作成
+        $bookImageObj1 = $this->createBookImageIdObj((int)$request->imageId1, $request->file('book_image1'), (int)$request->deleteflag1);
+        $bookImageObj2 = $this->createBookImageIdObj((int)$request->imageId2, $request->file('book_image2'), (int)$request->deleteflag2);
+        $bookImageObj3 = $this->createBookImageIdObj((int)$request->imageId3, $request->file('book_image3'), (int)$request->deleteflag3);
+        $bookImageObj4 = $this->createBookImageIdObj((int)$request->imageId4, $request->file('book_image4'), (int)$request->deleteflag4);
+        $bookImageObj5 = $this->createBookImageIdObj((int)$request->imageId5, $request->file('book_image5'), (int)$request->deleteflag5);
 
+        // イメージを新規作成 or 編集 or 削除
+        $this->storeOrUpdateOrDeleteBookImage($bookImageObj1 ,$id);
+        $this->storeOrUpdateOrDeleteBookImage($bookImageObj2 ,$id);
+        $this->storeOrUpdateOrDeleteBookImage($bookImageObj3 ,$id);
+        $this->storeOrUpdateOrDeleteBookImage($bookImageObj4 ,$id);
+        $this->storeOrUpdateOrDeleteBookImage($bookImageObj5 ,$id);
+
+        // booksテーブルの編集
         $book = Book::find($id);
-
         $book->category_id = $request->category_id;
         $book->product_condition = $request->product_condition;
         $book->shipping_method_id = $request->shipping_method_id;
@@ -188,7 +201,6 @@ class MypageController extends Controller
         $book->shipping_area = $request->shipping_area;
         $book->delivery_days = $request->delivery_days;
         $book->price = $request->price;
-        
         $book->save();
 
         return redirect()->route('sellerbooks');
@@ -196,9 +208,8 @@ class MypageController extends Controller
 
     public function sellerSalesBooksCreate(sellerSalesBooksRequest $request)
     {
-
+        // book新規作成
         $book = new Book;
-
         $book->user_id = Auth::id();
         $book->category_id = $request->category_id;
         $book->product_condition = $request->product_condition;
@@ -212,53 +223,35 @@ class MypageController extends Controller
 
         $book->save();
 
-        $bookImages = [];
-        $bookImage1 = $request->file('book_image1');
-        array_push($bookImages,$bookImage1);
+        // オブジェクトを作成
+        $bookImageObj1 = $this->createBookImageIdObj((int)$request->imageId1, $request->file('book_image1'), (int)$request->deleteflag1);
+        $bookImageObj2 = $this->createBookImageIdObj((int)$request->imageId2, $request->file('book_image2'), (int)$request->deleteflag2);
+        $bookImageObj3 = $this->createBookImageIdObj((int)$request->imageId3, $request->file('book_image3'), (int)$request->deleteflag3);
+        $bookImageObj4 = $this->createBookImageIdObj((int)$request->imageId4, $request->file('book_image4'), (int)$request->deleteflag4);
+        $bookImageObj5 = $this->createBookImageIdObj((int)$request->imageId5, $request->file('book_image5'), (int)$request->deleteflag5);
 
-        if($request->file('book_image2')) {
-            $bookImage2 = $request->file('book_image2');
-            array_push($bookImages,$bookImage2);
-        }
-        if($request->file('book_image3')) {
-            $bookImage3 = $request->file('book_image3');
-            array_push($bookImages,$bookImage3);
-        }
-        if($request->file('book_image4')) {
-            $bookImage4 = $request->file('book_image4');
-            array_push($bookImages,$bookImage4);
-        }
-        if($request->file('book_image5')) {
-            $bookImage5 = $request->file('book_image5');
-            array_push($bookImages,$bookImage5);
-        }
-
-        foreach ($bookImages as $bookImagestore) {
-            $bookImage = new BookImage;
-             // バケットの`profileImages`フォルダへアップロード
-            $path = Storage::disk('s3')->put('bookImage', $bookImagestore, 'public');
-            // アップロードした画像のフルパスを取得
-            $image_path = Storage::disk('s3')->url($path);
-            $bookImage->book_images_url = $image_path;
-            $bookImage->book_id = $book->id;
-
-            $bookImage->save();
-        }
+        // イメージを新規作成
+        $this->storeOrUpdateOrDeleteBookImage($bookImageObj1, $book->id);
+        $this->storeOrUpdateOrDeleteBookImage($bookImageObj2, $book->id);
+        $this->storeOrUpdateOrDeleteBookImage($bookImageObj3, $book->id);
+        $this->storeOrUpdateOrDeleteBookImage($bookImageObj4, $book->id);
+        $this->storeOrUpdateOrDeleteBookImage($bookImageObj5, $book->id);
 
         return redirect()->route('sellerbooks');
     }
 
     public function sellerSalesBooksEdit($id)
     {
-        $isCreateUpdate = 1;
+        $isCreateUpdate = IsCreateUpdateBookForm::Update;
         $book = Book::find($id);
         $categories = Category::all();
         $productConditions = ProductCondition::all();
         $shippingAreas = ShippingArea::all();
         $sippingMethods = SippingMethod::all();
+        $bookImages = BookImage::where('book_id', $id)->get();
 
 
-        return view('pages.myPage.seller.salesBooks',compact('book','categories','productConditions','shippingAreas','sippingMethods','isCreateUpdate'));
+        return view('pages.myPage.seller.salesBooks',compact('book','categories','productConditions','shippingAreas','sippingMethods','isCreateUpdate', 'bookImages'));
     }
 
     public function sellerSalesBooksDestroy($id)
@@ -275,4 +268,85 @@ class MypageController extends Controller
     }
 
 
-};
+    // BookImageObjをインスタンス化して返す
+    private function createBookImageIdObj($id, $file, $deleteflag) {
+        $bookImageObj = new BookImageObj($id, $file, $deleteflag);
+        return $bookImageObj;
+    }
+
+    // Bookimageを保存する
+
+    private function storeOrUpdateOrDeleteBookImage($bookImageObj, $book_id) {
+        $id = $bookImageObj->getId();
+        $imageFile = $bookImageObj->getFile();
+        $deleteflag = $bookImageObj->getDeleteFlag();
+
+        if($id != 0 && isset($imageFile)) {
+            // ①編集する前から画像があって、そこから下記分岐
+            if($deleteflag == 0) {
+                // dd('新しい画像に変換');
+                $this->updateBookImage($imageFile, $id);
+            } else {
+                // dd('既存のを削除');
+                $this->deleteBookImage($id);
+            }
+        } elseif($id == 0 && isset($imageFile)) {
+            // ②編集する前はなにもなくて、インプットに触れている下記分岐
+            if($deleteflag == 0) {
+                // dd('新規作成');
+                $this->storeBookImage($imageFile, $book_id);
+            } else {
+                // dd('特になにもせずに終了');
+                return;
+            }
+        } elseif($id == 0 && !isset($imageFile)) {
+            // ③編集する前はなにもなくてかつインプットも触れてない
+            // dd('現状維持');
+            return;
+        } else {
+            // ④編集する前から画像があって、インプットに触れずに下記分岐
+            if($deleteflag == 0) {
+                // dd('そのまま');
+                return;
+            } else {
+                // dd('対象を削除sして終了');
+                $this->deleteBookImage($id);
+            }
+        }
+        return;
+    }
+
+    public function storeBookImage($imageFile, $book_id) {
+        $bookImage = new BookImage;
+        // バケットの`profileImages`フォルダへアップロード
+        $path = Storage::disk('s3')->put('bookImage', $imageFile, 'public');
+        // アップロードした画像のフルパスを取得
+        $image_path = Storage::disk('s3')->url($path);
+        $bookImage->book_images_url = $image_path;
+        $bookImage->book_id = $book_id;
+
+        $bookImage->save();
+    }
+
+    public function updateBookImage($imageFile, $id) {
+        $bookImage = BookImage::find($id);
+        // s3は削除
+        Storage::disk('s3')->delete(parse_url($bookImage->book_images_url)['path']);
+
+        // バケットの`profileImages`フォルダへアップロード
+        $path = Storage::disk('s3')->put('bookImage', $imageFile, 'public');
+        // アップロードした画像のフルパスを取得
+        $image_path = Storage::disk('s3')->url($path);
+        $bookImage->book_images_url = $image_path;
+        $bookImage->save();
+    }
+
+    public function deleteBookImage($id) {
+        $bookImage = BookImage::find($id);
+        // s3とDBから削除
+        $bookImage->delete($id);
+        Storage::disk('s3')->delete(parse_url($bookImage->book_images_url)['path']);
+    }
+
+
+}
