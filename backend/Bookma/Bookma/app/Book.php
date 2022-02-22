@@ -38,9 +38,9 @@ class Book extends Model
     return $this->belongsTo('App\ProductCondition','product_condition','id');
   }
 
-  Public function BookImage()
+  Public function BookImages()
   {
-    return $this->belongsTo('App\BookImage','book_image','id');
+    return $this->hasMany('App\BookImage');
   }
 
 }
