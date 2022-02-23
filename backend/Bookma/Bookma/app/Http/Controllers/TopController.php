@@ -23,7 +23,8 @@ class TopController extends Controller
     public function index()
     {
         $newBooks = Book::orderBy('id', 'DESC')->take(4)->get();
+        $books = Book::orderBy('id', 'ASC')->take(4)->get();
 
-        return view('pages.top',compact('newBooks'));
+        return view('pages.top',compact('newBooks','books'));
     }
 }

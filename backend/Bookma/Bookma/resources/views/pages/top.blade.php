@@ -8,7 +8,10 @@
 [
   'newBooks' => $newBooks
 ])
-@include('conponents.top.list')
+@include('conponents.top.list',
+[
+  'books' => $books
+])
 @include('conponents.top.bookLife')
 @include('conponents.top.genreSarch')
 
