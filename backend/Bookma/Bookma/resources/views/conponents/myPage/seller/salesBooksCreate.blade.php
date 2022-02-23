@@ -6,48 +6,70 @@
     <div class="col-md-12">
       <div class="card-body">
 
-      <form method="POST" action="{{ route('sellerSalesBooksCreate') }}" enctype="multipart/form-data">
+      <form method="POST" action="{{ route('sellerSalesBooksCreate') }}" enctype="multipart/form-data" id="createbook">
     {{ csrf_field() }}
 
         <p class="card-text">出品画像<small class="text-muted">(最大5枚)</small></p>
         <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">1枚目は画像登録必須</button>
         <div class="show-book_image">
-          <input id="file-sample1" type="file" name="book_image1">
-          <img id="file-preview1" class="my-4" style="height: 230px; width:400px;">
-          @if($errors->has('book_image1'))
-            <div class="alert alert-success" role="alert">
-                {{ $errors->first('book_image1') }}
+          <div>
+            <input id="file-sample1" type="file" name="book_image1">
+            <img id="file-preview1" class="my-4" style="height: 230px; width:400px;">
+            <button type="button" class="btn btn-secondary" id="delete-file-preview1">削除する</button>
+            <div class="mt-2" role="alert" id="imageError">
             </div>
-          @endif
-          <input id="file-sample2" type="file" name="book_image2">
-          <img id="file-preview2" class="my-4" style="height: 230px; width:400px;">
-          @if($errors->has('book_image2'))
-            <div class="alert alert-success" role="alert">
-                {{ $errors->first('book_image2') }}
-            </div>
-          @endif
-          <input id="file-sample3" type="file" name="book_image3">
-          <img id="file-preview3" class="my-4" style="height: 230px; width:400px;">
-          @if($errors->has('book_image3'))
-            <div class="alert alert-success" role="alert">
-                {{ $errors->first('book_image3') }}
-            </div>
-          @endif
-          <input id="file-sample4" type="file" name="book_image4">
-          <img id="file-preview4" class="my-4" style="height: 230px; width:400px;">
-          @if($errors->has('book_image4'))
-            <div class="alert alert-success" role="alert">
-                {{ $errors->first('book_image4') }}
-            </div>
-          @endif
-          <input id="file-sample5" type="file" name="book_image5">
-          <img id="file-preview5" class="my-4" style="height: 230px; width:400px;">
-        </div>
-        @if($errors->has('book_image5'))
-          <div class="alert alert-success" role="alert">
-              {{ $errors->first('book_image5') }}
+            @if($errors->has('book_image1'))
+              <div class="alert alert-danger" role="alert">
+                  {{ $errors->first('book_image1') }}
+              </div>
+            @endif
           </div>
-        @endif
+
+          <div>
+            <input id="file-sample2" type="file" name="book_image2">
+            <img id="file-preview2" class="my-4" style="height: 230px; width:400px;">
+            <button type="button" class="btn btn-secondary" id="delete-file-preview2">削除する</button>
+            @if($errors->has('book_image2'))
+              <div class="alert alert-danger" role="alert">
+                  {{ $errors->first('book_image2') }}
+              </div>
+            @endif
+          </div>
+
+          <div>
+            <input id="file-sample3" type="file" name="book_image3">
+            <img id="file-preview3" class="my-4" style="height: 230px; width:400px;">
+            <button type="button" class="btn btn-secondary" id="delete-file-preview3">削除する</button>
+            @if($errors->has('book_image3'))
+              <div class="alert alert-danger" role="alert">
+                  {{ $errors->first('book_image3') }}
+              </div>
+            @endif
+          </div>
+          
+          <div>
+            <input id="file-sample4" type="file" name="book_image4">
+            <img id="file-preview4" class="my-4" style="height: 230px; width:400px;">
+            <button type="button" class="btn btn-secondary" id="delete-file-preview4">削除する</button>
+            @if($errors->has('book_image4'))
+              <div class="alert alert-danger" role="alert">
+                  {{ $errors->first('book_image4') }}
+              </div>
+            @endif
+          </div>
+          
+          <div>
+            <input id="file-sample5" type="file" name="book_image5">
+            <img id="file-preview5" class="my-4" style="height: 230px; width:400px;">
+            <button type="button" class="btn btn-secondary" id="delete-file-preview5">削除する</button>
+            @if($errors->has('book_image5'))
+            <div class="alert alert-danger" role="alert">
+                {{ $errors->first('book_image5') }}
+            </div>
+            @endif
+          </div>
+          
+        </div>
 
         <div class="mt-4">
           <div>
@@ -65,7 +87,7 @@
          </select>
         </div>
         @if($errors->has('category_id'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
             {{ $errors->first('category_id') }}
         </div>
         @endif
@@ -82,7 +104,7 @@
          </select>
         </div>
         @if($errors->has('product_condition'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
             {{ $errors->first('product_condition') }}
         </div>
         @endif
@@ -96,7 +118,7 @@
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('title') }}" name="title">
           <p class="mt-2">※40文字以内</p>
           @if($errors->has('title'))
-          <div class="alert alert-success" role="alert">
+          <div class="alert alert-danger" role="alert">
               {{ $errors->first('title') }}
           </div>
           @endif
@@ -104,7 +126,7 @@
           <textarea name="content" cols="100" rows="10">{{ old('content') }}</textarea>
           <p>※1000文字以内</p>
         @if($errors->has('content'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
             {{ $errors->first('content') }}
         </div>
         @endif
@@ -125,7 +147,7 @@
          </select>
         </div>
         @if($errors->has('shipping_bearer'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
             {{ $errors->first('shipping_bearer') }}
         </div>
         @endif
@@ -142,7 +164,7 @@
          </select>
         </div>
         @if($errors->has('shipping_method_id'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
             {{ $errors->first('shipping_method_id') }}
         </div>
         @endif
@@ -159,7 +181,7 @@
          </select>
         </div>
         @if($errors->has('shipping_area'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
             {{ $errors->first('shipping_area') }}
         </div>
         @endif
@@ -176,7 +198,7 @@
          </select>
         </div>
         @if($errors->has('delivery_days'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
             {{ $errors->first('delivery_days') }}
         </div>
         @endif
@@ -194,7 +216,7 @@
              <input type="text" class="form-control text-right"  id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('price') }}" name="price" placeholder="0">
             </div>
           @if($errors->has('price'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
             {{ $errors->first('price') }}
         </div>
         @endif
@@ -210,74 +232,25 @@
           <h8 class="card-text">禁止されている行為および出品物を必ずご確認ください。また、出品をもちまして加盟店規約に同意したことになります。</h8>
         <div>
 
+        <input type="hidden" name="imageId1" id="imageId1" value="">
+        <input type="hidden" name="imageId2" id="imageId2" value="">
+        <input type="hidden" name="imageId3" id="imageId3" value="">
+        <input type="hidden" name="imageId4" id="imageId4" value="">
+        <input type="hidden" name="imageId5" id="imageId5" value="">
+
+        <input type="hidden" name="deleteflag1" id="deleteflag1" value="">
+        <input type="hidden" name="deleteflag2" id="deleteflag2" value="">
+        <input type="hidden" name="deleteflag3" id="deleteflag3" value="">
+        <input type="hidden" name="deleteflag4" id="deleteflag4" value="">
+        <input type="hidden" name="deleteflag5" id="deleteflag5" value="">
+
 
        <div class="d-grid col-2 mx-auto">
-       <input class="btn btn-danger btn" type="submit" value="出品する">
+       <input class="btn btn-danger btn" type="button" value="出品する" onclick="createBook(this);">
         </div>
         </form>
       
       </div>
     </div>
 
-    <script>
-  document.getElementById('file-sample1').addEventListener('change', function(e) {
-    
-    var file = e.target.files[0];
-
-    // ファイルのブラウザ上でのURLを取得する
-    var blobUrl = window.URL.createObjectURL(file);
-
-    // img要素に表示
-    var img = document.getElementById('file-preview1');
-    img.src = blobUrl;
-    
-  });
-  document.getElementById('file-sample2').addEventListener('change', function(e) {
-    
-    var file = e.target.files[0];
-
-    // ファイルのブラウザ上でのURLを取得する
-    var blobUrl = window.URL.createObjectURL(file);
-
-    // img要素に表示
-    var img = document.getElementById('file-preview2');
-    img.src = blobUrl;
-    
-  });
-  document.getElementById('file-sample3').addEventListener('change', function(e) {
-    
-    var file = e.target.files[0];
-
-    // ファイルのブラウザ上でのURLを取得する
-    var blobUrl = window.URL.createObjectURL(file);
-
-    // img要素に表示
-    var img = document.getElementById('file-preview3');
-    img.src = blobUrl;
-    
-  });
-  document.getElementById('file-sample4').addEventListener('change', function(e) {
-    
-    var file = e.target.files[0];
-
-    // ファイルのブラウザ上でのURLを取得する
-    var blobUrl = window.URL.createObjectURL(file);
-
-    // img要素に表示
-    var img = document.getElementById('file-preview4');
-    img.src = blobUrl;
-    
-  });
-  document.getElementById('file-sample5').addEventListener('change', function(e) {
-    
-    var file = e.target.files[0];
-
-    // ファイルのブラウザ上でのURLを取得する
-    var blobUrl = window.URL.createObjectURL(file);
-
-    // img要素に表示
-    var img = document.getElementById('file-preview5');
-    img.src = blobUrl;
-    
-  });
-</script>
+    <script src="{{ asset('/js/salesBooksCreate.js') }}"></script>
