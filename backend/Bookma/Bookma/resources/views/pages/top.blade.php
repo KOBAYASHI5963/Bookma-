@@ -4,8 +4,14 @@
 
 <!-- ここにページ毎のコンテンツを書く -->
 @include('conponents.top.banner')
-@include('conponents.top.newArrival')
-@include('conponents.top.list')
+@include('conponents.top.newArrival',
+[
+  'newBooks' => $newBooks
+])
+@include('conponents.top.list',
+[
+  'books' => $books
+])
 @include('conponents.top.bookLife')
 @include('conponents.top.genreSarch')
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Book;
+
 class TopController extends Controller
 {
     /**
@@ -20,6 +22,9 @@ class TopController extends Controller
      */
     public function index()
     {
-        return view('pages.top');
+        $newBooks = Book::orderBy('id', 'DESC')->take(4)->get();
+        $books = Book::orderBy('id', 'ASC')->take(4)->get();
+
+        return view('pages.top',compact('newBooks','books'));
     }
 }
