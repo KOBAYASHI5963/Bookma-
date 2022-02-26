@@ -52,15 +52,18 @@
   <h4>出品者</h>
 </div>
 
-<div class="card mb-3" style="max-width: 540px;">
+<div class="mb-3" >
   <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." alt="...">
-    </div>
     <div class="col-md-8">
+      @if(is_null( $book->User->UserProfile->profile_image ))
+      <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle" style="width: 250px;">
+      @else
+      <img src="{{ $book->User->UserProfile->profile_image }}" class="rounded-circle" style="width: 250px;">
+      @endif
+    </div>
+    <div class="col-md-4">
       <div class="card-body">
-        <h5 class="card-title">田辺さん</h5>
-        <p class="card-text">★★★★★534</p>
+        <h5 class="card-title">{{ $book->User->name }}</h5>
       </div>
     </div>
   </div>
