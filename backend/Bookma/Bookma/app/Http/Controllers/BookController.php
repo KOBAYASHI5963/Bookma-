@@ -12,6 +12,8 @@ use App\ProductCondition;
 use App\SippingMethod;
 use App\ShippingArea;
 use App\Book;
+use App\UserProfile;
+use App\User;
 
 // Enum
 use App\Enums\ShippingBearerStatus;
