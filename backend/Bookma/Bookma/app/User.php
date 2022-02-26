@@ -39,11 +39,6 @@ class User extends Authenticatable
 
 
     // リレーション
-    Public function userInformation()
-  {
-    return $this->hasOne('App\UserInformation');
-  }
-
     Public function transferAccountSetting()
   {
     return $this->hasOne('App\TransferAccountSetting');
