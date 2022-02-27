@@ -8,7 +8,7 @@
 
 <button type="button" class="btn btn-secondary btn-lg" disabled>売り切れました</button>
 
-<a class="btn btn-danger btn-lg " href="#" >購入手続きへ</a>
+<a class="btn btn-danger btn-lg " href="{{ route('book.purchase', ['id' => $book->id]) }}" >購入手続きへ</a>
 
 <div class="mt-5">
       <h4>商品の説明</h>
