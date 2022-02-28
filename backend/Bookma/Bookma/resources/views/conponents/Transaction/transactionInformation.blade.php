@@ -35,18 +35,6 @@
   </div>
 </div>
 
-<div class="mt-5"> 
-  <h3>支払い方法</h3>
-</div>
-
-<div class="mt-3">
-  <h5>クレジットカード決済</h>
-  <h6>************6666 01/23</h>
-</div>
-<div class="d-grid col-2 mx-auto">
-  <input class="btn btn-primary btn" type="button" value=" 編集する">
-</div>
-
 
 <div class="mt-4">
   <h3>配送先</h>
