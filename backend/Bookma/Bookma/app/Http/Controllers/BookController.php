@@ -34,6 +34,14 @@ class BookController extends Controller
         
         $book = Book::find($id);
 
-        return view('pages.book. confirmPurchase',compact('book'));
+        return view('pages.book.confirmPurchase',compact('book'));
+    }
+
+    public function complete($id)
+    {
+        
+        $book = Book::find($id);
+
+        return view('pages.book.settlement',compact('book'));
     }
 }

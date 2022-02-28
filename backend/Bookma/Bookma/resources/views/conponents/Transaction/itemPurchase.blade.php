@@ -20,5 +20,5 @@
 </div>
 
 <div class="d-grid col-2 mx-auto">
-  <input class="btn btn-danger btn-lg" type="button" value="購入する">
+  <a class="btn btn-danger btn " href="{{ route('book.complete', ['id' => $book->id]) }}" >購入する</a>
 </div>

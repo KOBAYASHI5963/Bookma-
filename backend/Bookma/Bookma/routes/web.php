@@ -87,6 +87,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     //購入手続きページ
     Route::get('/book/{id}/purchase', 'BookController@purchase')->name('book.purchase');
+    //購入後ページ
+    Route::get('/book/{id}/purchase/complete', 'BookController@complete')->name('book.complete');
     
 });
 
