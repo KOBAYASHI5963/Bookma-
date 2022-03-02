@@ -6,9 +6,14 @@
   <h4>¥{{ $book->price }} (税込)</4>
 </div>
 
+@auth
+@if(Auth::id() === $book->user_id)
+<a class="btn btn-primary btn-lg " href="{{ route('sellerSalesBooksEdit', ['id' => $book->id]) }}" >商品内容を編集</a>
+@else
 <button type="button" class="btn btn-secondary btn-lg" disabled>売り切れました</button>
-
-<a class="btn btn-danger btn-lg " href="#" >購入手続きへ</a>
+<a class="btn btn-danger btn-lg " href="{{ route('book.purchase', ['id' => $book->id]) }}" >購入手続きへ</a>
+@endif
+@endauth
 
 <div class="mt-5">
       <h4>商品の説明</h>

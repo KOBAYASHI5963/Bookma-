@@ -1,5 +1,5 @@
 <div>
-  <h3>取引画面</h3>
+  <h3>取引決済完了</h3>
 </div>
 
 <div class="mt-3">
@@ -11,15 +11,18 @@
   <h3>出品者情報</h3>
 </div>
 
-<div class="card mb-3" style="max-width: 540px;">
+<div class="mb-3" >
   <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." alt="...">
+    <div class="">
+      @if(is_null( $book->User->UserProfile->profile_image ))
+      <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle" style="width: 250px;">
+      @else
+      <img src="{{ $book->User->UserProfile->profile_image }}" class="rounded-circle" style="width: 250px;">
+      @endif
     </div>
-    <div class="col-md-8">
+    <div class="">
       <div class="card-body">
-        <h5 class="card-title">田辺さん</h5>
-        <p class="card-text">★★★★★534</p>
+        <h5 class="card-title">{{ $book->User->name }}</h5>
       </div>
     </div>
   </div>
