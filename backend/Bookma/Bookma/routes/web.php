@@ -84,11 +84,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/myPage/seller/salesBooks/{id}/update', 'MypageController@sellerSalesBooksUpdate')->name('sellerSalesBooksUpdate');
     //出品する(削除)
     Route::delete('/myPage/seller/salesBooks/{id}/destroy', 'MypageController@sellerSalesBooksDestroy')->name('sellerSalesBooksDestroy');
+
+    //購入手続きページ
+    Route::get('/book/{id}/purchase', 'BookController@purchase')->name('book.purchase');
+    //購入後ページ
+    Route::get('/book/{id}/purchase/complete', 'BookController@complete')->name('book.complete');
     
 });
 
 
-  // 本の詳細ページ1
+  // 本の詳細ページ
   Route::get('/book/{id}', 'BookController@show')->name('book.show');
 
 
