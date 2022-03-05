@@ -51,6 +51,15 @@ Route::group(['middleware' => ['auth']], function () {
     //メッセージ
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
 
+    //配送先住所設定
+    Route::get('/myPage/shippingAddress', 'MypageController@shippingAddress')->name('shippingAddress');
+
+    //配送先住所設定(編集更新)
+    Route::post('/myPage/shippingAddress/update', 'MypageController@shippingAddressUpdate')->name('shippingAddressUpdate');
+
+    //配送先住所設定(新規作成)
+    Route::post('/myPage/shippingAddress', 'MypageController@shippingAddressCreate')->name('shippingAddressCreate');
+
     // 出品者メニュー
     //出品本
     Route::get('/myPage/seller/books', 'MypageController@sellerbooks')->name('sellerbooks');

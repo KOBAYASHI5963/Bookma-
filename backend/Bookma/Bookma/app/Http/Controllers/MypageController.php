@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
+use App\ShippingAddress;
 use App\BookImage;
 use App\Category;
 use App\ProductCondition;
@@ -22,6 +23,7 @@ use App\User;
 use App\Http\Requests\EditUserProfileRequest;
 use App\Http\Requests\TransferAccountSettingRequest;
 use App\Http\Requests\SellerSalesBooksRequest;
+use App\Http\Requests\ShippingAddressRequest;
 use BenSampo\Enum\Rules\Enum;
 
 // Enum
@@ -89,6 +91,47 @@ class MypageController extends Controller
     public function messages()
     {
         return view('pages.myPage.messagesList');
+    }
+    public function shippingAddress()
+    {
+        $user = Auth::user();
+        $shippingAddress = shippingAddress::where('user_id', $user->id)->first();
+        
+        return view('pages.myPage.shippingAddress',compact('user','shippingAddress'));
+    }
+    public function shippingAddressUpdate(ShippingAddressRequest $request)
+    {
+        $shippingAddress = shippingAddress::where('user_id', Auth::id())->first();
+
+        $shippingAddress->user_id = Auth::id();
+        $shippingAddress->name = $request->name;
+        $shippingAddress->post_code = $request->post_code;
+        $shippingAddress->prefectures = $request->prefectures;
+        $shippingAddress->city = $request->city;
+        $shippingAddress->street = $request->street;
+        $shippingAddress->building_name = $request->building_name;
+        $shippingAddress->phone_number = $request->phone_number;
+
+        $shippingAddress->save();
+
+        return redirect()->route('shippingAddress');
+    }
+    public function shippingAddressCreate(ShippingAddressRequest $request)
+    {
+        $shippingAddress = new shippingAddress;
+
+        $shippingAddress->user_id = Auth::id();
+        $shippingAddress->name = $request->name;
+        $shippingAddress->post_code = $request->post_code;
+        $shippingAddress->prefectures = $request->prefectures;
+        $shippingAddress->city = $request->city;
+        $shippingAddress->street = $request->street;
+        $shippingAddress->building_name = $request->building_name;
+        $shippingAddress->phone_number = $request->phone_number;
+
+        $shippingAddress->save();
+
+        return redirect()->route('shippingAddress');
     }
 
     // 出品者メニュー
