@@ -11,7 +11,7 @@
     </div>
     <div class="col-sm-9 col-xs-12">
 
-     @include('conponents.myPage.shippingAddressCreate')
+     @include('conponents.myPage.shippingAddressUpdate')
     </div>
   </div>
 

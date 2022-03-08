@@ -10,8 +10,11 @@
      @include('conponents.myPage.purchaserMenu')
     </div>
     <div class="col-sm-9 col-xs-12">
-
-     @include('conponents.myPage.shippingAddressCreate')
+     @include('conponents.myPage.shippingAddressList',
+     [
+      'user' => $user,
+      'shippingAddressLists' => $shippingAddressLists
+     ])
     </div>
   </div>
 

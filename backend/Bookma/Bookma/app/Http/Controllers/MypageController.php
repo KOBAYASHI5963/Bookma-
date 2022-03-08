@@ -28,6 +28,7 @@ use BenSampo\Enum\Rules\Enum;
 
 // Enum
 use App\Enums\IsCreateUpdateBookForm;
+use App\Enums\IsCreateUpdateShippingAddressForm;
 // Object
 use App\Object\BookImageObj;
 
@@ -92,10 +93,17 @@ class MypageController extends Controller
     {
         return view('pages.myPage.messagesList');
     }
+    public function shippingAddressList()
+    {
+        $user = Auth::user();
+        $shippingAddressLists = shippingAddress::select('*')->where('user_id', $user->id)->paginate(5);
+     
+        return view('pages.myPage.shippingAddressList',compact('user','shippingAddressLists'));
+    }
     public function shippingAddress()
     {
         $user = Auth::user();
-        $shippingAddress = shippingAddress::where('user_id', $user->id)->first();
+        $shippingAddress = shippingAddress::select('*')->where('user_id', $user->id)->paginate(5);
         
         return view('pages.myPage.shippingAddress',compact('user','shippingAddress'));
     }
@@ -114,7 +122,7 @@ class MypageController extends Controller
 
         $shippingAddress->save();
 
-        return redirect()->route('shippingAddress');
+        return redirect()->route('shippingAddressList');
     }
     public function shippingAddressCreate(ShippingAddressRequest $request)
     {
@@ -131,7 +139,23 @@ class MypageController extends Controller
 
         $shippingAddress->save();
 
-        return redirect()->route('shippingAddress');
+        return redirect()->route('shippingAddressList');
+    }
+
+    public function shippingAddressEdit($id)
+    {
+
+        $shippingAddress = shippingAddress::find($id);
+
+        return view('pages.myPage.shippingAddressEdit',compact('shippingAddress'));
+    }
+    public function shippingAddressDestroy($id)
+    {
+
+        $shippingAddress = shippingAddress::find($id);
+        $shippingAddress->delete();
+
+        return redirect()->route('shippingAddressList');
     }
 
     // 出品者メニュー

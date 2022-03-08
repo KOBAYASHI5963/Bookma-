@@ -49,9 +49,9 @@ class User extends Authenticatable
     return $this->hasOne('App\UserProfile');
   }
 
-    Public function shippingAddress()
+    Public function shippingAddresses()
   {
-    return $this->hasOne('App\ShippingAddress');
+    return $this->hasMany('App\ShippingAddress');
   }
   
 }
