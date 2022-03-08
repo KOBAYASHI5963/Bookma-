@@ -11,7 +11,7 @@
    {{ csrf_field() }}
         
        <div class="mb-3">
-          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
           <label for="exampleInputEmail1" class="form-label">銀行名</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->bank_name}}" name="bank_name">
         <div id="emailHelp" class="form-text"><small class="text-muted">例：みずほ</small></div>
@@ -23,7 +23,7 @@
         @endif
         
         <div class="mb-3">
-          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
           <label for="exampleInputEmail1" class="form-label">銀行コード(4桁)</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->bank_code}}" name="bank_code">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：1234</small></div>
@@ -35,7 +35,7 @@
         @endif
         
         <div class="mb-3">
-          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
           <label for="exampleInputEmail1" class="form-label">支店名</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->branch_name}}" name="branch_name">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：新宿</small></div>
@@ -47,7 +47,7 @@
         @endif
 
         <div class="mb-3">
-          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
           <label for="exampleInputEmail1" class="form-label">支店コード(3桁)</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->branch_code}}" name="branch_code">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：123</small></div>
@@ -60,7 +60,7 @@
        
         <div class="mb-3">
           <div>
-            <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+            <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
             <label for="exampleInputEmail1" class="form-label">預金種別</label>
           </div>
             <div class="form-check form-check-inline">
@@ -79,7 +79,7 @@
         @endif
 
         <div class="mb-3">
-          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
           <label for="exampleInputEmail1" class="form-label">口座番号(7桁)</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->account_number}}" name="account_number">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：1234567</small></div>
@@ -91,7 +91,7 @@
         @endif
         
         <div class="mb-3">
-          <button type="button" class="btn btn-danger btn-sm" style="pointer-events: none">必須</button>
+          <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
           <label for="exampleInputEmail1" class="form-label">口座名義（全角カタカナ）</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$transferAccountSetting->account_name}}" name="account_name">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：ブックマ</small></div>
