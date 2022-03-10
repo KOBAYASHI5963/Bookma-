@@ -104,8 +104,9 @@ class MypageController extends Controller
     {
         $user = Auth::user();
         $shippingAddress = shippingAddress::select('*')->where('user_id', $user->id)->paginate(5);
+        $prefectures = ShippingArea::all();
         
-        return view('pages.myPage.shippingAddress',compact('user','shippingAddress'));
+        return view('pages.myPage.shippingAddress',compact('user','shippingAddress','prefectures'));
     }
     public function shippingAddressUpdate(ShippingAddressRequest $request)
     {
@@ -146,8 +147,9 @@ class MypageController extends Controller
     {
 
         $shippingAddress = shippingAddress::find($id);
+        $prefectures = ShippingArea::all();
 
-        return view('pages.myPage.shippingAddressEdit',compact('shippingAddress'));
+        return view('pages.myPage.shippingAddressEdit',compact('shippingAddress','prefectures'));
     }
     public function shippingAddressDestroy($id)
     {

@@ -19,7 +19,7 @@ class CreateShippingAddressesTable extends Migration
             $table->foreignId('user_id')->constrained()->comment('外部キー');
             $table->string('name', 50)->comment('氏名');
             $table->integer('post_code')->comment('郵便番号');
-            $table->string('prefectures')->comment('都道府県 ex.東京都');
+            $table->foreignId('prefectures')->constrained()->comment('都道府県 ex.東京都');
             $table->string('city')->comment('市区町村 ex.港区');
             $table->string('street')->comment('番地 ex.青山1-2-3');
             $table->string('building_name')->nullable($value = true)->comment('建物名(任意) ex.レブロンハイツ325');

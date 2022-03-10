@@ -17,4 +17,10 @@ class ShippingAddress extends Model
   {
     return $this->belongsTo('App\User');
   }
+
+  Public function shippingArea()
+  {
+    return $this->belongsTo('App\ShippingArea','shipping_area','id');
+  }
+  
 }

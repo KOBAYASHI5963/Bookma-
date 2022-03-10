@@ -37,8 +37,18 @@
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
           <label for="exampleInputEmail1" class="form-label">都道府県</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $shippingAddress->prefectures }}" name="prefectures">
-          <div id="emailHelp" class="form-text"><small class="text-muted">例：東京都</small></div>
+          <div>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" name="prefectures">
+            <option value="">選択してください</option>
+            @foreach ($prefectures as $prefecture)
+              @if($prefecture->prefectures === $prefecture->id)
+                  <option value="{{ $prefecture->id }}" selected>{{$prefectures->prefectures}}</option>
+              @else
+                  <option value="{{ $prefecture->id }}" @if(old('prefectures')=="$prefecture->id") selected @endif>{{$prefecture->area}}</option>
+              @endif
+            @endforeach
+            </select>
+          </div>
         </div>
         @if($errors->has('prefectures'))
         <div class="alert alert-success" role="alert">
