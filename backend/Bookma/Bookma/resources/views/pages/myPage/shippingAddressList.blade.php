@@ -13,7 +13,8 @@
      @include('conponents.myPage.shippingAddressList',
      [
       'user' => $user,
-      'shippingAddressLists' => $shippingAddressLists
+      'shippingAddressLists' => $shippingAddressLists,
+      'prefectures' => $prefectures
      ])
     </div>
   </div>

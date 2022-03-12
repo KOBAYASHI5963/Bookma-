@@ -9,7 +9,7 @@ class ShippingAddress extends Model
     protected $table = 'shipping_addresses';
 
     protected $fillable = [
-        'user_id', 'name', 'post_code', 'prefectures', 'city', 'street', 'building_name', 'phone_number' 
+        'user_id', 'name', 'post_code', 'prefecture', 'city', 'street', 'building_name', 'phone_number' 
     ];
 
     // リレーション
@@ -20,7 +20,7 @@ class ShippingAddress extends Model
 
   Public function shippingArea()
   {
-    return $this->belongsTo('App\ShippingArea','shipping_area','id');
+    return $this->belongsTo('App\ShippingArea','prefecture','id');
   }
-  
+
 }

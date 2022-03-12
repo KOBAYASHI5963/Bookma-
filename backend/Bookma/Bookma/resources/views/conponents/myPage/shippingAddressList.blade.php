@@ -16,7 +16,7 @@
       <div class="card-body">
       <div style=”line-height:1em;”>{{ $shippingAddressList->name }}</div>
       <div style=”line-height:1em;”>{{ $shippingAddressList->post_code }}</div>
-      <div style=”line-height:1em;”>{{ $shippingAddressList->prefectures }}{{ $shippingAddressList->city }}</div>
+      <div style=”line-height:1em;”>{{ $shippingAddressList->shippingArea->area}}{{ $shippingAddressList->city }}</div>
       <div style=”line-height:1em;”>{{ $shippingAddressList->street }}</div>
       <div style=”line-height:1em;”>{{ $shippingAddressList->building_name }}</div>
       <div style=”line-height:1em;”>{{ $shippingAddressList->phone_number }}</div>

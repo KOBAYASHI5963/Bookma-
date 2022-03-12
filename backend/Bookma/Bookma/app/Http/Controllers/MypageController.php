@@ -97,8 +97,9 @@ class MypageController extends Controller
     {
         $user = Auth::user();
         $shippingAddressLists = shippingAddress::select('*')->where('user_id', $user->id)->paginate(5);
+        $prefectures = ShippingArea::all();
      
-        return view('pages.myPage.shippingAddressList',compact('user','shippingAddressLists'));
+        return view('pages.myPage.shippingAddressList',compact('user','shippingAddressLists','prefectures'));
     }
     public function shippingAddress()
     {
@@ -108,14 +109,14 @@ class MypageController extends Controller
         
         return view('pages.myPage.shippingAddress',compact('user','shippingAddress','prefectures'));
     }
-    public function shippingAddressUpdate(ShippingAddressRequest $request)
+    public function shippingAddressUpdate(ShippingAddressRequest $request, $id)
     {
-        $shippingAddress = shippingAddress::where('user_id', Auth::id())->first();
+        $shippingAddress = shippingAddress::find($id);
 
         $shippingAddress->user_id = Auth::id();
         $shippingAddress->name = $request->name;
         $shippingAddress->post_code = $request->post_code;
-        $shippingAddress->prefectures = $request->prefectures;
+        $shippingAddress->prefecture = $request->prefecture;
         $shippingAddress->city = $request->city;
         $shippingAddress->street = $request->street;
         $shippingAddress->building_name = $request->building_name;
@@ -132,7 +133,7 @@ class MypageController extends Controller
         $shippingAddress->user_id = Auth::id();
         $shippingAddress->name = $request->name;
         $shippingAddress->post_code = $request->post_code;
-        $shippingAddress->prefectures = $request->prefectures;
+        $shippingAddress->prefecture = $request->prefecture;
         $shippingAddress->city = $request->city;
         $shippingAddress->street = $request->street;
         $shippingAddress->building_name = $request->building_name;

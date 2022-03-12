@@ -38,21 +38,21 @@
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
           <label for="exampleInputEmail1" class="form-label">都道府県</label>
           <div>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" name="prefectures">
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" name="prefecture">
             <option value="">選択してください</option>
             @foreach ($prefectures as $prefecture)
-              @if($prefecture->prefectures === $prefecture->id)
-                  <option value="{{ $prefecture->id }}" selected>{{$prefectures->prefectures}}</option>
+              @if($shippingAddress->prefecture === $prefecture->id)
+                  <option value="{{ $prefecture->id }}" selected>{{$prefecture->area}}</option>
               @else
-                  <option value="{{ $prefecture->id }}" @if(old('prefectures')=="$prefecture->id") selected @endif>{{$prefecture->area}}</option>
+                  <option value="{{ $prefecture->id }}" @if(old('prefecture')=="$prefecture->id") selected @endif>{{$prefecture->area}}</option>
               @endif
             @endforeach
             </select>
           </div>
         </div>
-        @if($errors->has('prefectures'))
+        @if($errors->has('prefecture'))
         <div class="alert alert-success" role="alert">
-            {{ $errors->first('prefectures') }}
+            {{ $errors->first('prefecture') }}
         </div>
         @endif
 
