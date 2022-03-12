@@ -15,5 +15,6 @@
       <a href="{{ route('favorites') }}"><li class="list-group-item">お気に入り一覧</li></a>
       <a href="{{ route('followList') }}"><li class="list-group-item">フォローリスト</li></a>
       <a href="{{ route('messagesList') }}"><li class="list-group-item">メッセージ</li></a>
+      <a href="{{ route('shippingAddressList') }}"><li class="list-group-item">お届け先住所設定</li></a>
     </ul>
 </div>

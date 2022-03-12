@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
+use App\ShippingAddress;
 use App\BookImage;
 use App\Category;
 use App\ProductCondition;
@@ -22,10 +23,12 @@ use App\User;
 use App\Http\Requests\EditUserProfileRequest;
 use App\Http\Requests\TransferAccountSettingRequest;
 use App\Http\Requests\SellerSalesBooksRequest;
+use App\Http\Requests\ShippingAddressRequest;
 use BenSampo\Enum\Rules\Enum;
 
 // Enum
 use App\Enums\IsCreateUpdateBookForm;
+use App\Enums\IsCreateUpdateShippingAddressForm;
 // Object
 use App\Object\BookImageObj;
 
@@ -89,6 +92,73 @@ class MypageController extends Controller
     public function messages()
     {
         return view('pages.myPage.messagesList');
+    }
+    public function shippingAddressList()
+    {
+        $user = Auth::user();
+        $shippingAddressLists = shippingAddress::select('*')->where('user_id', $user->id)->paginate(5);
+        $prefectures = ShippingArea::all();
+     
+        return view('pages.myPage.shippingAddressList',compact('user','shippingAddressLists','prefectures'));
+    }
+    public function shippingAddress()
+    {
+        $user = Auth::user();
+        $shippingAddress = shippingAddress::select('*')->where('user_id', $user->id)->paginate(5);
+        $prefectures = ShippingArea::all();
+        
+        return view('pages.myPage.shippingAddress',compact('user','shippingAddress','prefectures'));
+    }
+    public function shippingAddressUpdate(ShippingAddressRequest $request, $id)
+    {
+        $shippingAddress = shippingAddress::find($id);
+
+        $shippingAddress->user_id = Auth::id();
+        $shippingAddress->name = $request->name;
+        $shippingAddress->post_code = $request->post_code;
+        $shippingAddress->prefecture = $request->prefecture;
+        $shippingAddress->city = $request->city;
+        $shippingAddress->street = $request->street;
+        $shippingAddress->building_name = $request->building_name;
+        $shippingAddress->phone_number = $request->phone_number;
+
+        $shippingAddress->save();
+
+        return redirect()->route('shippingAddressList');
+    }
+    public function shippingAddressCreate(ShippingAddressRequest $request)
+    {
+        $shippingAddress = new shippingAddress;
+
+        $shippingAddress->user_id = Auth::id();
+        $shippingAddress->name = $request->name;
+        $shippingAddress->post_code = $request->post_code;
+        $shippingAddress->prefecture = $request->prefecture;
+        $shippingAddress->city = $request->city;
+        $shippingAddress->street = $request->street;
+        $shippingAddress->building_name = $request->building_name;
+        $shippingAddress->phone_number = $request->phone_number;
+
+        $shippingAddress->save();
+
+        return redirect()->route('shippingAddressList');
+    }
+
+    public function shippingAddressEdit($id)
+    {
+
+        $shippingAddress = shippingAddress::find($id);
+        $prefectures = ShippingArea::all();
+
+        return view('pages.myPage.shippingAddressEdit',compact('shippingAddress','prefectures'));
+    }
+    public function shippingAddressDestroy($id)
+    {
+
+        $shippingAddress = shippingAddress::find($id);
+        $shippingAddress->delete();
+
+        return redirect()->route('shippingAddressList');
     }
 
     // 出品者メニュー

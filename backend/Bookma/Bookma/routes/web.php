@@ -51,6 +51,22 @@ Route::group(['middleware' => ['auth']], function () {
     //メッセージ
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
 
+    //お届け先の住所一覧
+    Route::get('/myPage/shippingAddressList', 'MypageController@shippingAddressList')->name('shippingAddressList');
+
+    //お届け先の住所フォームページ
+    Route::get('/myPage/shippingAddress', 'MypageController@shippingAddress')->name('shippingAddress');
+    //お届け先の住所設定(新規作成)
+    Route::post('/myPage/shippingAddress', 'MypageController@shippingAddressCreate')->name('shippingAddressCreate');
+    //お届け先の住所設定(編集するページ)
+    Route::get('/myPage/shippingAddress/{id}/edit', 'MypageController@shippingAddressEdit')->name('shippingAddressEdit');
+    //お届け先の住所設定(編集更新)
+    Route::post('/myPage/shippingAddress/{id}/update', 'MypageController@shippingAddressUpdate')->name('shippingAddressUpdate');
+    //お届け先の住所設定(削除)
+    Route::delete('/myPage/shippingAddress/{id}/destroy', 'MypageController@shippingAddressDestroy')->name('shippingAddressDestroy');
+
+    
+
     // 出品者メニュー
     //出品本
     Route::get('/myPage/seller/books', 'MypageController@sellerbooks')->name('sellerbooks');

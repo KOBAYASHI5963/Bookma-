@@ -159,7 +159,7 @@
         @if($book->product_condition === $productCondition->id)
             <option value="{{ $productCondition->id }}" selected>{{ $productCondition->condition }}</option>
         @else
-            <option value="{{$productCondition->id}}" @if(('product_condition')=="$productCondition->id") selected @endif>{{$productCondition->condition}}</option>
+            <option value="{{$productCondition->id}}" @if(old('product_condition')=="$productCondition->id") selected @endif>{{$productCondition->condition}}</option>
         @endif
       @endforeach
       </select>
@@ -228,7 +228,7 @@
         @if($book->shipping_method_id === $sippingMethod->id)
             <option value="{{ $sippingMethod->id }}" selected>{{$sippingMethod->means}}</option>
         @else
-            <option value="{{ $sippingMethod->id }}" @if(('shipping_method_id')=="$sippingMethod->id") selected @endif>{{$sippingMethod->means}}</option>
+            <option value="{{ $sippingMethod->id }}" @if(old('shipping_method_id')=="$sippingMethod->id") selected @endif>{{$sippingMethod->means}}</option>
         @endif
       @endforeach
       </select>
@@ -249,10 +249,9 @@
         @if($book->shipping_area === $shippingArea->id)
             <option value="{{ $shippingArea->id }}" selected>{{$shippingArea->area}}</option>
         @else
-            <option value="{{ $shippingArea->id }}" @if(('shipping_area')=="$shippingArea->id") selected @endif>{{$shippingArea->area}}</option>
+            <option value="{{ $shippingArea->id }}" @if(old('shipping_area')=="$shippingArea->id") selected @endif>{{$shippingArea->area}}</option>
         @endif
       @endforeach
-      
       </select>
     </div>
     @if($errors->has('shipping_area'))

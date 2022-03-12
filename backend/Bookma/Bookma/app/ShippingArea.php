@@ -18,4 +18,9 @@ class ShippingArea extends Model
     return $this->hasMany('App\Book');
     }
 
+    Public function shippingAddresses()
+    {
+    return $this->hasMany('App\ShippingAddress');
+    }
+
 }
