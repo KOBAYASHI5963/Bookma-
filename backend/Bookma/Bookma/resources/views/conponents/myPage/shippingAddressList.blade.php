@@ -14,12 +14,12 @@
   <div class="row g-0">
     <div class="col-md-8">
       <div class="card-body">
-      <div style=”line-height:1em;”>{{ $shippingAddressList->name }}</div>
-      <div style=”line-height:1em;”>{{ $shippingAddressList->post_code }}</div>
-      <div style=”line-height:1em;”>{{ $shippingAddressList->shippingArea->area}}{{ $shippingAddressList->city }}</div>
-      <div style=”line-height:1em;”>{{ $shippingAddressList->street }}</div>
-      <div style=”line-height:1em;”>{{ $shippingAddressList->building_name }}</div>
-      <div style=”line-height:1em;”>{{ $shippingAddressList->phone_number }}</div>
+      <div style=”line-height:1em;”><span style="font-weight: bold;">氏名：</span>{{ $shippingAddressList->name }}</div>
+      <div style=”line-height:1em;”><span style="font-weight: bold;">郵便番号：</span>{{ $shippingAddressList->post_code }}</div>
+      <div style=”line-height:1em;”><span style="font-weight: bold;">都道府県市区町村：</span>{{ $shippingAddressList->shippingArea->area}}{{ $shippingAddressList->city }}</div>
+      <div style=”line-height:1em;”><span style="font-weight: bold;">番地：</span>{{ $shippingAddressList->street }}</div>
+      <div style=”line-height:1em;”><span style="font-weight: bold;">建物目：</span>{{ $shippingAddressList->building_name }}</div>
+      <div style=”line-height:1em;”><span style="font-weight: bold;">電話番号：</span>{{ $shippingAddressList->phone_number }}</div>
 
       <div class="d-flex justify-content-start mt-1">
         <a class="btn btn-success btn mr-2" href="{{ route('shippingAddressEdit', ['id' => $shippingAddressList->id]) }}" >編集</a>
