@@ -13,7 +13,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"><a href="{{ route('book.show', ['id' => $book->id]) }}" >{{ $book->title }}</a></h5>
-        <p class="card-text">{{ $book->price }}</p>
+        <p class="card-text">{{ $book->price }}円</p>
         <div>
         <p class="card-text"><small class="text-muted">出品日時：{{ $book->created_at }}</small></p>
         <div class="d-flex justify-content-start">

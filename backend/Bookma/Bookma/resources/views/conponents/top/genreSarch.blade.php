@@ -8,7 +8,7 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">小説・文学</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('searchFunction') }}">小説・文学</a></li>
     <li class="breadcrumb-item"><a href="#">経済・ビジネス</a></li>
     <li class="breadcrumb-item"><a href="#">漫画・コミック</a></li>
     <li class="breadcrumb-item"><a href="#">ライトノベル</a></li>
