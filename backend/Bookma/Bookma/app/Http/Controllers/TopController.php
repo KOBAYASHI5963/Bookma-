@@ -52,13 +52,36 @@ class TopController extends Controller
         $_keyword = preg_replace('/\s(?=\s)/', '', $_keyword); //連続する半角スペースは削除
         $_keyword = trim($_keyword); //文字列の先頭と末尾にあるホワイトスペースを削除
 
+        // トップページのキーワード検索
+        if($request->keyword)
+        {
+            $books = Book::where('title', 'like', "%$_keyword%")
+                          ->orWhere('content', 'like', "%$_keyword%")
+                          ->paginate(5);
+            $message =$request->keyword;
+        }
+        // トップページのジャンル検索
+        if($request->category_id)
+        {
+            $books = Book::select('*')
+                ->where(function($query) use($categoryID){
+                    $query->where('category_id', $categoryID);
+                })
+                ->paginate(5);
+
+                $searchResultWord = [];
+                array_push($searchResultWord, $category->name);
+                    $message = implode(' ｜ ', $searchResultWord);
+        }
+
+        //以下から詳細ページ
         // A のみ⇨もし「キーワード」のみ入力されていたら(キーワードのみ)
         if($request->keyword && (!$request->category_id && !$request->product_condition) && !$request->price)
         {
             $books = Book::where('title', 'like', "%$_keyword%")
                           ->orWhere('content', 'like', "%$_keyword%")
                           ->paginate(5);
-                          $message ="$request->keyword";
+            $message =$request->keyword;
         }
         
         // A and B ⇨もし「キーワード」かつ「プルダウン」が入力されていたら(キーワード、カテゴリー、コンディション)
@@ -75,16 +98,18 @@ class TopController extends Controller
                 })
                 ->paginate(5);
 
+                $searchResultWord = [];
+
                 if($request->keyword && ($request->category_id && !$request->product_condition) && !$request->price){
-                    $searchResultWord_1 = [$request->keyword,$category->name];
-                    $message = implode(' ｜ ', $searchResultWord_1);
+                    array_push($searchResultWord, $request->keyword, $category->name);
+                    $message = implode(' ｜ ', $searchResultWord);
                 }else if($request->keyword && (!$request->category_id && $request->product_condition) && !$request->price){
-                    $searchResultWord_2 = [$request->keyword,$productCondition->condition];
-                    $message = implode(' ｜ ', $searchResultWord_2);
+                    array_push($searchResultWord, $request->keyword, $productCondition->condition);
+                    $message = implode(' ｜ ', $searchResultWord);
                 }else{
-                    $searchResultWord_3 = [$request->keyword,$category->name,$productCondition->condition];
-                    $message = implode(' ｜ ', $searchResultWord_3);
-                    }
+                    array_push($searchResultWord, $request->keyword, $category->name, $productCondition->condition);
+                    $message = implode(' ｜ ', $searchResultWord);
+                }
         }
 
         // A and B and C ⇨もし「キーワード」かつ「プルダウン」が入力されていたら(キーワード、カテゴリー、コンディション、プライス)
@@ -136,15 +161,18 @@ class TopController extends Controller
             });
         })
         ->paginate(5);
+
+        $searchResultWord = [];
+
         if($request->keyword && ($request->category_id && !$request->product_condition) && $request->price){
-            $searchResultWord_1 = [$request->keyword,$category->name];
-            $message = implode(' ｜ ', $searchResultWord_1);
-        }else if($request->keyword && (!$request->category_id && $request->product_condition) && $request->price){
-            $searchResultWord_2 = [$request->keyword,$productCondition->condition];
-            $message = implode(' ｜ ', $searchResultWord_2);
-        }else{
-            $searchResultWord_3 = [$request->keyword,$category->name,$productCondition->condition];
-            $message = implode(' ｜ ', $searchResultWord_3);
+             array_push($searchResultWord, $request->keyword, $category->name);
+            $message = implode(' ｜ ', $searchResultWord);
+            }else if($request->keyword && (!$request->category_id && $request->product_condition) && $request->price){
+            array_push($searchResultWord, $request->keyword, $productCondition->condition);
+            $message = implode(' ｜ ', $searchResultWord);
+            }else{
+            array_push($searchResultWord, $request->keyword, $category->name, $productCondition->condition);
+            $message = implode(' ｜ ', $searchResultWord);
             }
         }
 
@@ -206,16 +234,18 @@ class TopController extends Controller
             })
             ->paginate(5);
 
+            $searchResultWord = [];
+
             if(!$request->keyword && ($request->category_id && !$request->product_condition) && !$request->price){
-                $searchResultWord_4 = [$category->name];
-                $message = implode(' ｜ ', $searchResultWord_4);
-            }else if(!$request->keyword && (!$request->category_id && $request->product_condition) && !$request->price){
-                $searchResultWord_5 = [$productCondition->condition];
-                $message = implode(' ｜ ', $searchResultWord_5);
-            }else{
-                $searchResultWord_6 = [$category->name,$productCondition->condition];
-                $message = implode(' ｜ ', $searchResultWord_6);
-            }
+                array_push($searchResultWord, $category->name);
+               $message = implode(' ｜ ', $searchResultWord);
+              }else if(!$request->keyword && (!$request->category_id && $request->product_condition) && !$request->price){
+               array_push($searchResultWord, $productCondition->condition);
+               $message = implode(' ｜ ', $searchResultWord);
+               }else{
+               array_push($searchResultWord, $category->name, $productCondition->condition);
+               $message = implode(' ｜ ', $searchResultWord);
+               }
         }
 
         // B and C ⇨もし「プルダウン」が入力されていたら(カテゴリー、コンディション、プライス)
@@ -263,17 +293,19 @@ class TopController extends Controller
             });
         })
         ->paginate(5);
-        
+
+        $searchResultWord = [];
+
         if(!$request->keyword && ($request->category_id && !$request->product_condition) && $request->price){
-            $searchResultWord_4 = [$category->name];
-            $message = implode(' ｜ ', $searchResultWord_4);
-        }else if(!$request->keyword && (!$request->category_id && $request->product_condition) && $request->price){
-            $searchResultWord_5 = [$productCondition->condition];
-            $message = implode(' ｜ ', $searchResultWord_5);
-        }else{
-            $searchResultWord_6 = [$category->name,$productCondition->condition];
-            $message = implode(' ｜ ', $searchResultWord_6);
-        }
+            array_push($searchResultWord, $category->name);
+           $message = implode(' ｜ ', $searchResultWord);
+           }else if(!$request->keyword && (!$request->category_id && $request->product_condition) && $request->price){
+           array_push($searchResultWord, $productCondition->condition);
+           $message = implode(' ｜ ', $searchResultWord);
+           }else{
+           array_push($searchResultWord, $category->name, $productCondition->condition);
+           $message = implode(' ｜ ', $searchResultWord);
+           }
         }
 
         // プライスのみ
