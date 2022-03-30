@@ -27,8 +27,9 @@ class TopController extends Controller
     {
         $newBooks = Book::orderBy('id', 'DESC')->take(4)->get();
         $books = Book::orderBy('id', 'ASC')->take(4)->get();
+        $categories = Category::all();
 
-        return view('pages.top',compact('newBooks','books'));
+        return view('pages.top',compact('newBooks','books','categories'));
     }
 
     public function searchFunction(Request $request)
