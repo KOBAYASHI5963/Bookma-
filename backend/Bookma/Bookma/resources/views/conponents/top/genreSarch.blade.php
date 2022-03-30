@@ -7,7 +7,7 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       @foreach ($categories as $category)
-        <li class="breadcrumb-item"><a href="{{ route('searchFunction',['category_id'=>'id']) }}">{{$category->name}}</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('searchFunction',['category_id'=> $category->id]) }}">{{$category->name}}</a></li>
       @endforeach
     </ol>
   </nav>
