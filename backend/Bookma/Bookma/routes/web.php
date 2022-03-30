@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'TopController@index')->name('top');
+Route::get('searchFunction', 'TopController@searchFunction')->name('searchFunction');
 
 // Auth::routes();
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');

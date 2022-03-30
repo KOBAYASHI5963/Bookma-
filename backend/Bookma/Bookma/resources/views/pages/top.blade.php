@@ -13,6 +13,9 @@
   'books' => $books
 ])
 @include('conponents.top.bookLife')
-@include('conponents.top.genreSarch')
+@include('conponents.top.genreSarch',
+[
+  'categories' => $categories
+])
 
 @endsection
