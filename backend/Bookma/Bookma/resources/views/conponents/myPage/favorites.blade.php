@@ -6,34 +6,29 @@
       <a href="#"><i class="fas fa-pencil-alt"></i>編集する</a>
     </div>
 
-  <div class="card mb-3 mt-3">
-<a class="page-link" href="{{ route('book.show', ['id' => 1]) }}">
+@if($favoriteBooks->count())
+@foreach($favoriteBooks as $favoriteBook)
+<div class="card">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="" alt="...">
+      <img src="{{ $favoriteBook->BookImages[0]->book_images_url }}" class="my-3" style="height:190px; width:290px;">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">ワールドトリガー20巻</h5>
-        <p class="card-text">¥440</p>
+        <div>
+          <h5 class="card-title"><a href="{{ route('book.show', ['id' => $favoriteBook->id]) }}" >{{ $favoriteBook->title }}</a></h5>
+        </div>
+        <div>
+          <p class="card-text">{{ $favoriteBook->price }}円</p>
+        </div>
       </div>
     </div>
-  </div></a>
+  </div>
 </div>
-
-
-<nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <span class="page-link"><</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active" aria-current="page">
-      <span class="page-link">2</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">></a>
-    </li>
-  </ul>
-</nav>
+@endforeach
+{{ $favoriteBooks->links() }}
+@else
+  <div class="mt-5">
+    <h5>※現在お気に入りされている本はありません。</h5>
+  </div>
+@endif
