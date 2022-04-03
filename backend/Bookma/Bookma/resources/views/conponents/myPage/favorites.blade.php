@@ -2,10 +2,6 @@
   <h3>お気に入り一覧</h3>
 </div>
 
-    <div class="text-right">
-      <a href="#"><i class="fas fa-pencil-alt"></i>編集する</a>
-    </div>
-
 @if($favoriteBooks->count())
 @foreach($favoriteBooks as $favoriteBook)
 <div class="card">
@@ -21,6 +17,13 @@
         <div>
           <p class="card-text">{{ $favoriteBook->price }}円</p>
         </div>
+        <div class="mt-3">
+          <form method="post" action="{{ route('favorites.unfavorite', $favoriteBook->id) }}">
+          @csrf
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger"><i class="far fa-star text-white mr-2"><i class="fa-duotone fa-star"></i></i>お気に入り解除</button>
+          </form>
+      </div>
       </div>
     </div>
   </div>

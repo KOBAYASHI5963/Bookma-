@@ -11,12 +11,12 @@ class FavoriteController extends Controller
     public function store(Book $book)
     {
         $book->favoriteUsers()->attach(Auth::id());
-        return redirect()->route('book.show', ['id' => $book->id]);
+        return back();
     }
 
     public function destroy(Book $book)
     {
         $book->favoriteUsers()->detach(Auth::id());
-        return redirect()->route('book.show', ['id' => $book->id]);
+        return back();
     }
 }
