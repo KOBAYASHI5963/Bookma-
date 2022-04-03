@@ -72,7 +72,6 @@ class MypageController extends Controller
         return redirect()->route('profileEdit');
     }
 
-
     public function purchaseHistoryTransaction()
     {
         return view('pages.myPage.purchaseHistoryTransaction');
@@ -81,10 +80,19 @@ class MypageController extends Controller
     {
         return view('pages.myPage.purchaseHistoryPastTransaction');
     }
+
     public function favorites()
     {
-        return view('pages.myPage.favorite');
+
+        $favoriteBooks = Book::select('*')
+                ->whereHas('favoriteUsers',function($query) {
+                    $query->whereIn('favorites.user_id', [Auth::id()]);
+                })
+                ->paginate(5);
+
+        return view('pages.myPage.favorite',compact('favoriteBooks'));
     }
+
     public function follow()
     {
         return view('pages.myPage.followList');

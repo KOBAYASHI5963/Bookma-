@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     //お気に入り一覧
     Route::get('/myPage/favorites', 'MypageController@favorites')->name('favorites');
+    Route::post('/book/{book}/favorite', 'FavoriteController@store')->name('favorites.favorite');
+    Route::delete('/book/{book}/unfavorite', 'FavoriteController@destroy')->name('favorites.unfavorite');
 
     //フォローリスト
     Route::get('/myPage/followList', 'MypageController@follow')->name('followList');

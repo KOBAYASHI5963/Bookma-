@@ -53,5 +53,15 @@ class User extends Authenticatable
   {
     return $this->hasMany('App\ShippingAddress');
   }
-  
+
+    Public function books()
+  {
+    return $this->hasMany('App\Book');
+  }
+   
+    Public function favoritesBooks()
+  {
+    return $this->belongsToMany('App\Book', 'favorites', 'user_id', 'book_id');
+  }
+
 }
