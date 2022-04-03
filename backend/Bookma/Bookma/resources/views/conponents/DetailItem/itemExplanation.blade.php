@@ -5,6 +5,27 @@
 <div class="mt-3">
   <h4>¥{{ $book->price }} (税込)</4>
 </div>
+<div class="mt-3">
+@auth
+  @if(Auth::id() !== $book->user_id)
+    @if ($book->favoriteUsers()->where('user_id', Auth::id())->exists())
+      <form method="post" action="{{ route('favorites.unfavorite', $book->id) }}">
+        @csrf
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-danger"><i class="far fa-star text-white mr-2"><i class="fa-duotone fa-star"></i></i>お気に入り解除</button>
+      </form>
+    @else
+      <form method="post" action="{{ route('favorites.favorite', $book->id) }}">
+        @csrf
+        <button type="submit" class="btn btn-success"><i class="far fa-star text-white mr-2"></i>お気に入り</button>
+      </form>
+    @endif
+  </div>
+  <div>
+    <p> お気に入り数:{{ $book->favoriteUsers()->count() }}</p>
+  </div>
+  @endif
+@endauth
 
 @auth
 @if(Auth::id() === $book->user_id)

@@ -13,7 +13,7 @@ class Book extends Model
     ];
 
     // リレーション
-    Public function user()
+  Public function user()
   {
     return $this->belongsTo('App\User');
   }
@@ -41,6 +41,11 @@ class Book extends Model
   Public function BookImages()
   {
     return $this->hasMany('App\BookImage');
+  }
+
+  Public function favoriteUsers()
+  {
+  return $this->belongsToMany('App\User', 'favorites', 'book_id', 'user_id');
   }
 
 }
