@@ -3,7 +3,7 @@
 </div>
 
 <div class="mt-3">
-  <h4>¥{{ $book->price }} (税込)</4>
+  <h4>¥{{ $book->price }} (税込)</h4>
 </div>
 <div class="mt-3">
 @auth
@@ -22,7 +22,7 @@
     @endif
   </div>
   <div>
-    <p> お気に入り数:{{ $book->favoriteUsers()->count() }}</p>
+    <p> お気に入り数 {{ $book->favoriteUsers()->count() }}</p>
   </div>
   @endif
 @endauth
@@ -37,7 +37,7 @@
 @endauth
 
 <div class="mt-5">
-      <h4>商品の説明</h>
+      <h4>商品の説明</h4>
 </div>
 
 <div>
@@ -45,7 +45,7 @@
 </div>
 
 <div class="mt-5">
-  <h4>商品の情報</h>
+  <h4>商品の情報</h4>
 </div>
 
 <div class="row">
@@ -74,26 +74,46 @@
   </div>
 <div>
 
-<div class="mt-4">
-  <h4>出品者</h>
-</div>
+  <div class="mt-4">
+    <h4>出品者</h>
+  </div>
 
-<div class="mb-3" >
-  <div class="row g-0">
-    <div class="col-md-8">
-      @if(is_null( $book->User->UserProfile->profile_image ))
-      <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle" style="width: 250px;">
-      @else
-      <img src="{{ $book->User->UserProfile->profile_image }}" class="rounded-circle" style="width: 250px;">
-      @endif
-    </div>
-    <div class="col-md-4">
-      <div class="card-body">
-        <h5 class="card-title">{{ $book->User->name }}</h5>
+<a href="{{ route('user.show', ['id' => $book->User->id]) }}">
+  <div class="card">
+    <div class="mb-3" >
+      <div class="row g-0">
+        <div class="col-md-8">
+          @if(is_null( $book->User->UserProfile->profile_image ))
+          <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle" style="width: 250px;">
+          @else
+          <img src="{{ $book->User->UserProfile->profile_image }}" class="rounded-circle" style="width: 250px;">
+          @endif
+        </div>
+        <div class="col-md-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ $book->User->name }}</h5>
+          </div>
+          @auth
+          @if (Auth::id() != $book->User->id)
+            @if (Auth::user()->is_following($book->User->id))
+                <form class="mb-4" method="post" action="{{ route('user.unfollow', $book->User->id) }}">
+                  @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger">フォロー中</button>
+                </form>
+            @else
+                <form class="mb-4" method="post" action="{{ route('user.follow', $book->User->id) }}">
+                  @csrf
+                    <button type="submit" class=" btn btn-primary">フォロー</button>
+                </form>
+            @endif
+          @endif
+          @endauth
+        </div>
       </div>
     </div>
   </div>
-</div>
+</a>
   
 <div class="mt-4">
   <h4>コメント</h>
