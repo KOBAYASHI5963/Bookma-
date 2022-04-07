@@ -1,5 +1,5 @@
 <div class="mb-3">
-  <h3>ログインユーザーの出品本一覧</h3>
+  <h3>{{ $user->name }}の出品本一覧</h3>
 </div>
 
 @if($books->count())

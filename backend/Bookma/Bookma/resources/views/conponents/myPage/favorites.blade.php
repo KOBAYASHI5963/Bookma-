@@ -7,7 +7,7 @@
 <div class="card">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{ $favoriteBook->BookImages[0]->book_images_url }}" class="my-3" style="height:190px; width:290px;">
+    <a href="{{ route('book.show', ['id' => $favoriteBook->id]) }}" ><img src="{{ $favoriteBook->BookImages[0]->book_images_url }}" class="my-3" style="height:190px; width:290px;"></a>
     </div>
     <div class="col-md-8">
       <div class="card-body">

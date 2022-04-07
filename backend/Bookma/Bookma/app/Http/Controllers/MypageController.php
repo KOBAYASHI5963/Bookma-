@@ -95,7 +95,13 @@ class MypageController extends Controller
 
     public function follow()
     {
-        return view('pages.myPage.followList');
+        $followers = User::select('*')
+                ->whereHas('followers',function($query) {
+                    $query->whereIn('user_follow.user_id', [Auth::id()]);
+                })
+                ->paginate(5);
+
+        return view('pages.myPage.followList',compact('followers'));
     }
     public function messages()
     {
@@ -172,12 +178,13 @@ class MypageController extends Controller
     // 出品者メニュー
     public function sellerbooks()
     {
+        $user = Auth::user();
         $books = Book::select('*')
                 ->where('user_id', Auth::id())
                 ->paginate(5);
 
     
-        return view('pages.myPage.seller.books',compact('books'));
+        return view('pages.myPage.seller.books',compact('books','user'));
     }
     public function sellerTransferAccountSetting()
     {

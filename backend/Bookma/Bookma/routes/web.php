@@ -46,11 +46,19 @@ Route::group(['middleware' => ['auth']], function () {
 
     //お気に入り一覧
     Route::get('/myPage/favorites', 'MypageController@favorites')->name('favorites');
+    //お気に入りする
     Route::post('/book/{book}/favorite', 'FavoriteController@store')->name('favorites.favorite');
+    //お気に入り解除
     Route::delete('/book/{book}/unfavorite', 'FavoriteController@destroy')->name('favorites.unfavorite');
 
     //フォローリスト
     Route::get('/myPage/followList', 'MypageController@follow')->name('followList');
+    //フォローする
+    Route::post('/user/{id}/follow', 'FollowController@store')->name('user.follow');
+    //フォロー解除する
+    Route::delete('/user/{id}/unfollow', 'FollowController@destroy')->name('user.unfollow');
+    Route::get('followings', 'UsersController@followings')->name('users.followings');
+    Route::get('followers', 'UsersController@followers')->name('users.followers');
     //メッセージ
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
 
@@ -114,6 +122,8 @@ Route::group(['middleware' => ['auth']], function () {
 
   // 本の詳細ページ
   Route::get('/book/{id}', 'BookController@show')->name('book.show');
+  // ユーザーの詳細ページ
+  Route::get('/user/{id}', 'UserController@show')->name('user.show');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
