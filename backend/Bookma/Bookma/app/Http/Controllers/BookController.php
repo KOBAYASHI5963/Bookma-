@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 // リクエスト
 use Illuminate\Http\Request;
 
 // モデル
+use App\ShippingAddress;
 use App\BookImage;
 use App\Category;
 use App\ProductCondition;
@@ -33,14 +36,18 @@ class BookController extends Controller
     {
         
         $book = Book::find($id);
+        $user = Auth::user();
+        $shippingAddressLists = shippingAddress::select('*')->where('user_id', $user->id)
+        ->paginate(5);
 
-        return view('pages.book.confirmPurchase',compact('book'));
+        return view('pages.book.confirmPurchase',compact('book','user','shippingAddressLists'));
     }
 
     public function complete($id)
     {
         
         $book = Book::find($id);
+        
 
         return view('pages.book.settlement',compact('book'));
     }

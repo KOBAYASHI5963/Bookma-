@@ -12,6 +12,7 @@
 </div>
 
 <div class="mb-3" >
+<a href="{{ route('user.show', ['id' => $book->User->id]) }}">
   <div class="row g-0">
     <div class="">
       @if(is_null( $book->User->UserProfile->profile_image ))
@@ -26,4 +27,5 @@
       </div>
     </div>
   </div>
+  </a>
 </div>
