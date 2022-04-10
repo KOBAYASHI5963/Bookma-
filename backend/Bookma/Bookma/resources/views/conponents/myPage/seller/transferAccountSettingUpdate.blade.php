@@ -72,9 +72,9 @@
               <label class="form-check-label" for="inlineRadio2">当座</label>
             </div>
         </div>
-        @if($errors->has(''))
+        @if($errors->has('deposit_type'))
         <div class="alert alert-success" role="alert">
-            {{ $errors->first('') }}
+            {{ $errors->first('deposit_type') }}
         </div>
         @endif
 
