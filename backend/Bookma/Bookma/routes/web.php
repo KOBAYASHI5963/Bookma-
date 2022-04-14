@@ -116,6 +116,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/book/{id}/purchase', 'BookController@purchase')->name('book.purchase');
     //購入後ページ
     Route::get('/book/{id}/purchase/complete', 'BookController@complete')->name('book.complete');
+
+    // カート一覧ページ
+    Route::get('/carts', 'CartController@show')->name('cart.show');
+    // カートに入れる
+    Route::post('/cart/add', 'CartController@store')->name('cart.add');
+    // カートから削除
+    Route::delete('/cart/{id}/destroy', 'CartController@destroy')->name('cart.destroy');
     
 });
 
@@ -124,6 +131,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/book/{id}', 'BookController@show')->name('book.show');
   // ユーザーの詳細ページ
   Route::get('/user/{id}', 'UserController@show')->name('user.show');
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
