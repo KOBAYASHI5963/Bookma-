@@ -113,4 +113,9 @@ class User extends Authenticatable
     return $this->followings()->where('follow_id', $userId)->exists();
   }
 
+  Public function cart()
+  {
+    return $this->hasOne('App\Cart');
+  }
+
 }

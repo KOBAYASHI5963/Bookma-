@@ -48,4 +48,9 @@ class Book extends Model
   return $this->belongsToMany('App\User', 'favorites', 'book_id', 'user_id');
   }
 
+  Public function carts()
+  {
+    return $this->belongsToMany('App\Cart', 'cart_books', 'book_id', 'cart_id');
+  }
+
 }

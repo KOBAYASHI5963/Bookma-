@@ -18,6 +18,9 @@
         </div>
       </li>
       <li class="nav-item">
+      <a href="{{ route('cart.show') }}" class="nav-item nav-link text-white">カート一覧</a>
+      </li>
+      <li class="nav-item">
         <a href="{{ route('favorites') }}" class="nav-item nav-link text-white"><i class="far fa-star text-white mr-2"></i>お気に入り</a>
       </li>
       <li class="nav-item">
