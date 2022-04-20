@@ -31,22 +31,25 @@
 @if(Auth::id() === $book->user_id)
   <a class="btn btn-primary btn-lg " href="{{ route('sellerSalesBooksEdit', ['id' => $book->id]) }}" >商品内容を編集</a>
 @else
+  @if($isSoldOut)
   <button type="button" class="btn btn-secondary btn-lg" disabled>売り切れました</button>
-
-  <a class="btn btn-danger btn-lg" href="{{ route('book.purchase', ['id' => $book->id]) }}" >購入手続きへ</a>
-  @auth
-    @if ($book->carts()->where('user_id', Auth::id())->exists())
-      <h5 class="mt-3">この本は既にカートに入っています。</h5>
-      <a href="{{ route('cart.show') }}" >カート一覧はこちら</a>
-    @else
-      
-      <form method="post" action="{{ route('cart.add') }}">
-          @csrf
-          <input type="hidden" name="book_id" value="{{ $book->id }}" >
-          <button type="submit" class="btn btn-warning btn-lg" >カートに入れる</button>
-      </form>
-    @endif
-  @endauth
+  @else
+  <a class="btn btn-danger btn-lg mt-3" href="{{ route('book.purchase', ['id' => $book->id]) }}" >購入手続きへ</a>
+    @auth
+      @if ($book->carts()->where('user_id', Auth::id())->exists())
+        <h5 class="mt-3">この本は既にカートに入っています。</h5>
+        <a href="{{ route('cart.show') }}" >カート一覧はこちら</a>
+      @else
+        <div class="mt-3">
+          <form method="post" action="{{ route('cart.add') }}">
+              @csrf
+              <input type="hidden" name="book_id" value="{{ $book->id }}" >
+              <button type="submit" class="btn btn-warning btn-lg" >カートに入れる</button>
+          </form>
+        </div>
+      @endif
+    @endauth
+  @endif
 @endif
 
 

@@ -123,6 +123,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/cart/add', 'CartController@store')->name('cart.add');
     // カートから削除
     Route::delete('/cart/{id}/destroy', 'CartController@destroy')->name('cart.destroy');
+    // 決済画面
+    Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
+    // 決済成功
+    Route::get('/cart/success/{shippingAddressID}', 'CartController@success')->name('cart.success');
     
 });
 

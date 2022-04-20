@@ -7,6 +7,10 @@
   <h6>この度はブックマのご利用ありがとうございました。</h>
 </div>
 
+<div class="mt-3">
+  <a href="{{ route('top') }}" >トップにもどる</a>
+</div>
+
 <div class="mt-5">
   <h3>出品者情報</h3>
 </div>

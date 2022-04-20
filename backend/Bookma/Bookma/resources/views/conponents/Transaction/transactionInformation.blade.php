@@ -34,6 +34,8 @@
   </div>
 </div>
 
+    <form action="{{ route('cart.checkout')}}" method="get">
+    <button type="submit" class="btn btn-danger" >購入する</button>
 
 <div class="mt-5">
   <h3>配送先</h>
@@ -44,9 +46,7 @@
     @foreach($shippingAddressLists as $shippingAddressList)
       <div class="card">
         <div class="row g-0">
-        <label>
-          <input class="shippingAddress-check ml-4" type="radio" name="shippingAddress_select" value="{{ $shippingAddressList->id }}" onclick="formSwitch()">
-        </label>
+        <input class="shippingAddress-check ml-4" type="radio" name="shipping_address_id" value="{{ $shippingAddressList->id }}">
           <div class="col-md-8">
             <div class="card-body">
             <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">氏名：</span>{{ $shippingAddressList->name }}</div>
@@ -60,6 +60,12 @@
       </div>
     </div>
     @endforeach
+    @if($errors->has('shipping_address_id'))
+        <div class="alert alert-success" role="alert">
+          {{ $errors->first('shipping_address_id') }}
+        </div>
+      @endif
+    </form>
       <div class="mt-4">
         <h6>※配送先に変更がないかご確認ください</h>
       </div>

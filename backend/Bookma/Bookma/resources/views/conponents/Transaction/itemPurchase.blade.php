@@ -1,4 +1,4 @@
-<div class="card mb-3" style="height:190px; width:400px;">
+<div class="card mt-5" style="height:190px; width:400px;">
   <div class="card-body">
     <div class="row">
       <div class="col-sm-6 col-xs-7">
@@ -20,4 +20,3 @@
 </div>
 
 
-  <a class="btn btn-danger btn " href="{{ route('book.complete', ['id' => $book->id]) }}" >購入する</a>
