@@ -5,34 +5,36 @@
     @if($cartBooks->count())
     <div class="cart-wrapper">
         @foreach ($cartBooks as $cartBook)
-        <div class="card mb-3">
-            <div class="row">
-                <img src="{{ $cartBook->BookImages[0]->book_images_url }}" alt="{{ $cartBook->title }}" style="height:200px; width:280px;">
-                <div class="card-body">
-                  <div class="card-product-name col-8">
-                    {{ $cartBook->title }}
+        <a href="{{ route('book.show', ['id' => $cartBook->id]) }}">
+          <div class="card mb-3">
+              <div class="row">
+                  <img src="{{ $cartBook->BookImages[0]->book_images_url }}" alt="{{ $cartBook->title }}" style="height:200px; width:280px;">
+                  <div class="card-body">
+                    <div class="card-product-name col-8">
+                      {{ $cartBook->title }}
+                    </div>
+                    <div class="card__total-price col-9 text-center">
+                      ￥{{ $cartBook->price }} 
+                    </div>
+                    <form action="{{ route('cart.destroy',['id' => $cartBook->id])}}" method="post">
+                    <div class="card__btn-trash col-10">
+                      @method('DELETE')
+                        @csrf
+                        <input type="hidden" name="book_id" value="{{ $cartBook->id }}" >
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-danger" >削除</button>
+                        </div>
+                    </div>
+                    </form>
                   </div>
-                  <div class="card__total-price col-9 text-center">
-                    ￥{{ $cartBook->price }} 
-                  </div>
-                  <form action="{{ route('cart.destroy',['id' => $cartBook->id])}}" method="post">
-                  <div class="card__btn-trash col-10">
-                    @method('DELETE')
-                      @csrf
-                      <input type="hidden" name="book_id" value="{{ $cartBook->id }}" >
-                      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <button type="submit" class="btn btn-danger" >削除</button>
-                      </div>
-                  </div>
-                  </form>
-                </div>
-            </div>
-        </div>
+              </div>
+          </div>
+        </a>
         @endforeach
     </div>
 
     <form action="{{ route('cart.checkout')}}" method="get">
-    <button type="submit" class="btn btn-danger" >購入する</button>
+    <button type="submit" class="btn btn-danger" >決済ページに進む</button>
     <div class="mt-3">
   @if($shippingAddressLists->count())
    <p>お届け先を選択して下さい。</p>
