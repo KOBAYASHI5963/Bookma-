@@ -159,7 +159,8 @@ class CartController extends Controller
 
         $cart->books()->detach();
 
-        return redirect()->route('book.complete', ['id' => $cartBook->id]);
-        
+        return redirect()->route('cart.show');
+
+
     }
 }

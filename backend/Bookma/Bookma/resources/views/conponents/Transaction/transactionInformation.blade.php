@@ -36,7 +36,7 @@
   </div>
 </a>
 
-<form action="{{ route('cart.checkout')}}" method="get">
+<form action="{{ route('book.checkout',['id' => $book->id ])}}" method="get">
 <button type="submit" class="btn btn-danger" >決済ページに進む</button>
 
 <div class="mt-5">

@@ -123,10 +123,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/cart/add', 'CartController@store')->name('cart.add');
     // カートから削除
     Route::delete('/cart/{id}/destroy', 'CartController@destroy')->name('cart.destroy');
-    // 決済画面
+    // カートから決済画面
     Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
-    // 決済成功
+    // カートからの決済成功
     Route::get('/cart/success/{shippingAddressID}', 'CartController@success')->name('cart.success');
+    //  単品（商品詳細ページ）から決済画面
+    Route::get('/book/checkout/{id}', 'BookController@checkout')->name('book.checkout');
+    // 単品（商品詳細ページ）からの決済成功
+    Route::get('/book/success/{id}/{shippingAddressID}', 'BookController@success')->name('book.success');
     
 });
 
