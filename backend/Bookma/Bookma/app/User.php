@@ -117,5 +117,10 @@ class User extends Authenticatable
   {
     return $this->hasOne('App\Cart');
   }
+  
+  Public function PurchaseItems()
+  {
+    return $this->hasMany('App\productPurchase');
+  }
 
 }

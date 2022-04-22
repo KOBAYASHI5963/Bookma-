@@ -23,4 +23,9 @@ class ShippingArea extends Model
     return $this->hasMany('App\ShippingAddress');
     }
 
+    Public function productPurchases()
+    {
+      return $this->hasMany('App\productPurchase');
+    }
+
 }

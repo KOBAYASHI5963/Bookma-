@@ -23,4 +23,9 @@ class ShippingAddress extends Model
     return $this->belongsTo('App\ShippingArea','prefecture','id');
   }
 
+  Public function productPurchase()
+  {
+    return $this->hasOne('App\productPurchase');
+  }
+
 }

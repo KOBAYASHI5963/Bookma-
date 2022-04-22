@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCartBooksTable extends Migration
+class CreateProductPurchasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateCartBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('cart_books', function (Blueprint $table) {
+        Schema::create('product_purchases', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('book_id');
-            $table->unsignedBigInteger('cart_id');
+            $table->unsignedBigInteger('shipping_address_id');
             $table->timestamps();
 
             // 外部キー制約
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
-            $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
-
-            // book_idとcart_idの組み合わせの重複を許さない
-           $table->unique(['book_id', 'cart_id']);
+            $table->foreign('shipping_address_id')->references('id')->on('shipping_addresses')->onDelete('cascade');
         });
     }
 
@@ -35,6 +34,6 @@ class CreateCartBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cart_books');
+        Schema::dropIfExists('product_purchases');
     }
 }

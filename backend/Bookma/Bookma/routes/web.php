@@ -112,7 +112,7 @@ Route::group(['middleware' => ['auth']], function () {
     //出品する(削除)
     Route::delete('/myPage/seller/salesBooks/{id}/destroy', 'MypageController@sellerSalesBooksDestroy')->name('sellerSalesBooksDestroy');
 
-    //購入手続きページ
+    //購入手続き確認ページ
     Route::get('/book/{id}/purchase', 'BookController@purchase')->name('book.purchase');
     //購入後ページ
     Route::get('/book/{id}/purchase/complete', 'BookController@complete')->name('book.complete');
@@ -123,6 +123,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/cart/add', 'CartController@store')->name('cart.add');
     // カートから削除
     Route::delete('/cart/{id}/destroy', 'CartController@destroy')->name('cart.destroy');
+    // カートから決済画面
+    Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
+    // カートからの決済成功
+    Route::get('/cart/success/{shippingAddressID}', 'CartController@success')->name('cart.success');
+    //  単品（商品詳細ページ）から決済画面
+    Route::get('/book/checkout/{id}', 'BookController@checkout')->name('book.checkout');
+    // 単品（商品詳細ページ）からの決済成功
+    Route::get('/book/success/{id}/{shippingAddressID}', 'BookController@success')->name('book.success');
     
 });
 
