@@ -112,7 +112,7 @@ Route::group(['middleware' => ['auth']], function () {
     //出品する(削除)
     Route::delete('/myPage/seller/salesBooks/{id}/destroy', 'MypageController@sellerSalesBooksDestroy')->name('sellerSalesBooksDestroy');
 
-    //購入手続きページ
+    //購入手続き確認ページ
     Route::get('/book/{id}/purchase', 'BookController@purchase')->name('book.purchase');
     //購入後ページ
     Route::get('/book/{id}/purchase/complete', 'BookController@complete')->name('book.complete');

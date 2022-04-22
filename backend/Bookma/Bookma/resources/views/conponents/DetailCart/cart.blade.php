@@ -33,34 +33,34 @@
         @endforeach
     </div>
 
-    <form action="{{ route('cart.checkout')}}" method="get">
-    <button type="submit" class="btn btn-danger" >決済ページに進む</button>
-    <div class="mt-3">
-  @if($shippingAddressLists->count())
-   <p>お届け先を選択して下さい。</p>
-    @foreach($shippingAddressLists as $shippingAddressList)
-      <div class="card mb-2">
-        <div class="row g-0">
-          <input class="shippingAddress-check ml-4" type="radio" name="shipping_address_id" value="{{ $shippingAddressList->id }}">
-          <div class="col-md-8">
-            <div class="card-body">
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">氏名：</span>{{ $shippingAddressList->name }}</div>
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">郵便番号：</span>{{ $shippingAddressList->post_code }}</div>
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">都道府県市区町村：</span>{{ $shippingAddressList->shippingArea->area}}{{ $shippingAddressList->city }}</div>
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">番地：</span>{{ $shippingAddressList->street }}</div>
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">建物名：</span>{{ $shippingAddressList->building_name }}</div>
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">電話番号：</span>{{ $shippingAddressList->phone_number }}</div>
+<form action="{{ route('cart.checkout')}}" method="get">
+<button type="submit" class="btn btn-danger" >決済ページに進む</button>
+  <div class="mt-3">
+    @if($shippingAddressLists->count())
+      <p>お届け先を選択して下さい。</p>
+      @foreach($shippingAddressLists as $shippingAddressList)
+          <div class="card mb-2">
+            <div class="row g-0">
+              <input class="shippingAddress-check ml-4" type="radio" name="shipping_address_id" value="{{ $shippingAddressList->id }}">
+              <div class="col-md-8">
+                <div class="card-body">
+                <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">氏名：</span>{{ $shippingAddressList->name }}</div>
+                <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">郵便番号：</span>{{ $shippingAddressList->post_code }}</div>
+                <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">都道府県市区町村：</span>{{ $shippingAddressList->shippingArea->area}}{{ $shippingAddressList->city }}</div>
+                <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">番地：</span>{{ $shippingAddressList->street }}</div>
+                <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">建物名：</span>{{ $shippingAddressList->building_name }}</div>
+                <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">電話番号：</span>{{ $shippingAddressList->phone_number }}</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    @endforeach
-      @if($errors->has('shipping_address_id'))
-        <div class="alert alert-success" role="alert">
-          {{ $errors->first('shipping_address_id') }}
-        </div>
-      @endif
-    </form>
+      @endforeach
+          @if($errors->has('shipping_address_id'))
+            <div class="alert alert-success" role="alert">
+              {{ $errors->first('shipping_address_id') }}
+            </div>
+          @endif
+</form>
       <div class="mt-4">
         <h6>※お届け先に変更がないかご確認ください</h>
       </div>
