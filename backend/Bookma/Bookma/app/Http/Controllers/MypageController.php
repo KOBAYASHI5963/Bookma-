@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
+use App\productPurchase;
 use App\ShippingAddress;
 use App\BookImage;
 use App\Category;
@@ -74,11 +76,14 @@ class MypageController extends Controller
 
     public function purchaseHistoryTransaction()
     {
-        return view('pages.myPage.purchaseHistoryTransaction');
-    }
-    public function purchaseHistoryPastTransaction()
-    {
-        return view('pages.myPage.purchaseHistoryPastTransaction');
+
+        $purchasedBooks = Book::select('*')
+        ->whereHas('productPurchasedUsers',function($query) {
+            $query->whereIn('product_purchases.user_id', [Auth::id()]);
+        })
+        ->paginate(5);
+        
+        return view('pages.myPage.purchaseHistoryTransaction',compact('purchasedBooks'));
     }
 
     public function favorites()
@@ -234,8 +239,85 @@ class MypageController extends Controller
 
     public function sellerSalesHistory()
     {
-        return view('pages.myPage.seller.salesHistory');
+        // ユーザーが出品した本のID一覧
+        $bookIds = $this->bookIds();
+
+        // 上記のうち購入された本のID一覧
+        $purchasedBookIds = $this->purchasedBookIds($bookIds);
+
+         // ページねーとよう
+        $paginator = Book::select('*')
+                ->where('user_id', Auth::id())
+                ->whereIn('id', $purchasedBookIds)
+                ->paginate(1);
+
+        // コレクション化
+        $books =  new Collection($paginator->items());
+
+        // 実際に表示させるやつ
+        $viewBooks = $books->map(function ($book) {
+            return $this->transform($book);
+        })
+        ->toArray();
+// dd($bookIds,$purchasedBookIds,$paginator,$books,$viewBooks );
+        return view('pages.myPage.seller.salesHistory',compact('viewBooks','paginator'));
     }
+
+    public function transform($book) {
+
+        // その本を誰かが買ってればデータが入って、そうでなければnull
+        $productPurchase = productPurchase::select('*')
+                ->where('book_id', $book->id)
+                ->first();
+
+        $BookImage = BookImage::select('*')
+                ->where('book_id', $book->id)
+                ->first();
+
+        $UserName = User::select('*')
+                ->where('id', $productPurchase->user_id)
+                ->first();
+
+        return [
+            'id' => $book->id,
+            'title' => $book->title,
+            'price' => $book->price,
+            'user_id' => ($productPurchase == null) ? null : $productPurchase->user_id,
+            'created_at' => ($productPurchase == null) ? null : $productPurchase->created_at,
+            'book_images_url' => ($BookImage == null) ? null : $BookImage->book_images_url,
+            'name' => ($UserName == null) ? null : $UserName->name,
+        ];
+    }
+
+    public function purchasedBookIds($bookIds) {
+        $purchasedBooks = productPurchase::select('*')
+                ->whereIn('book_id', $bookIds)
+                ->get();
+
+        $purchasedBookIds = [];
+
+        foreach ( $purchasedBooks as $purchasedBook ) {
+            array_push($purchasedBookIds, $purchasedBook->book_id);
+        }
+
+        return $purchasedBookIds;
+
+    }
+    public function bookIds() {
+        $books = Book::select('*')
+            ->where('user_id', Auth::id())
+            ->get();
+
+        $bookIds = [];
+
+        foreach ( $books as $book ) {
+            array_push($bookIds, $book->id);
+        }
+
+        return $bookIds;
+
+    }
+
     public function sellerTransferApplicationHistory()
     {
         return view('pages.myPage.seller.transferApplicationHistory');
