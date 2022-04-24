@@ -58,4 +58,9 @@ class Book extends Model
     return $this->hasMany('App\productPurchase');
   }
 
+  Public function productPurchasedUsers()
+  {
+  return $this->belongsToMany('App\User', 'product_purchases', 'book_id', 'user_id');
+  }
+
 }

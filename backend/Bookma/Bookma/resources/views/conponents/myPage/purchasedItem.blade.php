@@ -2,67 +2,35 @@
   <h3>購入した商品</h3>
 </div>
 
-  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" href="{{ route('purchaseHistory_transaction') }}" role="tab" aria-controls="pills-home" aria-selected="true">取引中</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="{{ route('purchaseHistory_past_transaction') }}" role="tab" aria-controls="pills-profile" aria-selected="false">過去の取引</a>
-    </li>
-  </ul>
-<div id="pills-tabContent">
-  <div id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">現在取引中のものはありません。</div>
-</div>
 
-
-<div class="card mb-3" style="max-width: 540px;">
-<a class="page-link" href="#">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">MEN’S NON-NO メンズノンノ 1999年 12月号</h5>
-        <p class="card-text">¥2600</p>
-        <p class="card-text">傷汚れあり</p>
-        <p class="card-text"><small class="text-muted">発送中</small></p>
+@if($purchasedBooks->count())
+@foreach($purchasedBooks as $purchasedBook)
+<div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+      <a class="page-link" href="{{ route('book.show', ['id' => $purchasedBook->id]) }}">
+        <img src="{{ $purchasedBook->BookImages[0]->book_images_url }}" style="height:210px; width:280px;">
+      </a>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{{ route('book.show', ['id' => $purchasedBook->id]) }}">{{ $purchasedBook->title }}</h5></a>
+          <p class="card-text">{{ $purchasedBook->price }}円</p>
+          <p class="card-text">{{ $purchasedBook->productCondition->condition }}</p>
+          <p class="card-text">出品ユーザー：<a href="{{ route('user.show', $purchasedBook->User->id) }}">{{ $purchasedBook->User->name }}</a></p>
+          <p class="card-text"><small class="text-muted">日時：{{ $purchasedBook->created_at }}</small></p>
+        </div>
       </div>
     </div>
-  </div></a>
 </div>
-
-
-<div class="card mb-3" style="max-width: 540px;">
-<a class="page-link" href="#">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">【週刊少年サンデー】カラーページ切り抜き『金色のガッシュ!!』</h5>
-        <p class="card-text">¥400</p>
-        <p class="card-text">やや汚れあり</p>
-        <p class="card-text"><small class="text-muted">発送準備中</small></p>
-      </div>
-    </div>
-  </div></a>
-</div>
-
-
-<nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <span class="page-link"><</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active" aria-current="page">
-      <span class="page-link">2</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">></a>
-    </li>
-  </ul>
-</nav>
+@endforeach
+{{ $purchasedBooks->links() }}
+@else
+  <div class="mt-5">
+    <h4>過去の取引はありません。<h4>
+    <h5>※購入されている本はありません。</h5>
+  </div>
+  <div class="mt-3">
+    <a href="{{ route('top') }}" >トップにもどる</a>
+  </div>
+@endif
