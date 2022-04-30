@@ -13,7 +13,7 @@
   <div class="card">
     <div class="card-body">
     <h5>累計の売上金額</h5>
-      <h2 class="card-title">¥550</h2>
+      <h2 class="card-title">¥{{ $totalPrice }}</h2>
     </div>
   </div>
 </div>

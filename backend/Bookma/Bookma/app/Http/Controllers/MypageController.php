@@ -249,7 +249,7 @@ class MypageController extends Controller
         $paginator = Book::select('*')
                 ->where('user_id', Auth::id())
                 ->whereIn('id', $purchasedBookIds)
-                ->paginate(1);
+                ->paginate(5);
 
         // コレクション化
         $books =  new Collection($paginator->items());
@@ -259,7 +259,7 @@ class MypageController extends Controller
             return $this->transform($book);
         })
         ->toArray();
-// dd($bookIds,$purchasedBookIds,$paginator,$books,$viewBooks );
+
         return view('pages.myPage.seller.salesHistory',compact('viewBooks','paginator'));
     }
 
@@ -324,7 +324,25 @@ class MypageController extends Controller
     }
     public function sellerTransferApplication()
     {
-        return view('pages.myPage.seller.transferApplication');
+        // ユーザーが出品した本のID一覧
+        $bookIds = $this->bookIds();
+        // 上記のうち購入された本のID一覧
+        $purchasedBookIds = $this->purchasedBookIds($bookIds);
+        // ユーザーが売った本一覧
+        $sellerBooks = Book::select('*')
+                ->where('user_id', Auth::id())
+                ->whereIn('id', $purchasedBookIds)
+                ->get();
+
+        $totalPrice = 0;
+
+        foreach ( $sellerBooks as $sellerBook ) {
+
+        $totalPrice += $sellerBook->price;
+        }
+                // dd($sellerBooks);
+
+        return view('pages.myPage.seller.transferApplication',compact('totalPrice'));
     }
     public function sellerCommission()
     {
