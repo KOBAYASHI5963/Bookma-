@@ -25,7 +25,8 @@ class AddTestToBooksTable extends Migration
             $bookImage->test = 'test';
             $bookImage->save();
          }
-         
+
+         //8
 
     }
 
