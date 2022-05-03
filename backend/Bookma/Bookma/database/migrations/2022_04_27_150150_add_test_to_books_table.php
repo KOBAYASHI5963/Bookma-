@@ -39,4 +39,6 @@ class AddTestToBooksTable extends Migration
             $table->dropColumn('test');
         });
     }
+
+    // 必要
 }
