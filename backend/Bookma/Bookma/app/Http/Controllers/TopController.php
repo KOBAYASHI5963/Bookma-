@@ -46,7 +46,6 @@ class TopController extends Controller
 
 
         //いらないコメント3
-        //いらないコメント4
         // $request->input()で検索時に入力した項目を取得
         $searchKeyword = $request->input('keyword');
         $searchCategory = $request->input('category_id');
