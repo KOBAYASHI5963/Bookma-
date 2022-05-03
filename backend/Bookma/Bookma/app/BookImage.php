@@ -13,8 +13,8 @@ class BookImage extends Model
     ];
 
     // リレーション
-    Public function books()
+    Public function book()
     {
-    return $this->hasMany('App\Book');
+    return $this->belongsTo('App\Book','book_id','id');
     }
 }

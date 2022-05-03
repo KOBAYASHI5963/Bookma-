@@ -13,7 +13,7 @@ class Book extends Model
     ];
 
     // リレーション
-    Public function user()
+  Public function user()
   {
     return $this->belongsTo('App\User');
   }
@@ -38,9 +38,29 @@ class Book extends Model
     return $this->belongsTo('App\ProductCondition','product_condition','id');
   }
 
-  Public function BookImage()
+  Public function BookImages()
   {
-    return $this->belongsTo('App\BookImage','book_image','id');
+    return $this->hasMany('App\BookImage');
+  }
+
+  Public function favoriteUsers()
+  {
+  return $this->belongsToMany('App\User', 'favorites', 'book_id', 'user_id');
+  }
+
+  Public function carts()
+  {
+    return $this->belongsToMany('App\Cart', 'cart_books', 'book_id', 'cart_id');
+  }
+
+  Public function productPurchases()
+  {
+    return $this->hasMany('App\productPurchase');
+  }
+
+  Public function productPurchasedUsers()
+  {
+  return $this->belongsToMany('App\User', 'product_purchases', 'book_id', 'user_id');
   }
 
 }

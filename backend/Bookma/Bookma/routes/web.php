@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'TopController@index')->name('top');
+Route::get('searchFunction', 'TopController@searchFunction')->name('searchFunction');
 
 // Auth::routes();
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -45,11 +46,37 @@ Route::group(['middleware' => ['auth']], function () {
 
     //お気に入り一覧
     Route::get('/myPage/favorites', 'MypageController@favorites')->name('favorites');
+    //お気に入りする
+    Route::post('/book/{book}/favorite', 'FavoriteController@store')->name('favorites.favorite');
+    //お気に入り解除
+    Route::delete('/book/{book}/unfavorite', 'FavoriteController@destroy')->name('favorites.unfavorite');
 
     //フォローリスト
     Route::get('/myPage/followList', 'MypageController@follow')->name('followList');
+    //フォローする
+    Route::post('/user/{id}/follow', 'FollowController@store')->name('user.follow');
+    //フォロー解除する
+    Route::delete('/user/{id}/unfollow', 'FollowController@destroy')->name('user.unfollow');
+    Route::get('followings', 'UsersController@followings')->name('users.followings');
+    Route::get('followers', 'UsersController@followers')->name('users.followers');
     //メッセージ
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
+
+    //お届け先の住所一覧
+    Route::get('/myPage/shippingAddressList', 'MypageController@shippingAddressList')->name('shippingAddressList');
+
+    //お届け先の住所フォームページ
+    Route::get('/myPage/shippingAddress', 'MypageController@shippingAddress')->name('shippingAddress');
+    //お届け先の住所設定(新規作成)
+    Route::post('/myPage/shippingAddress', 'MypageController@shippingAddressCreate')->name('shippingAddressCreate');
+    //お届け先の住所設定(編集するページ)
+    Route::get('/myPage/shippingAddress/{id}/edit', 'MypageController@shippingAddressEdit')->name('shippingAddressEdit');
+    //お届け先の住所設定(編集更新)
+    Route::post('/myPage/shippingAddress/{id}/update', 'MypageController@shippingAddressUpdate')->name('shippingAddressUpdate');
+    //お届け先の住所設定(削除)
+    Route::delete('/myPage/shippingAddress/{id}/destroy', 'MypageController@shippingAddressDestroy')->name('shippingAddressDestroy');
+
+    
 
     // 出品者メニュー
     //出品本
@@ -84,12 +111,35 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/myPage/seller/salesBooks/{id}/update', 'MypageController@sellerSalesBooksUpdate')->name('sellerSalesBooksUpdate');
     //出品する(削除)
     Route::delete('/myPage/seller/salesBooks/{id}/destroy', 'MypageController@sellerSalesBooksDestroy')->name('sellerSalesBooksDestroy');
+
+    //購入手続き確認ページ
+    Route::get('/book/{id}/purchase', 'BookController@purchase')->name('book.purchase');
+    //購入後ページ
+    Route::get('/book/{id}/purchase/complete', 'BookController@complete')->name('book.complete');
+
+    // カート一覧ページ
+    Route::get('/carts', 'CartController@show')->name('cart.show');
+    // カートに入れる
+    Route::post('/cart/add', 'CartController@store')->name('cart.add');
+    // カートから削除
+    Route::delete('/cart/{id}/destroy', 'CartController@destroy')->name('cart.destroy');
+    // カートから決済画面
+    Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
+    // カートからの決済成功
+    Route::get('/cart/success/{shippingAddressID}', 'CartController@success')->name('cart.success');
+    //  単品（商品詳細ページ）から決済画面
+    Route::get('/book/checkout/{id}', 'BookController@checkout')->name('book.checkout');
+    // 単品（商品詳細ページ）からの決済成功
+    Route::get('/book/success/{id}/{shippingAddressID}', 'BookController@success')->name('book.success');
     
 });
 
 
-  // 本の詳細ページ1
+  // 本の詳細ページ
   Route::get('/book/{id}', 'BookController@show')->name('book.show');
+  // ユーザーの詳細ページ
+  Route::get('/user/{id}', 'UserController@show')->name('user.show');
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');

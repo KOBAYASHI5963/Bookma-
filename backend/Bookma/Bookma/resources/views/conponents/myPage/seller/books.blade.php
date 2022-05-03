@@ -1,18 +1,19 @@
 <div class="mb-3">
-  <h3>ログインユーザーの出品本一覧</h3>
+  <h3>{{ $user->name }}の出品本一覧</h3>
 </div>
 
 @if($books->count())
 @foreach($books as $book)
-<div class="card mb-3 mt-3">
+<div class="card">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="" alt="...">
+      <img src="{{ $book->BookImages[0]->book_images_url }}" class="my-3" style="height:190px; width:290px;">
     </div>
+    
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"><a href="{{ route('book.show', ['id' => $book->id]) }}" >{{ $book->title }}</a></h5>
-        <p class="card-text">{{ $book->price }}</p>
+        <p class="card-text">{{ $book->price }}円</p>
         <div>
         <p class="card-text"><small class="text-muted">出品日時：{{ $book->created_at }}</small></p>
         <div class="d-flex justify-content-start">

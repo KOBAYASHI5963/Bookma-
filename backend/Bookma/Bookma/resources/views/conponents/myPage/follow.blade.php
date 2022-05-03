@@ -2,36 +2,34 @@
   <h3>フォローリスト</h3>
 </div>
 
-
-<div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." alt="...">
+@if($followers->count())
+  @foreach($followers as $follower)
+  <a href="{{ route('user.show', ['id' => $follower->id]) }}">
+    <div class="card">
+    <div class="row g-0">
+        <div>
+          @if(is_null( $follower->UserProfile->profile_image ))
+            <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle ml-3" style="width: 220px;">
+          @else
+            <img src="{{ $follower->UserProfile->profile_image }}" class="rounded-circle ml-3" style="width: 220px;">
+          @endif
+        </div>
+        <div class="mt-5 ml-5">
+          <h2>{{ $follower->name }}</h2>
+        </div>
+        <div class="mt-5 ml-5">
+                <form class="mb-4" method="post" action="{{ route('user.unfollow', $follower->id) }}">
+                  @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger btn-lg">フォロー解除</button>
+                </form>
+        </div>
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">田辺さん</h5>
-        <p class="card-text">★★★★★534</p>
-        <a class="btn btn-primary btn" href="#" >フォロー中</a>
-        <a class="btn btn-danger btn" href="#" >フォローを解除</a>
-      </div>
-    </div>
+  </a>
+  @endforeach
+{{ $followers->links() }}
+@else
+  <div class="mt-5">
+    <h5>※現在フォローしているユーザーはいません。</h5>
   </div>
-</div>
-
-
-<div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">YOSHIKO</h5>
-        <p class="card-text">★★★★★88</p>
-        <a class="btn btn-primary btn" href="#" >フォロー中</a>
-        <a class="btn btn-danger btn" href="#" >フォローを解除</a>
-      </div>
-    </div>
-  </div>
-</div>
+@endif
