@@ -180,8 +180,6 @@ class TopController extends Controller
             }
         }
 
-        // いらない
-
         // A and C ⇨もし「キーワード」かつ「プルダウン」が入力されていたら(キーワード、プライス)
         if($request->keyword && (!$request->category_id && !$request->product_condition) && $request->price)
         {
@@ -229,7 +227,6 @@ class TopController extends Controller
         ->paginate(5);
         $message = "$request->keyword";
         }
-        // いらない２
 
         // カテゴリー、コンディションのみ
         if(!$request->keyword && ($request->category_id || $request->product_condition) && !$request->price)
