@@ -255,6 +255,9 @@ class TopController extends Controller
                }
         }
 
+        // 必要2
+        
+
         // B and C ⇨もし「プルダウン」が入力されていたら(カテゴリー、コンディション、プライス)
         if(!$request->keyword && ($request->category_id || $request->product_condition) && $request->price)
         {
