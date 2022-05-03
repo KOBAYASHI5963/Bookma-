@@ -229,6 +229,7 @@ class TopController extends Controller
         ->paginate(5);
         $message = "$request->keyword";
         }
+        // いらない２
 
         // カテゴリー、コンディションのみ
         if(!$request->keyword && ($request->category_id || $request->product_condition) && !$request->price)
