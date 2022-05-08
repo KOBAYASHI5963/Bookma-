@@ -321,6 +321,7 @@ class MypageController extends Controller
 
     public function sellerTransferApplicationHistory()
     {
+
         return view('pages.myPage.seller.transferApplicationHistory');
     }
     public function sellerTransferApplication()

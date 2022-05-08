@@ -28,7 +28,7 @@
     <a href="{{ route('sellerCommission') }}"><h9>振込申請・手数料について</h9></a>
   </div>
 
-  @if(Auth::id() !== $transferAccountSetting->user_id)
+  @if(!$transferAccountSetting)
     <div class="mt-5">
       <div class="card">
         <div class="card-body">
@@ -78,8 +78,11 @@
                   <h2 class="card-title">¥{{ $canApplicationAmount }}</h2>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">申請しない</button>
-                  <button type="button" class="btn btn-danger">申請する</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                  <form method="get" action="{{ route('completeApplication') }}">
+                  @csrf
+                    <button type="submit" class="btn btn-danger">申請する</button>
+                  </form>
                 </div>
               </div>
             </div>

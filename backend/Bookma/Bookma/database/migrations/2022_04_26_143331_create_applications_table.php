@@ -17,7 +17,7 @@ class CreateApplicationsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->comment('申請者');
             $table->unsignedBigInteger('transfer_account_id')->comment('振込口座');
-            $table->integer('amount _money')->comment('申請金額');
+            $table->integer('amount_money')->comment('申請金額');
             $table->boolean('application_status')->comment('申請状況（1.申請中,2.振込済）');
             $table->timestamps();
 
