@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
+use App\Application;
 use App\productPurchase;
 use App\ShippingAddress;
 use App\BookImage;
@@ -333,16 +334,38 @@ class MypageController extends Controller
                 ->where('user_id', Auth::id())
                 ->whereIn('id', $purchasedBookIds)
                 ->get();
-
+            
+        //売却金額(初期設定)
         $totalPrice = 0;
 
         foreach ( $sellerBooks as $sellerBook ) {
 
         $totalPrice += $sellerBook->price;
-        }
-                // dd($sellerBooks);
 
-        return view('pages.myPage.seller.transferApplication',compact('totalPrice'));
+        }
+        //申請した金額
+        $totalApplicationAmount = 0;
+
+        $applicationAmounts = Application::select('*')
+        ->where('user_id', Auth::id())
+        ->get();
+
+
+        if ($applicationAmounts) {
+            foreach ( $applicationAmounts as $applicationAmount ) {
+
+                $totalApplicationAmount += $applicationAmount->amount_money;
+            }
+        }
+        
+         $canApplicationAmount = $totalPrice - $totalApplicationAmount;
+
+         $user = Auth::user();
+         $transferAccountSetting = TransferAccountSetting::select('*')
+                             ->where('user_id', $user->id)
+                             ->first();
+                
+        return view('pages.myPage.seller.transferApplication',compact('totalPrice','canApplicationAmount','transferAccountSetting'));
     }
     public function sellerCommission()
     {

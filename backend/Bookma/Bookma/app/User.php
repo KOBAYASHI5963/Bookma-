@@ -127,4 +127,8 @@ class User extends Authenticatable
     return $this->belongsToMany('App\Book', 'product_purchases', 'user_id', 'book_id');
   }
   
+  Public function applications()
+  {
+    return $this->hasMany('App\Application');
+  }
 }
