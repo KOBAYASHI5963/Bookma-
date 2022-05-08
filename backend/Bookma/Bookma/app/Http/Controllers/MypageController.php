@@ -321,9 +321,13 @@ class MypageController extends Controller
 
     public function sellerTransferApplicationHistory()
     {
+        $applicationAmounts = Application::select('*')
+        ->where('user_id', Auth::id())
+        ->get();
 
-        return view('pages.myPage.seller.transferApplicationHistory');
+        return view('pages.myPage.seller.transferApplicationHistory',compact('applicationAmounts'));
     }
+    
     public function sellerTransferApplication()
     {
         // ユーザーが出品した本のID一覧
