@@ -7,14 +7,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Application;
-use App\productPurchase;
-use App\Book;
 use App\TransferAccountSetting;
 
+use App\Http\Requests\ApplicationRequest;
 
 class ApplicationController extends Controller
 {
-    public function completeApplication(Request $request)
+    public function completeApplication(ApplicationRequest $request)
     {
 
         $user = Auth::user();

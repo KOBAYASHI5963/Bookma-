@@ -58,39 +58,55 @@
             </div>
           </div>
         </div>
-        <div class="text-center mt-3">
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-          申請する
-          </button>
 
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">申請金額</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <h2 class="card-title">¥{{ $canApplicationAmount }}</h2>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                  <form method="post" action="{{ route('completeApplication') }}">
-                  @csrf
-                  <input type="hidden" name="user_id" value="{{ $transferAccountSetting->user_id }}" >
-                  <input type="hidden" name="transfer_account_id" value="{{ $transferAccountSetting->id }}" >
-                  <input type="hidden" name="amount_money" value="{{ $canApplicationAmount }}" >
-                  <input type="hidden" name="application_status" value="1" >
-                    <button type="submit" class="btn btn-danger">申請する</button>
-                  </form>
+        @if($canApplicationAmount >= 1000)
+          <div class="text-center mt-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+            申請する
+            </button>
+            @if($errors->has('amount_money'))
+              <div class="alert alert-danger" role="alert">
+                  {{ $errors->first('amount_money') }}
+              </div>
+            @endif
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">申請金額</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h2 class="card-title">¥{{ $canApplicationAmount }}</h2>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+
+                    <form method="post" action="{{ route('completeApplication') }}">
+                    @csrf
+                      <input type="hidden" name="user_id" value="{{ $transferAccountSetting->user_id }}" >
+                      <input type="hidden" name="transfer_account_id" value="{{ $transferAccountSetting->id }}" >
+                      <input type="hidden" name="amount_money" value="{{ $canApplicationAmount }}" >
+                      <input type="hidden" name="application_status" value="1" >
+                      <button type="submit" class="btn btn-danger">申請する</button>
+                      @if($errors->has('amount_money'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ $errors->first('amount_money') }}
+                        </div>
+                      @endif
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        @else
+        @endif
     </div>
   @endif
 
@@ -100,7 +116,7 @@
     <div class="card">
       <div class="card-body">
         <p class="card-text text-center">申請可能金額が￥1,000以上の時のみ、振込申請可能です。</p>
-        <p class="card-text text-center">詳しくは<a href="#">こちら</a>からご確認お願いします。</p>
+        <p class="card-text text-center">詳しくは<a href="{{ route('sellerCommission') }}">こちら</a>からご確認お願いします。</p>
       </div>
     </div>
   </div>
