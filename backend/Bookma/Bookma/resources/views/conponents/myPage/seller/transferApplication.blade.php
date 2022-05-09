@@ -79,8 +79,12 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                  <form method="get" action="{{ route('completeApplication') }}">
+                  <form method="post" action="{{ route('completeApplication') }}">
                   @csrf
+                  <input type="hidden" name="user_id" value="{{ $transferAccountSetting->user_id }}" >
+                  <input type="hidden" name="transfer_account_id" value="{{ $transferAccountSetting->id }}" >
+                  <input type="hidden" name="amount_money" value="{{ $canApplicationAmount }}" >
+                  <input type="hidden" name="application_status" value="1" >
                     <button type="submit" class="btn btn-danger">申請する</button>
                   </form>
                 </div>

@@ -102,7 +102,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/myPage/seller/commission', 'MypageController@sellerCommission')->name('sellerCommission');
 
     //振込申請完了ページ
-    Route::get('/Application/complete', 'ApplicationController@completeApplication')->name('completeApplication');
+    Route::post('/Application/complete', 'ApplicationController@completeApplication')->name('completeApplication');
 
     //出品フォームページ
     Route::get('/myPage/seller/salesBooks', 'MypageController@sellerSalesBooks')->name('sellerSalesBooks');

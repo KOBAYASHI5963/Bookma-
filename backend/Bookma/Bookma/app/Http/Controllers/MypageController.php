@@ -522,7 +522,7 @@ class MypageController extends Controller
                 // dd('そのまま');
                 return;
             } else {
-                // dd('対象を削除sして終了');
+                // dd('対象を削除して終了');
                 $this->deleteBookImage($id);
             }
         }
