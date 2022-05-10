@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SippingMethodsSeeder::class);
         $this->call(ProductConditionSeeder::class);
         $this->call(ShippingAreaSeeder::class);
+        $this->call(UsersSeeder::class);
     }
 }
