@@ -101,6 +101,9 @@ Route::group(['middleware' => ['auth']], function () {
     //手数料について説明
     Route::get('/myPage/seller/commission', 'MypageController@sellerCommission')->name('sellerCommission');
 
+    //振込申請完了ページ
+    Route::post('/Application/complete', 'ApplicationController@completeApplication')->name('completeApplication');
+
     //出品フォームページ
     Route::get('/myPage/seller/salesBooks', 'MypageController@sellerSalesBooks')->name('sellerSalesBooks');
     //出品する(ログインユーザーが新規で出品)
