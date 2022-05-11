@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Category;
@@ -25,11 +26,27 @@ class TopController extends Controller
      */
     public function index()
     {
+
+        $user = Auth::user();
         $newBooks = Book::orderBy('id', 'DESC')->take(4)->get();
         $books = Book::orderBy('id', 'ASC')->take(4)->get();
         $categories = Category::all();
 
-        return view('pages.top',compact('newBooks','books','categories'));
+        if(!$user){
+            return view('pages.top',compact('newBooks','books','categories'));
+
+        }else{
+
+            if($user->scope == 1){
+
+                return view('pages. administrator. administrator');
+    
+            }else{
+                
+                return view('pages.top',compact('newBooks','books','categories'));
+            }
+        }
+
     }
 
     public function searchFunction(Request $request)
