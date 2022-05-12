@@ -39,7 +39,7 @@ class TopController extends Controller
 
             if($user->scope == 1){
 
-                return view('pages. administrator. administrator');
+                return redirect()->route('application');
     
             }else{
                 

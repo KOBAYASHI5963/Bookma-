@@ -15,7 +15,6 @@
       <th scope="col">申請ユーザー</th>
       <th scope="col">申請日時</th>
       <th scope="col">申請金額</th>
-      <th scope="col">アクション</th>
     </tr>
   </thead>
   <tbody>
@@ -24,7 +23,6 @@
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
-      <td><button type="submit" class="btn btn-danger">入金する</button></td>
     </tr>
   </tbody>
 </table>

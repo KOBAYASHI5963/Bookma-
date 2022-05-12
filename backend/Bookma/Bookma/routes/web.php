@@ -29,7 +29,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
 
-
     // 購入者メニュー
     //プロフィール編集ページ表示
     Route::get('/myPage/profileEdit', 'MypageController@profileEdit')->name('profileEdit');
@@ -77,21 +76,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/myPage/shippingAddress/{id}/destroy', 'MypageController@shippingAddressDestroy')->name('shippingAddressDestroy');
 
     
-
     // 出品者メニュー
     //出品本
     Route::get('/myPage/seller/books', 'MypageController@sellerbooks')->name('sellerbooks');
     
     //振込口座設定
     Route::get('/myPage/seller/TransferAccountSetting', 'MypageController@sellerTransferAccountSetting')->name('sellerTransferAccountSetting');
-
-
     //振込口座設定(編集更新)
     Route::post('/myPage/seller/TransferAccountSetting/update', 'MypageController@sellerTransferAccountSettingUpdate')->name('sellerTransferAccountSettingUpdate');
-    
     //振込口座設定(新規作成)
     Route::post('/myPage/seller/TransferAccountSetting', 'MypageController@sellerTransferAccountSettingCreate')->name('sellerTransferAccountSettingCreate');
-    
     //売上履歴
     Route::get('/myPage/seller/salesHistory', 'MypageController@sellerSalesHistory')->name('sellerSalesHistory');
     //振込申請履歴
@@ -134,7 +128,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/book/checkout/{id}', 'BookController@checkout')->name('book.checkout');
     // 単品（商品詳細ページ）からの決済成功
     Route::get('/book/success/{id}/{shippingAddressID}', 'BookController@success')->name('book.success');
-    
+
+    //管理者画面
+    //出金済
+    Route::get('/Administrator/application', 'AdministratorController@application')->name('application');
+    //出金済
+    Route::get('/Administrator/pay', 'AdministratorController@pay')->name('pay');
 });
 
 
