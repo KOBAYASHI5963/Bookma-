@@ -5,7 +5,15 @@
 
 <!-- ここにページ毎のコンテンツを書く -->
 
-管理者ページ
+<div class="row  mt-5">
+    <div class="col-sm-3 col-xs-12">
+     @include('conponents.administrator.administratorMenu')
+    </div>
+    <div class="col-sm-9 col-xs-12">
+    @include('conponents.administrator.administratorApplication')
+
+    </div>
+  </div> 
 
 </div>
 
