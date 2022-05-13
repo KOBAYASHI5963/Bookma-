@@ -26,7 +26,11 @@
           <td>{{ $ApplicationAccount->user->name }}</td>
           <td>{{ $ApplicationAccount->created_at }}</td>
           <td>{{ $ApplicationAccount->amount_money }}</td>
-          <td><button type="submit" class="btn btn-danger">入金する</button></td>
+          <form method="post" action="{{ route('payment', ['id' => $ApplicationAccount->id]) }}">
+          @csrf
+            <input type="hidden" name="application_status" value="2" >
+            <td><button type="submit" class="btn btn-danger">入金する</button></td>
+          </form>
         </tr>
       </tbody>
     @endforeach

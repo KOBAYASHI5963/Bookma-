@@ -134,6 +134,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/Administrator/application', 'AdministratorController@application')->name('application');
     //出金済
     Route::get('/Administrator/pay', 'AdministratorController@pay')->name('pay');
+    //ユーザーへ入金する
+    Route::post('/Administrator/{id}/payment', 'AdministratorController@payment')->name('payment');
 });
 
 

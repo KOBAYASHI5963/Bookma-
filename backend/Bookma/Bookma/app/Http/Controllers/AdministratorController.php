@@ -23,6 +23,26 @@ class AdministratorController extends Controller
 
     public function pay()
     {
-        return view('pages.administrator.administratorPay');
+
+        $ApplicationAccounts = Application::select('*')
+        ->where('application_status', 2)
+        ->get();
+
+        return view('pages.administrator.administratorPay',compact('ApplicationAccounts'));
     }
+
+
+    public function payment(Request $request, $id)
+    {
+
+        $ApplicationInformation = Application::find($id);
+
+        $ApplicationInformation->application_status = $request->application_status;
+
+        $ApplicationInformation->save();
+
+
+        return redirect()->route('pay');
+    }
+
 }
