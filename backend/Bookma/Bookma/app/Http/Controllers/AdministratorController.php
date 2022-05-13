@@ -24,11 +24,13 @@ class AdministratorController extends Controller
     public function pay()
     {
 
-        $ApplicationAccounts = Application::select('*')
+        $PayAccounts = Application::select('*')
         ->where('application_status', 2)
         ->get();
 
-        return view('pages.administrator.administratorPay',compact('ApplicationAccounts'));
+        $number = 1;
+
+        return view('pages.administrator.administratorPay',compact('PayAccounts','number'));
     }
 
 

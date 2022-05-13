@@ -12,17 +12,25 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">申請ユーザー</th>
-      <th scope="col">申請日時</th>
-      <th scope="col">申請金額</th>
+      <th scope="col">出金済ユーザー</th>
+      <th scope="col">出金日時</th>
+      <th scope="col">出金額</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-  </tbody>
+  @if($PayAccounts->count())
+    @foreach($PayAccounts as $PayAccount)
+      <tbody>
+        <tr>
+          <th scope="row">{{ $number++ }}</th>
+          <td>{{ $PayAccount->user->name }}</td>
+          <td>{{ $PayAccount->updated_at }}</td>
+          <td>{{ $PayAccount->amount_money }}</td>
+        </tr>
+      </tbody>
+    @endforeach
+  @else
+    <div class="mt-4 ml-5">
+      <h5>※出金済のものはありません。</h5>
+    </div>
+  @endif
 </table>
