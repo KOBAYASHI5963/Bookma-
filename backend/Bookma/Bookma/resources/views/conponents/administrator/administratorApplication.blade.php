@@ -26,12 +26,35 @@
           <td>{{ $ApplicationAccount->user->name }}</td>
           <td>{{ $ApplicationAccount->created_at }}</td>
           <td>{{ $ApplicationAccount->amount_money }}</td>
-          <form method="post" action="{{ route('payment', ['id' => $ApplicationAccount->id]) }}">
-          @csrf
-            <input type="hidden" name="application_status" value="2" >
-            <td><button type="submit" class="btn btn-danger">入金する</button></td>
-          </form>
-        </tr>
+          <!-- Button trigger modal -->
+          <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+          入金する
+          </button></td>
+
+          <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">出金額</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h2 class="card-title">¥{{ $ApplicationAccount->amount_money }}</h2>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                    <form method="post" action="{{ route('payment', ['id' => $ApplicationAccount->id]) }}">
+                    @csrf
+                      <input type="hidden" name="application_status" value="2" >
+                      <button type="submit" class="btn btn-danger">入金する</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
       </tbody>
     @endforeach
   @else

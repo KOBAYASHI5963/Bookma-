@@ -1,4 +1,4 @@
-<div class="mt-3 ml-5">
+<div class="ml-5">
   <h3>出金管理</h3>
 </div>
 
