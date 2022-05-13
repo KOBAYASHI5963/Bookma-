@@ -23,6 +23,7 @@ class ApplicationRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
             'amount_money' => 'min:1000',
         ];
@@ -31,7 +32,7 @@ class ApplicationRequest extends FormRequest
     public function messages()
     {
         return [
-            'amount_money.min:1000' => '申請金額は1,000以上でお願いします。',
+            'amount_money.min:1000' => '申請金額は1,000円以上でお願いします。',
         ];
     }
 }

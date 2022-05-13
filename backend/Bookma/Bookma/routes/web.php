@@ -130,7 +130,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/book/success/{id}/{shippingAddressID}', 'BookController@success')->name('book.success');
 
     //管理者画面
-    //出金済
+    //出金申請中
     Route::get('/Administrator/application', 'AdministratorController@application')->name('application');
     //出金済
     Route::get('/Administrator/pay', 'AdministratorController@pay')->name('pay');

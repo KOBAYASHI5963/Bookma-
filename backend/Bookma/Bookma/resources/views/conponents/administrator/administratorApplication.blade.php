@@ -18,13 +18,21 @@
       <th scope="col">アクション</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><button type="submit" class="btn btn-danger">入金する</button></td>
-    </tr>
-  </tbody>
+  @if($ApplicationAccounts->count())
+    @foreach($ApplicationAccounts as $ApplicationAccount)
+      <tbody>
+        <tr>
+          <th scope="row">{{ $number++ }}</th>
+          <td>{{ $ApplicationAccount->user->name }}</td>
+          <td>{{ $ApplicationAccount->created_at }}</td>
+          <td>{{ $ApplicationAccount->amount_money }}</td>
+          <td><button type="submit" class="btn btn-danger">入金する</button></td>
+        </tr>
+      </tbody>
+    @endforeach
+  @else
+    <div class="mt-4 ml-5">
+      <h5>※出金申請中のものはありません。</h5>
+    </div>
+  @endif
 </table>
