@@ -2,7 +2,7 @@
     <div class="cart__title mb-3">
       <h3>カート一覧</h3>
     </div>
-    @if($cartBooks->count())
+    @if($isShowCartBooks == true)
     <div class="cart-wrapper">
         @foreach ($cartBooks as $cartBook)
         <a href="{{ route('book.show', ['id' => $cartBook->id]) }}">
@@ -35,6 +35,11 @@
 
 <form action="{{ route('cart.checkout')}}" method="get">
 <button type="submit" class="btn btn-danger" >決済ページに進む</button>
+    @if($errors->has('shipping_address'))
+      <div class="alert alert-success" role="alert">
+        {{ $errors->first('shipping_address') }}
+      </div>
+    @endif
   <div class="mt-3">
     @if($shippingAddressLists->count())
       <p>お届け先を選択して下さい。</p>
