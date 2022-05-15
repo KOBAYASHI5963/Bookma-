@@ -19,19 +19,34 @@ class CartController extends Controller
     public function show()
     {
 
+        $isShowCartBooks = true;
         $cart = Cart::where('user_id', Auth::id())
         ->first();
 
-        $cartBooks = Book::select('*')
-                ->whereHas('carts',function($query) use($cart) {
-                    $query->whereIn('cart_books.cart_id', [$cart->id]);
-                })
-                ->paginate(5);
+        if($cart == null){
 
-        $user = Auth::user();
-        $shippingAddressLists = shippingAddress::select('*')->where('user_id', $user->id)->get();
-                
-        return view('pages.cart.show',compact('cartBooks','shippingAddressLists'));
+            $cartBooks = null;
+            $isShowCartBooks  = $cartBooks  == null  ? false : true;
+
+            return view('pages.cart.show',compact('cart','isShowCartBooks'));
+
+        }else {
+
+            $cartBooks = Book::select('*')
+                    ->whereHas('carts',function($query) use($cart) {
+                        $query->whereIn('cart_books.cart_id', [$cart->id]);
+                    })
+                    ->paginate(5);
+
+            if($cartBooks->count() == 0) {
+                $isShowCartBooks = false;
+            }
+
+            $shippingAddressLists = shippingAddress::select('*')->where('user_id', Auth::id())->get();
+
+            return view('pages.cart.show',compact('cartBooks','shippingAddressLists','cart','isShowCartBooks'));
+        }
+
     }
 
     public function store(Request $request)

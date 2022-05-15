@@ -13,8 +13,12 @@ use App\Http\Requests\ApplicationRequest;
 
 class ApplicationController extends Controller
 {
-    public function completeApplication(ApplicationRequest $request)
+    public function completeApplication(Request $request)
     {
+
+        if(intval($request->amount_money) <= 1000){
+            return redirect()->route('sellerTransferApplication');
+        }
 
         $user = Auth::user();
         $transferAccountSetting = TransferAccountSetting::select('*')
