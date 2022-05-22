@@ -27,8 +27,11 @@
           @endif
       @endif
       @endauth
+          <a type="submit" href="{{ route('chat.room', $user->id) }}" class=" btn btn-primary btn-lg">チャットする</a>
     </div>
   </div>
+
+
 
   <div class="row g-0">
     <div class="mt-4 ml-5">
