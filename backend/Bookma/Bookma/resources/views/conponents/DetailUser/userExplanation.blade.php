@@ -25,9 +25,9 @@
                 <button type="submit" class=" btn btn-primary btn-lg">フォロー</button>
             </form>
           @endif
-      @endif
-      @endauth
           <a type="submit" href="{{ route('chat.room', $user->id) }}" class=" btn btn-primary btn-lg">チャットする</a>
+      @endif
+    @endauth
     </div>
   </div>
 

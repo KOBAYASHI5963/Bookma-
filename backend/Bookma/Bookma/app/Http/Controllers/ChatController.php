@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\ChatRoom;
 use App\ChatRoomUser;
 use App\ChatMessage;
+use App\UserProfile;
 use App\User;
 
 use App\Events\ChatPusher;
@@ -25,6 +26,9 @@ class ChatController extends Controller
 
         // 相手のID
         $to_user_id = $id;
+        $to_user = User::where('id', $id)
+        ->pluck('name')
+        ->first();
 
         // 自分の持っているチャットルームを取得
         $user_chat_rooms = ChatRoomUser::where('user_id', Auth::id())
@@ -47,7 +51,7 @@ class ChatController extends Controller
 
         }
 
-        return view('pages.chat.chatRoom',compact('user','to_user_id','chat_messages'));
+        return view('pages.chat.chatRoom',compact('user','to_user','to_user_id','chat_messages'));
     }
 
     public function store(Request $request,$id){
@@ -88,15 +92,27 @@ class ChatController extends Controller
         if(is_object($chat_room_id)){
             $chat_room_id = $chat_room_id->first();
         }
+
+        if (Auth::id() != $matching_user_id){
         
             $chat_messages = new ChatMessage;
             $chat_messages->chat_room_id = $chat_room_id;
             $chat_messages->user_id = $user->id;
             $chat_messages->message = $request->message;
             $chat_messages->save();
+        }
 
         return redirect()->route('chat.room', $matching_user_id);
     
+    }
+
+    public function destroy(Request $request,$id)
+    {
+
+        $chat_messages = ChatMessage::find($id);
+        $chat_messages->delete();
+
+        return redirect()->route('chat.room', $request->matching_user_id);
     }
 
 }

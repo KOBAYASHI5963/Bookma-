@@ -64,7 +64,9 @@ Route::group(['middleware' => ['auth']], function () {
     // チャットルーム
     Route::get('/ChatRoom/user/{id}', 'ChatController@room')->name('chat.room');
     //チャット送受信
-    Route::post('/ChatRoom/user/{id}', 'ChatController@store')->name('chat.store');
+    Route::post('/ChatRoom/user/{id}/store', 'ChatController@store')->name('chat.store');
+    //チャット削除
+    Route::delete('/ChatRoom/user/{id}/destroy', 'ChatController@destroy')->name('chat.destroy');
 
     //お届け先の住所一覧
     Route::get('/myPage/shippingAddressList', 'MypageController@shippingAddressList')->name('shippingAddressList');
