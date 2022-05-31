@@ -16,8 +16,11 @@ class CreateChatRoomUsersTable extends Migration
         Schema::create('chat_room_users', function (Blueprint $table) {
             $table->id();
             $table->integer('chat_room_id'); 
-            $table->integer('user_id'); 
+            $table->unsignedBigInteger('user_id'); 
             $table->timestamps();
+
+            // 外部キー設定
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
