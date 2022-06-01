@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
+use App\ChatRoom;
+use App\ChatRoomUser;
+use App\ChatMessage;
 use App\Application;
 use App\productPurchase;
 use App\ShippingAddress;
@@ -111,8 +114,22 @@ class MypageController extends Controller
     }
     public function messages()
     {
-        return view('pages.myPage.messagesList');
+
+        $user = Auth::user();
+        
+        // 自分の持っているチャットルームIDを取得
+        $current_user_chat_room_ids = ChatRoomUser::where('user_id', Auth::id())
+        ->pluck('chat_room_id');
+
+        // チャットルーム取得
+        $chat_users = ChatRoomUser::whereIn('chat_room_id', $current_user_chat_room_ids)
+        ->where('user_id', '<>', Auth::id())
+        ->latest()
+        ->get();
+
+        return view('pages.myPage.messagesList',compact('user','chat_users'));
     }
+
     public function shippingAddressList()
     {
         $user = Auth::user();
@@ -188,10 +205,10 @@ class MypageController extends Controller
         $books = Book::select('*')
                 ->where('user_id', Auth::id())
                 ->paginate(5);
-
     
         return view('pages.myPage.seller.books',compact('books','user'));
     }
+
     public function sellerTransferAccountSetting()
     {
         $user = Auth::user();

@@ -58,8 +58,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/user/{id}/unfollow', 'FollowController@destroy')->name('user.unfollow');
     Route::get('followings', 'UsersController@followings')->name('users.followings');
     Route::get('followers', 'UsersController@followers')->name('users.followers');
-    //メッセージ
+
+    //メッセージ一覧
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
+    // チャットルーム
+    Route::get('/ChatRoom/user/{id}', 'ChatController@room')->name('chat.room');
+    //チャット送受信
+    Route::post('/ChatRoom/user/{id}/store', 'ChatController@store')->name('chat.store');
+    //チャット削除
+    Route::delete('/ChatRoom/user/{id}/destroy', 'ChatController@destroy')->name('chat.destroy');
 
     //お届け先の住所一覧
     Route::get('/myPage/shippingAddressList', 'MypageController@shippingAddressList')->name('shippingAddressList');
