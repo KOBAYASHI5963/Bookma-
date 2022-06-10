@@ -2,39 +2,42 @@
   <h3>購入内容の確認</h3>
 </div>
 
-<a href="{{ route('book.show', ['id' => $book->id]) }}">
-  <div class="card mb-3" style="max-width: 700px;">
-    <div class="row g-0">
-      <div class="col-md-4">
+
+<div class="card mb-3" style="max-width: 700px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <a href="{{ route('book.show', ['id' => $book->id]) }}">
         <img src="{{ $book->BookImages[0]->book_images_url }}" style="height:180px; width:240px;">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-3 col-xs-6">
-              <div class="mt-3">
-                <p>商品名</p>
-                <p>商品代金</p>
-                <p>送料</p>
-              </div>
+      </a>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3 col-xs-6">
+            <div class="mt-3">
+              <p>商品名</p>
+              <p>商品代金</p>
+              <p>送料</p>
             </div>
-            <div class="col-sm-9 col-xs-6">
-              <ul class='list-unstyled'>  
+          </div>
+          <div class="col-sm-9 col-xs-6">
+            <ul class='list-unstyled'>  
+              <a href="{{ route('book.show', ['id' => $book->id]) }}">
                 <li class="mt-3">{{ $book->title }}</li>
-                <li class="mt-3">¥{{ $book->price }}</li>
-                @if($book->shipping_bearer === 1)
-                <li class="mt-3">送料込み（出品者負担）</li>
-                @else($book->shipping_bearer === 2)
-                <li class="mt-3">着払い（購入者負担）</li>
-                @endif
-              </ul>
-            </div>
+              </a>
+              <li class="mt-3">¥{{ $book->price }}</li>
+              @if($book->shipping_bearer === 1)
+              <li class="mt-3">送料込み（出品者負担）</li>
+              @else($book->shipping_bearer === 2)
+              <li class="mt-3">着払い（購入者負担）</li>
+              @endif
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-</a>
+</div>
 
 <form action="{{ route('book.checkout',['id' => $book->id ])}}" method="get">
 <button type="submit" class="btn btn-danger" >決済ページに進む</button>
@@ -47,16 +50,28 @@
   @if($shippingAddressLists->count())
     @foreach($shippingAddressLists as $shippingAddressList)
       <div class="card mt-2">
-        <div class="row g-0">
+        <div class="row g-0 d-flex align-items-center">
         <input class="shippingAddress-check ml-4" type="radio" name="shipping_address_id" value="{{ $shippingAddressList->id }}">
           <div class="col-md-8">
             <div class="card-body">
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">氏名：</span>{{ $shippingAddressList->name }}</div>
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">郵便番号：</span>{{ $shippingAddressList->post_code }}</div>
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">都道府県市区町村：</span>{{ $shippingAddressList->shippingArea->area}}{{ $shippingAddressList->city }}</div>
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">番地：</span>{{ $shippingAddressList->street }}</div>
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">建物名：</span>{{ $shippingAddressList->building_name }}</div>
-            <div style=”line-height:1em;”><span style="font-weight: bold line-height:1em;">電話番号：</span>{{ $shippingAddressList->phone_number }}</div>
+              <div style="line-height:1em;" class="mt-1">
+                <span style="font-weight:bold; line-height:1em;">氏名：</span>{{ $shippingAddressList->name }}
+              </div>
+              <div style="line-height:1em;" class="mt-1">
+              <span style="font-weight:bold; line-height:1em;">郵便番号：</span>{{ $shippingAddressList->post_code }}</span>
+              </div>
+              <div style="line-height:1em;" class="mt-1">
+                <span style="font-weight:bold; line-height:1em;">都道府県市区町村：</span>{{ $shippingAddressList->shippingArea->area}}{{ $shippingAddressList->city }}
+              </div>
+              <div style="line-height:1em;" class="mt-1">
+                <span style="font-weight:bold; line-height:1em;">番地：</span>{{ $shippingAddressList->street }}
+              </div>
+              <div style="line-height:1em;"class="mt-1">
+                <span style="font-weight:bold; line-height:1em;">建物名：</span>{{ $shippingAddressList->building_name }}
+              </div>
+              <div style="line-height:1em;" class="mt-1">
+                <span style="font-weight:bold; line-height:1em;">電話番号：</span>{{ $shippingAddressList->phone_number }}
+              </div>
           </div>
         </div>
       </div>

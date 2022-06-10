@@ -52,6 +52,7 @@ class BookController extends Controller
         $shippingAddressID = $request->shipping_address_id;
         $book = Book::find($id);
         $isSoldOut = $this->IsSoldOut($book->id);
+        
             if($isSoldOut){
                 return redirect()->route('book.show', $book->id);
             }

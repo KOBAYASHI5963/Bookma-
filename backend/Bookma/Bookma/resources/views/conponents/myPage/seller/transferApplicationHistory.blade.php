@@ -7,7 +7,7 @@
   <div class="card mb-3 mt-3">
       <div class="col-md-8">
         <div class="card-body">
-          @if($applicationAmount->application_status = 1)
+          @if($applicationAmount->application_status == 1)
             <p class="card-text"><span style="font-weight: bold">振込申請中</span></p>
           @else
             <p class="card-text"><span style="font-weight: bold">入金済</span></p>
