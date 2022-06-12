@@ -1,0 +1,38 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .genre{
+      overflow-wrap:normal;
+    }
+    .genre{
+      overflow-wrap:break-word;
+    }
+    .search{
+      overflow-wrap:normal;
+    }
+    .search{
+      overflow-wrap:break-word;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .genre { 
+      overflow-wrap:normal;
+    }
+    .genregenre{
+      overflow-wrap:break-word;
+    }
+    .search { 
+      overflow-wrap:normal;
+    }
+    .search{
+      overflow-wrap:break-word;
+    }
+  }
+
+  .genre {
+    margin-top:100px;
+  }
+  .search {
+    background-color: #25324F;
+    text-align: center;
+  }
