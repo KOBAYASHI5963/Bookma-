@@ -1,4 +1,4 @@
-<div class="mb-3">
+<div class="profileEdit mb-3">
   <label for="exampleInputEmail1" class="form-label">プロフィール編集</label>
 
   <h3>基本情報</h3>
@@ -31,16 +31,16 @@
     <div class="mypage-profileEdit-left">
       <div class="user_image mb-3">
         @if(isset( $userProfile->profile_image ))
-        <img src="{{$userProfile->profile_image}}" class="rounded-circle" style="width: 250px;">
+        <img src="{{$userProfile->profile_image}}" class="rounded-circle">
         @else
-        <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle" style="width: 250px;">
+        <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle">
         @endif
       </div>
     </div>
 
 
     <input id="file-sample" type="file" name="profile_image">
-    <img id="file-preview" class="my-4" style="height: 230px; width:400px;">
+    <img id="file-preview" class="my-4">
     @if($errors->has('profile_image'))
     <div class="alert alert-success" role="alert">
         {{ $errors->first('profile_image') }}
@@ -52,7 +52,6 @@
   </form>
 
 </div>
-
 
 
 <script>
@@ -68,3 +67,9 @@
     img.src = blobUrl;
   });
 </script>
+
+@push('css')
+
+<link rel="stylesheet" href="{{ asset('css/profileEdit.css') }}">
+
+@endpush
