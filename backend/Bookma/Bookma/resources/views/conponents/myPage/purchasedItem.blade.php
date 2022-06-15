@@ -8,7 +8,7 @@
   <div class="card mb-3">
       <div class="row g-0">
         <div class="col-md-4">
-        <a class="page-link aaa" href="{{ route('book.show', ['id' => $purchasedBook->id]) }}">
+        <a class="page-link" href="{{ route('book.show', ['id' => $purchasedBook->id]) }}">
           <img src="{{ $purchasedBook->BookImages[0]->book_images_url }}">
         </a>
         </div>
@@ -35,3 +35,9 @@
     </div>
   @endif
 </div>
+
+@push('css')
+
+<link rel="stylesheet" href="{{ asset('css/purchasedItem.css') }}">
+
+@endpush
