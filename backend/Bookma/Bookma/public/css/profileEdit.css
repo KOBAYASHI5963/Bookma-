@@ -8,10 +8,23 @@
     }
     .user_image img{
       width: 80%;
-      height: 190px;
+      height: 170px;
       margin-left: 35px;
       justify-content:space-between;
       display:flex;
+    }
+    .font{
+      font-size: 20px;
+      color: #888;
+    }
+    .form-label{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 15px;
+    }
+    .limit{
+      color: #888888;
+      font-size: 13px;
     }
   }
 @media screen and (min-width:768px){
@@ -27,5 +40,15 @@
       height: 180px;
       justify-content:space-between;
       display:flex;
+    }
+    .font{
+      color: #888;
+    }
+    .form-label{
+      color: #34495E;
+      font-weight:bold;
+    }
+    .limit{
+      color: #888888;
     }
   }

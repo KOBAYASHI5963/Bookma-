@@ -1,0 +1,41 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .font{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 22px;
+    }
+    .shippingAddress{
+      color: #ec7906;
+      font-size: 16px;
+    }
+    .notAddress{
+      color: #888;
+      font-size: 16px;
+    }
+    .line{
+      line-height:1em;
+    }
+    .line-item{
+      font-weight:bold;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .font{
+      color: #34495E;
+      font-weight:bold;
+    }
+    .shippingAddress{
+      color: #ec7906;
+    }
+    .notAddress{
+      color: #888;
+    }
+    .line{
+      line-height:1em;
+    }
+    .line-item{
+      font-weight:bold;
+    }
+  }

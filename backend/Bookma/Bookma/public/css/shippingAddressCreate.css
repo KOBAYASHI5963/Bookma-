@@ -1,0 +1,30 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .font{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 22px;
+    }
+    .line-item{
+      font-weight:bold;
+    }
+    .text-muted{
+      font-weight:bold;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .font{
+      color: #34495E;
+      font-weight:bold;
+    }
+    .line-item{
+      font-weight:bold;
+    }
+    .line-item{
+      font-weight:bold;
+    }
+    .text-muted{
+      font-weight:bold;
+    }
+  }

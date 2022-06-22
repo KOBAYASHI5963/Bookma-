@@ -1,8 +1,8 @@
 <div class="mb-3">
-  <h3>振込口座新規作成</h3>
+  <h3 class="font">振込口座新規作成</h3>
 </div>
 
-<div class="card mb-3 mt-3">
+<div class=" card mb-3 mt-3">
   <div class="row g-0">
     <div class="col-md-8">
       <div class="card-body">
@@ -112,3 +112,10 @@
     </div>
   </div>
 </div>
+
+
+@push('css')
+
+<link rel="stylesheet" href="{{ asset('css/sellerTransferAccountSettingCreate.css') }}">
+
+@endpush

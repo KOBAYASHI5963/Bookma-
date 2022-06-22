@@ -1,13 +1,13 @@
 <div class="profileEdit mb-3">
-  <label for="exampleInputEmail1" class="form-label">プロフィール編集</label>
+  <h5 class="form-label">プロフィール編集</h5>
 
-  <h3>基本情報</h3>
+  <h3 class="font">基本情報</h3>
 
   <form method="POST" action="{{ route('profileEditStore') }}" enctype="multipart/form-data">
    {{ csrf_field() }}
-    <label for="exampleInputEmail1" class="form-label">ニックネーム</label>
+    <h5 class="form-label">ニックネーム</h5>
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$user->name}}" name="name">
-    <p>※20文字以内</p>
+    <p class="limit">※20文字以内</p>
     @if($errors->has('name'))
     <div class="alert alert-success" role="alert">
         {{ $errors->first('name') }}
@@ -16,9 +16,9 @@
 
 
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">自己紹介</label>
+      <h5 class="form-label">自己紹介</h5>
       <textarea class="form-control" name='introduce' id="exampleFormControlTextarea1" rows="3">{{$userProfile->introduce}}</textarea>
-      <p>※1000文字以内</p>
+      <p class="limit">※1000文字以内</p>
       @if($errors->has('introduce'))
       <div class="alert alert-success" role="alert">
           {{ $errors->first('introduce') }}
@@ -27,7 +27,7 @@
     </div>
    
 
-    <h3>プロフィールアイコン</h3>
+    <h3 class="font">プロフィールアイコン</h3>
     <div class="mypage-profileEdit-left">
       <div class="user_image mb-3">
         @if(isset( $userProfile->profile_image ))

@@ -11,6 +11,31 @@
       height: 190px;
       justify-content:space-between;
     }
+    .font{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 22px;
+    }
+    .title{
+      color: #34495E;
+      font-size: 22px;
+      font-weight:bold;
+    }
+    .user{
+      color: #34495E;
+      font-size: 18px;
+    }
+    .price{
+      font-weight:bold;
+    }
+    .notTransaction{
+      color: #888;
+      font-size: 19px;
+    }
+    .notPurchasedBook{
+      color: #888;
+      font-size: 17px;
+    }
   }
 @media screen and (min-width:768px){
   /*画面サイズが768px以上の場合読み込む（PC）*/
@@ -24,5 +49,27 @@
       width: 280px;
       height: 210px;
       justify-content:space-between;
+    }
+    .font{
+      color: #34495E;
+      font-weight:bold;
+    }
+    .title{
+      color: #34495E;
+      font-size: 22px;
+      font-weight:bold;
+    }
+    .user{
+      color: #34495E;
+      font-size: 18px;
+    }
+    .price{
+      font-weight:bold;
+    }
+    .notTransaction{
+      color: #888;
+    }
+    .notPurchasedBook{
+      color: #888;
     }
   }

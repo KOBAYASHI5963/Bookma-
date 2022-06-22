@@ -1,24 +1,45 @@
 @media screen and (max-width:767px) {
   /*画面サイズが767px以下の場合読み込む（スマホ）*/
-    .follow{
-      overflow-wrap:normal;
+    .profile_image {
+      width: 105px;
     }
-    .follow{
-      overflow-wrap:break-word;
+    .follwer_name_black {
+      padding-left: 3px;
+    }
+    .follow_delete {
+      font-size: 10.8px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .follow_list {
+      color: #34495E;
+      font-size: 23px;
+      font-weight:bold;
+    }
+    .follower_name{
+      color: #34495E;
+      font-size: 25px;
+    }
+    .notFollower{
+      color: #888;
+      font-size: 16px;
     }
   }
+
 @media screen and (min-width:768px){
   /*画面サイズが768px以上の場合読み込む（PC）*/
-    .follow{ 
-      overflow-wrap:normal;
+    .profile_image {
+      width: 135px;
     }
-    .follow{
-      overflow-wrap:normal;
+    .follower_name {
+      color: #34495E;
+      margin-left: 12px;
     }
-    .follow img{
-      width: 210px;
+    .follow_list {
+      color: #34495E;
+      font-weight:bold;
     }
-    .follow .follow_image img{
-      width: 210px;
+    .notFollower{
+      color: #888;
     }
   }

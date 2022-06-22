@@ -1,5 +1,5 @@
 <div class="mb-3">
-  <h3>振込口座編集</h3>
+  <h3 class="font">振込口座編集</h3>
 </div>
 
 <div class="card mb-3 mt-3">
@@ -114,5 +114,8 @@
 </div>
 
 
+@push('css')
 
+<link rel="stylesheet" href="{{ asset('css/sellerTransferAccountSettingUpdate.css') }}">
 
+@endpush
