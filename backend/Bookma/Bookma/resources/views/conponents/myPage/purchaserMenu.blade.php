@@ -1,13 +1,11 @@
 <div class="mypage-menu-left">
-  <div class="mypage-menu">
-      <div class="user_image mb-4">
+      <div class="user_image d-flex justify-content-center mb-3">
         @if(is_null( Auth::user()->UserProfile->profile_image ))
         <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle">
         @else
         <img src="{{ Auth::user()->UserProfile->profile_image }}" class="rounded-circle">
         @endif
       </div>
-  </div>
   <div class="card my-3">
       <ul class="list-group list-group-flush accout_setting">
         <a class="pointer" href="{{ route('profileEdit') }}"><li class="list-group-item">プロフィール編集</li></a>
