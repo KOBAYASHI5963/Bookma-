@@ -33,4 +33,10 @@
     .pointer:hover {
       color: orange;
     }
+    .user_image img{
+      width: 260px;
+      height: 180px;
+      justify-content:space-between;
+      display:flex;
+    }
   }

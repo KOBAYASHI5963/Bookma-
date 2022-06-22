@@ -29,7 +29,7 @@
 
     <h3 class="font">プロフィールアイコン</h3>
     <div class="mypage-profileEdit-left">
-      <div class="user_image mb-3">
+      <div class="user_profile_image mb-3">
         @if(isset( $userProfile->profile_image ))
         <img src="{{$userProfile->profile_image}}" class="rounded-circle">
         @else

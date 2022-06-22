@@ -6,7 +6,7 @@
     .profileEdit{
       overflow-wrap:break-word;
     }
-    .user_image img{
+    .user_profile_image img{
       width: 80%;
       height: 170px;
       margin-left: 35px;
@@ -35,7 +35,7 @@
     .profileEdit{
       overflow-wrap:break-word;
     }
-    .user_image img{
+    .user_profile_image img{
       width: 260px;
       height: 180px;
       justify-content:space-between;
