@@ -1,67 +1,50 @@
 @media screen and (max-width:767px) {
   /*画面サイズが767px以下の場合読み込む（スマホ）*/
-    .books{
-      overflow-wrap:normal;
-    }
-    .books{
-      overflow-wrap:break-word;
-    }
     .font{
       color: #34495E;
       font-weight:bold;
       font-size: 22px;
     }
-    .books-title{
-      color: #34495E;
-    }
-    .card-title{
-      font-size: 22px;
+    .application_status{
+      font-size: 14px;
       font-weight:bold;
     }
-    .card-price{
-      font-weight:bold;
+    .applicationAmount{
+      font-size: 21px;
     }
-    .notSellBook{
+    .transferApplicationHistory{
       color: #888;
       font-size: 18px;
     }
-    .sell{
-      font-size: 16px;
+    .transferApplication{
+      font-size: 17px;
     }
-    .sell:hover {
+    .transferApplication:hover {
       color: #ec7906;
     }
   }
 @media screen and (min-width:768px){
   /*画面サイズが768px以上の場合読み込む（PC）*/
-    .books{ 
-      overflow-wrap:normal;
-    }
-    .books{
-      overflow-wrap:break-word;
-    }
     .font{
       color: #34495E;
       font-size: 32px;
       font-weight:bold;
     }
-    .books-title{
-      color: #34495E;
-    }
-    .card-title{
-      font-size: 22px;
+    .application_status{
+      font-size: 18px;
       font-weight:bold;
     }
-    .card-price{
-      font-weight:bold;
+    .applicationAmount{
+      font-size: 27px;
     }
-    .notSellBook{
+    .transferApplicationHistory{
       color: #888;
+      font-size: 21px;
     }
-    .sell{
+    .transferApplication{
       font-size: 18px;
     }
-    .sell:hover {
+    .transferApplication:hover {
       color: #ec7906;
     }
   }

@@ -37,6 +37,7 @@
     }
     .follow_list {
       color: #34495E;
+      font-size: 32px;
       font-weight:bold;
     }
     .notFollower{

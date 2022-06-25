@@ -2,7 +2,7 @@
   <h3 class="font">{{ $user->name }}の出品本一覧</h3>
 </div>
 
-<div class="books card">
+<div class="books">
 
   @if($books->count())
   @foreach($books as $book)
@@ -33,16 +33,16 @@
   </div>
   @endforeach
   {{ $books->links() }}
+</div>
   @else
-  <div class="mt-5">
-    <h5>※現在出品されている本はありません。</h5>
+  <div class="mt-4">
+    <h5 class="notSellBook">※現在出品されている本はありません。</h5>
   </div>
   <div class="mt-3">
-    <h5><a href="{{ route('sellerSalesBooks') }}">出品はこちらから</a></h5>
+    <h5><a class="sell" href="{{ route('sellerSalesBooks') }}">出品はこちらから</a></h5>
   </div>
   @endif
 
-</div>
 
 <script>
 function deletePost(e) {

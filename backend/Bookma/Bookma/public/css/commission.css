@@ -1,67 +1,48 @@
 @media screen and (max-width:767px) {
   /*画面サイズが767px以下の場合読み込む（スマホ）*/
-    .books{
-      overflow-wrap:normal;
-    }
-    .books{
-      overflow-wrap:break-word;
-    }
     .font{
       color: #34495E;
       font-weight:bold;
-      font-size: 22px;
+      font-size: 24px;
     }
-    .books-title{
+    .commission{
       color: #34495E;
-    }
-    .card-title{
       font-size: 22px;
       font-weight:bold;
     }
-    .card-price{
+    .commission-item{
+      color: #34495E;
+      font-size: 21px;
       font-weight:bold;
     }
-    .notSellBook{
-      color: #888;
-      font-size: 18px;
+    .stripe{
+      font-size: 17px;
     }
-    .sell{
-      font-size: 16px;
-    }
-    .sell:hover {
+    .stripe:hover {
       color: #ec7906;
     }
   }
 @media screen and (min-width:768px){
   /*画面サイズが768px以上の場合読み込む（PC）*/
-    .books{ 
-      overflow-wrap:normal;
-    }
-    .books{
-      overflow-wrap:break-word;
-    }
     .font{
       color: #34495E;
       font-size: 32px;
       font-weight:bold;
     }
-    .books-title{
+    .commission{
       color: #34495E;
+      font-size: 25px;
+      font-weight:bold;
     }
-    .card-title{
+    .commission-item{
+      color: #34495E;
       font-size: 22px;
       font-weight:bold;
     }
-    .card-price{
-      font-weight:bold;
-    }
-    .notSellBook{
-      color: #888;
-    }
-    .sell{
+    .stripe{
       font-size: 18px;
     }
-    .sell:hover {
+    .stripe:hover {
       color: #ec7906;
     }
   }

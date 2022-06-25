@@ -31,7 +31,7 @@
       <h5 class="notPurchasedBook">※購入されている本はありません。</h5>
     </div>
     <div class="mt-3">
-      <a href="{{ route('top') }}" >トップにもどる</a>
+      <a class="top" href="{{ route('top') }}" >トップにもどる</a>
     </div>
   @endif
 </div>

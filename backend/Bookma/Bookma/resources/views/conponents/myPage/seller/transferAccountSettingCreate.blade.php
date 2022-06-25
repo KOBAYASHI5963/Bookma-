@@ -12,7 +12,7 @@
         
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">銀行名</label>
+          <label for="exampleInputEmail1" class="line-item">銀行名</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('bank_name') }}" name="bank_name">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：みずほ</small></div>
         </div>
@@ -24,7 +24,7 @@
         
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">銀行コード(4桁)</label>
+          <label for="exampleInputEmail1" class="line-item">銀行コード(4桁)</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('bank_code') }}" name="bank_code">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：1234</small></div>
         </div>
@@ -36,7 +36,7 @@
         
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">支店名</label>
+          <label for="exampleInputEmail1" class="line-item">支店名</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('branch_name') }}" name="branch_name">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：新宿</small></div>
         </div>
@@ -48,7 +48,7 @@
 
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">支店コード(3桁)</label>
+          <label for="exampleInputEmail1" class="line-item">支店コード(3桁)</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('branch_code') }}" name="branch_code">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：123</small></div>
         </div>
@@ -62,7 +62,7 @@
         <div class="mb-3">
           <div>
             <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-            <label for="exampleInputEmail1" class="form-label">預金種別</label>
+            <label for="exampleInputEmail1" class="line-item">預金種別</label>
           </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="deposit_type" id="inlineRadio1" value="普通" checked>
@@ -81,7 +81,7 @@
 
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">口座番号(7桁)</label>
+          <label for="exampleInputEmail1" class="line-item">口座番号(7桁)</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('account_number') }}" name="account_number">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：1234567</small></div>
         </div>
@@ -93,7 +93,7 @@
         
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">口座名義（全角カタカナ）</label>
+          <label for="exampleInputEmail1" class="line-item">口座名義（全角カタカナ）</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('account_name') }}" name="account_name">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：ブックマ</small></div>
         </div>
@@ -116,6 +116,6 @@
 
 @push('css')
 
-<link rel="stylesheet" href="{{ asset('css/sellerTransferAccountSettingCreate.css') }}">
+<link rel="stylesheet" href="{{ asset('css/transferAccountSettingCreate.css') }}">
 
 @endpush

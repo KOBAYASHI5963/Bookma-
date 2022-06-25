@@ -16,6 +16,7 @@
   /*画面サイズが768px以上の場合読み込む（PC）*/
     .font{
       color: #34495E;
+      font-size: 32px;
       font-weight:bold;
     }
     .line-item{
