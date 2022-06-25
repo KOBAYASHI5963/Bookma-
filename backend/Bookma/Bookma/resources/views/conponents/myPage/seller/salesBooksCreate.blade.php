@@ -16,7 +16,7 @@
         <div class="show-book_image">
           <div>
             <input id="file-sample1" type="file" name="book_image1">
-            <img id="file-preview1" class="my-4" style="height: 230px; width:400px;">
+            <img id="file-preview1" class="my-4 image">
             <button type="button" class="btn btn-secondary" id="delete-file-preview1">削除する</button>
             <div class="mt-2" role="alert" id="imageError">
             </div>
@@ -29,7 +29,7 @@
 
           <div>
             <input id="file-sample2" type="file" name="book_image2">
-            <img id="file-preview2" class="my-4" style="height: 230px; width:400px;">
+            <img id="file-preview2" class="my-4 image">
             <button type="button" class="btn btn-secondary" id="delete-file-preview2">削除する</button>
             @if($errors->has('book_image2'))
               <div class="alert alert-danger" role="alert">
@@ -40,7 +40,7 @@
 
           <div>
             <input id="file-sample3" type="file" name="book_image3">
-            <img id="file-preview3" class="my-4" style="height: 230px; width:400px;">
+            <img id="file-preview3" class="my-4 image">
             <button type="button" class="btn btn-secondary" id="delete-file-preview3">削除する</button>
             @if($errors->has('book_image3'))
               <div class="alert alert-danger" role="alert">
@@ -51,7 +51,7 @@
           
           <div>
             <input id="file-sample4" type="file" name="book_image4">
-            <img id="file-preview4" class="my-4" style="height: 230px; width:400px;">
+            <img id="file-preview4" class="my-4 image">
             <button type="button" class="btn btn-secondary" id="delete-file-preview4">削除する</button>
             @if($errors->has('book_image4'))
               <div class="alert alert-danger" role="alert">
@@ -62,7 +62,7 @@
           
           <div>
             <input id="file-sample5" type="file" name="book_image5">
-            <img id="file-preview5" class="my-4" style="height: 230px; width:400px;">
+            <img id="file-preview5" class="my-4 image">
             <button type="button" class="btn btn-secondary" id="delete-file-preview5">削除する</button>
             @if($errors->has('book_image5'))
             <div class="alert alert-danger" role="alert">
@@ -125,7 +125,7 @@
           </div>
           @endif
           <label for="exampleInputEmail1" class="salesItem">商品名の説明</label></label>
-          <textarea name="content" cols="100" rows="10">{{ old('content') }}</textarea>
+          <textarea name="content" class="salesItemTextArea">{{ old('content') }}</textarea>
           <p class="limit">※1000文字以内</p>
         @if($errors->has('content'))
         <div class="alert alert-danger" role="alert">

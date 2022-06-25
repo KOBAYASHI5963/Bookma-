@@ -17,6 +17,14 @@
     .salesBook{
       font-weight:bold;
     }
+    .salesItemTextArea {
+      width: 290px;
+      height: 99px
+    }
+    .image {
+      width: 320px;
+      height: 170px;
+    }
   }
 @media screen and (min-width:768px){
   /*画面サイズが768px以上の場合読み込む（PC）*/
@@ -41,5 +49,13 @@
     .limit{
       color: #888888;
       font-size: 15px;
+    }
+    .salesItemTextArea {
+      width: 750px;
+      height: 200px
+    }
+    .image {
+      width: 400px;
+      height: 230px;
     }
   }
