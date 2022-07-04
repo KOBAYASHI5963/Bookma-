@@ -5,22 +5,26 @@
       font-weight:bold;
       font-size: 22px;
     }
-    .application_status{
-      font-size: 14px;
+    .complete{
       font-weight:bold;
     }
-    .applicationAmount{
-      font-size: 21px;
+    .thanks{
+      font-size: 15px;
+      font-weight:bold;
     }
-    .transferApplicationHistory{
-      color: #888;
-      font-size: 18px;
+    .top{
+      font-size: 16px;
     }
-    .transferApplication{
-      font-size: 17px;
-    }
-    .transferApplication:hover {
+    .top:hover {
       color: #ec7906;
+    }
+    .rounded-circle {
+      width: 170px;
+    }
+    .card-name{
+      color: #34495E;
+      font-size: 20px;
+      margin-top: 20px;
     }
   }
 @media screen and (min-width:768px){
@@ -30,22 +34,26 @@
       font-size: 32px;
       font-weight:bold;
     }
-    .application_status{
-      font-size: 18px;
+    .complete{
+      font-size: 22px;
       font-weight:bold;
     }
-    .applicationAmount{
-      font-size: 27px;
+    .thanks{
+      font-size: 20px;
       font-weight:bold;
     }
-    .transferApplicationHistory{
-      color: #888;
-      font-size: 21px;
-    }
-    .transferApplication{
+    .top{
       font-size: 18px;
     }
-    .transferApplication:hover {
+    .top:hover {
       color: #ec7906;
+    }
+    .rounded-circle {
+      width: 230px;
+    }
+    .card-name{
+      color: #34495E;
+      font-size: 30px;
+      margin-top: 30px;
     }
   }

@@ -1,49 +1,23 @@
 @media screen and (max-width:767px) {
   /*画面サイズが767px以下の場合読み込む（スマホ）*/
-    .messages{
-      word-break:normal;
-    }
-    .messages{
-      word-break:break-word;
-    }
-    .messages img{
-      width: 100px;
-    }
     .font{
       color: #34495E;
       font-weight:bold;
       font-size: 22px;
     }
-    .user{
-      color: #34495E;
-      font-size: 18px;
-    }
-    .notMessage{
+    .notPay{
       color: #888;
       font-size: 16px;
     }
   }
 @media screen and (min-width:768px){
   /*画面サイズが768px以上の場合読み込む（PC）*/
-    .messages{ 
-      word-break:normal;
-    }
-    .messages{
-      word-break:normal;
-    }
-    .messages img{
-      width: 100px;
-    }
     .font{
       color: #34495E;
       font-size: 32px;
       font-weight:bold;
     }
-    .user{
-      color: #34495E;
-      font-size: 18px;
-    }
-    .notMessage{
+    .notPay{
       color: #888;
     }
   }

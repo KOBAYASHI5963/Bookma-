@@ -1,0 +1,99 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .book_image{
+      width: 120px;
+      height: 150px;
+      justify-content:space-between;
+    }
+    .font{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 22px;
+    }
+    .notAddress{
+      color: #888;
+      font-size: 17px;
+    }
+    .shippingAddress{
+      font-size: 16px;
+    }
+    .shippingAddress:hover{
+      color: #ec7906;
+    }
+    .attention{
+      color: #888;
+      font-size: 16px;
+    }
+    .line{
+      line-height:1em;
+    }
+    .line-item{
+      font-weight:bold;
+    }
+    .list{
+      font-size: 10.5px;
+    }
+    .title{
+      color: #34495E;
+      font-size: 12px;
+      color: #34495E;
+    }
+    .price{
+      font-size: 10px;
+      font-weight:bold;
+    }
+    .shipping_bearer{
+      font-size: 6px;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .book_image{
+      width: 240px;
+      height: 180px;
+      justify-content:space-between;
+    }
+    .font{
+      color: #34495E;
+      font-size: 32px;
+      font-weight:bold;
+    }
+    .notAddress{
+      color: #888;
+      font-size: 20px;
+    }
+    .shippingAddress{
+      font-size: 18px;
+    }
+    .shippingAddress:hover {
+      color: #ec7906;
+    }
+    .attention{
+      color: #888;
+      font-size: 18px;
+    }
+    .line{
+      line-height:1em;
+    }
+    .line-item{
+      font-weight:bold;
+    }
+    .list{
+      font-size: 20px;
+    }
+    .title{
+      color: #34495E;
+      font-size: 23px;
+      font-weight:bold;
+    }
+    .price{
+      font-size: 21px;
+      font-weight:bold;
+    }
+    .shipping_bearer{
+      font-size: 18px;
+    }
+    .shipping_bearer{
+      font-size: 18px;
+    }
+  }

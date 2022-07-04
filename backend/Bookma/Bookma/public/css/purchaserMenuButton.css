@@ -1,10 +1,10 @@
 @media screen and (max-width:767px) {
   /*画面サイズが767px以下の場合読み込む（スマホ）*/
     .mypage-menu-left{
-      overflow-wrap:normal;
+      word-break:normal;
     }
     .mypage-menu-left{
-      overflow-wrap:break-word;
+      word-break:break-word;
     }
     .user_image img{
       width: 80%;
@@ -17,10 +17,10 @@
 @media screen and (min-width:768px){
   /*画面サイズが768px以上の場合読み込む（PC）*/
     .mypage-menu-left{ 
-      overflow-wrap:normal;
+      word-break:normal;
     }
     .mypage-menu-left{
-      overflow-wrap:break-word;
+      word-break:break-word;
     }
     .user_image img{
       width: 260px;

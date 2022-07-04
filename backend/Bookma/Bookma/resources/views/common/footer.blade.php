@@ -16,9 +16,6 @@
         <li class="nav-item">
           <a href="{{ route('sellerSalesBooks') }}" class="nav-item nav-link text-white"><i class="fas fa-book-open mr-2"></i>出品する</a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-item nav-link text-white">My本棚</a>
-        </li>
       </ul>
     </div>
   </nav>

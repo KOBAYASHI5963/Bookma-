@@ -1,10 +1,10 @@
 @media screen and (max-width:767px) {
   /*画面サイズが767px以下の場合読み込む（スマホ）*/
     .favorites{
-      overflow-wrap:normal;
+      word-break:normal;
     }
     .favorites{
-      overflow-wrap:break-word;
+      word-break:break-word;
     }
     .favorites img{
       width: 100%;
@@ -35,16 +35,15 @@
       font-size: 7px;
       padding-top: 10px;
       padding-bottom: 10px;
-      margin-left: 30px;
     }
   }
 @media screen and (min-width:768px){
   /*画面サイズが768px以上の場合読み込む（PC）*/
     .favorites{ 
-      overflow-wrap:normal;
+      word-break:normal;
     }
     .favorites{
-      overflow-wrap:break-word;
+      word-break:break-word;
     }
     .favorites img{
       width: 270px;

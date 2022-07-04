@@ -1,6 +1,6 @@
 <div class="container">
   <div class="cart__title mb-3">
-    <h3>カート一覧</h3>
+    <h3 class="font">カート一覧</h3>
   </div>
   @if($isShowCartBooks == true)
     <div class="cart-wrapper">
@@ -9,15 +9,15 @@
           <div class="row">
             <div class="col-4">
               <a href="{{ route('book.show', ['id' => $cartBook->id]) }}">
-                <img src="{{ $cartBook->BookImages[0]->book_images_url }}" alt="{{ $cartBook->title }}" style="height:200px; width:280px;">
+                <img src="{{ $cartBook->BookImages[0]->book_images_url }}" alt="{{ $cartBook->title }}" class="book_image">
               </a>
             </div>
             <div class="card-product-name col d-flex align-items-center">
-              <a href="{{ route('book.show', ['id' => $cartBook->id]) }}">
+              <a class="books-title" href="{{ route('book.show', ['id' => $cartBook->id]) }}">
                 {{ $cartBook->title }}
               </a>
             </div>
-            <div class="card__total-price col d-flex align-items-center">
+            <div class="total-price col d-flex align-items-center">
               ￥{{ $cartBook->price }} 
             </div>
             <div class="card__total-price col d-flex align-items-center">
@@ -26,7 +26,7 @@
               {{ csrf_field() }}
               <input type="hidden" name="book_id" value="{{ $cartBook->id }}">
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="button" class="btn btn-danger" onclick="deletePost(this);" data-id="{{ $cartBook->id }}">削除</button>
+                <button type="button" class="btn btn-danger delete_btn" onclick="deletePost(this);" data-id="{{ $cartBook->id }}">削除</button>
               </div>
               </form>
             </div>
@@ -43,30 +43,30 @@
         @endif
         <div class="mt-3">
           @if($shippingAddressLists->count())
-            <p>お届け先を選択して下さい。</p>
+            <p class="select">お届け先を選択して下さい。</p>
             @foreach($shippingAddressLists as $shippingAddressList)
               <div class="card mb-2">
                 <div class="row g-0 d-flex align-items-center">
                   <input class="shippingAddress-check ml-4" type="radio" name="shipping_address_id" value="{{ $shippingAddressList->id }}">
                   <div class="col-md-8">
                     <div class="card-body">
-                      <div style="line-height:1em;" class="mt-1">
-                        <span style="font-weight:bold; line-height:1em;">氏名：</span>{{ $shippingAddressList->name }}
+                      <div class="line mt-1">
+                        <span class="line-item">氏名：</span>{{ $shippingAddressList->name }}
                       </div>
-                      <div style="line-height:1em;" class="mt-1">
-                        <span style="font-weight:bold; line-height:1em;">郵便番号：</span>{{ $shippingAddressList->post_code }}
+                      <div class="line mt-1">
+                        <span class="line-item">郵便番号：</span>{{ $shippingAddressList->post_code }}
                       </div>
-                      <div style="line-height:1em;" class="mt-1">
-                        <span style="font-weight:bold; line-height:1em;">都道府県市区町村：</span>{{ $shippingAddressList->shippingArea->area}}{{ $shippingAddressList->city }}
+                      <div class="line mt-1">
+                        <span class="line-item">都道府県市区町村：</span>{{ $shippingAddressList->shippingArea->area}}{{ $shippingAddressList->city }}
                       </div>
-                      <div style="line-height:1em;" class="mt-1">
-                        <span style="font-weight:bold; line-height:1em;">番地：</span>{{ $shippingAddressList->street }}
+                      <div class="line mt-1">
+                        <span class="line-item">番地：</span>{{ $shippingAddressList->street }}
                       </div>
-                      <div style="line-height:1em;"class="mt-1">
-                        <span style="font-weight:bold; line-height:1em;">建物名：</span>{{ $shippingAddressList->building_name }}
+                      <div class="line mt-1">
+                        <span class="line-item">建物名：</span>{{ $shippingAddressList->building_name }}
                       </div>
-                      <div style="line-height:1em;" class="mt-1">
-                        <span style="font-weight:bold; line-height:1em;">電話番号：</span>{{ $shippingAddressList->phone_number }}
+                      <div class="line mt-1">
+                        <span class="line-item">電話番号：</span>{{ $shippingAddressList->phone_number }}
                       </div>
                     </div>
                   </div>
@@ -74,7 +74,7 @@
               </div>
             @endforeach
               <div class="mt-4">
-                <h6>※お届け先に変更がないかご確認ください</h>
+                <h6 class="attention">※お届け先に変更がないかご確認ください</h>
               </div>
           @else
             <div class="mt-3">
@@ -86,11 +86,11 @@
           @endif
     </form>
   @else
-    <div class="cart__empty">
+    <div class="cart_empty">
       カートに商品が入っていません。
     </div>
     <div class="mt-3">
-    <a href="{{ route('top') }}" >トップにもどる</a>
+    <a class="top" href="{{ route('top') }}" >トップにもどる</a>
     </div>
   @endif
 </div>
@@ -104,3 +104,10 @@ function deletePost(e) {
 console.log(e.dataset.id)
 }
 </script>
+
+
+@push('css')
+
+<link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+
+@endpush

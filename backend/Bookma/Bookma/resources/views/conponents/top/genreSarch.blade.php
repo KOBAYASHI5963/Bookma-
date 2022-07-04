@@ -1,7 +1,7 @@
 <div class="genre">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">ジャンル一覧</li>
+      <li class="breadcrumb-item active" aria-current="page">カテゴリー一覧</li>
     </ol>
   </nav>
   <nav aria-label="breadcrumb">

@@ -1,0 +1,17 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .searchFunction {
+      color: #34495E;
+      font-size: 23px;
+      font-weight:bold;
+    }
+  }
+
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .searchFunction {
+      color: #34495E;
+      font-size: 25px;
+      font-weight:bold;
+    }
+  }

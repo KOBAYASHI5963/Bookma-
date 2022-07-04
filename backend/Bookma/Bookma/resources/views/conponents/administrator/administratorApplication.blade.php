@@ -1,21 +1,21 @@
-<div class="mt-3 ml-5">
-  <h3>出金管理</h3>
+<div class="mt-4 ml-3">
+  <h3 class="font">出金管理</h3>
 </div>
 
 
-<div class="btn-group mt-2 ml-5" role="group">
-  <a href="{{ route('top') }}" class="btn btn-outline-primary">出金申請中</a>
-  <a href="{{ route('pay') }}" class="btn btn-outline-primary">出金済</a>
+<div class="btn-group mt-3 mb-2" role="group">
+  <a href="{{ route('top') }}" class="btn btn-primary mr-2">出金申請中</a>
+  <a href="{{ route('pay') }}" class="btn btn-secondary">出金済</a>
 </div>
 
-<table class="table mt-2 ml-5">
+<table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">申請ユーザー</th>
-      <th scope="col">申請日時</th>
-      <th scope="col">申請金額</th>
-      <th scope="col">アクション</th>
+      <th scope="col-1 col-sm-1">#</th>
+      <th scope="col-2 col-sm-3">申請ユーザー</th>
+      <th scope="col-3 col-sm-3">申請日時</th>
+      <th scope="col-3 col-sm-3">申請金額</th>
+      <th scope="col-3 col-sm-2">アクション</th>
     </tr>
   </thead>
   @if($ApplicationAccounts->count())
@@ -27,7 +27,7 @@
           <td>{{ $ApplicationAccount->created_at }}</td>
           <td>{{ $ApplicationAccount->amount_money }}</td>
           <!-- Button trigger modal -->
-          <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+          <td><button type="button" class="btn btn-danger payment" data-toggle="modal" data-target="#exampleModal">
           入金する
           </button></td>
 
@@ -58,8 +58,15 @@
       </tbody>
     @endforeach
   @else
-    <div class="mt-4 ml-5">
-      <h5>※出金申請中のものはありません。</h5>
+    <div class="">
+      <h5 class="notApplication">※出金申請中のものはありません。</h5>
     </div>
   @endif
 </table>
+
+
+@push('css')
+
+<link rel="stylesheet" href="{{ asset('css/administratorApplication.css') }}">
+
+@endpush

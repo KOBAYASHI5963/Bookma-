@@ -1,18 +1,85 @@
 @media screen and (max-width:767px) {
   /*画面サイズが767px以下の場合読み込む（スマホ）*/
-    .introduce-user{
-      overflow-wrap:normal;
+    .introduce{
+      word-break:normal;
     }
-    .introduce-user{
-      overflow-wrap:break-word;
+    .introduce{
+      word-break: break-all
+    }
+    .rounded-circle{
+      width: 160px;
+    }
+    .user_name{
+      color: #34495E;
+      font-size: 32px;
+      margin-left: 10px;
+    }
+    .count{
+      font-weight:bold;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+    .book-list{
+      color: #34495E;
+      font-size: 30px;
+      font-weight:bold;
+    }
+    .book_images{
+      width: 370px;
+      height: 190px;
+    }
+    .books-title{
+      color: #34495E;
+    }
+    .card-title{
+      font-size: 24px;
+      font-weight:bold;
+    }
+    .card-price{
+      font-weight:bold;
+    }
+    .notSellBook{
+      color: #888;
     }
   }
 @media screen and (min-width:768px){
   /*画面サイズが768px以上の場合読み込む（PC）*/
-    .introduce-user { 
-      overflow-wrap:normal;
+    .introduce{ 
+      word-break:normal;
     }
-    .introduce-user{
-      overflow-wrap:break-word;
+    .introduce{
+      word-break: break-all
+    }
+    .rounded-circle{
+      width: 220px;
+    }
+    .user_name{
+      color: #34495E;
+      margin-left: 30px;
+    }
+    .count{
+      font-weight:bold;
+      margin-top: 20px;
+    }
+    .book-list{
+      color: #34495E;
+      font-weight:bold;
+    }
+    .book_images{
+      width: 290px;
+      height: 190px;
+    }
+    .books-title{
+      color: #34495E;
+    }
+    .card-title{
+      font-size: 24px;
+      font-weight:bold;
+    }
+    .card-price{
+      font-weight:bold;
+    }
+    .notSellBook{
+      color: #888;
     }
   }

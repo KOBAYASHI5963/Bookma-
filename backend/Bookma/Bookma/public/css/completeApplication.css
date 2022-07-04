@@ -1,49 +1,42 @@
 @media screen and (max-width:767px) {
   /*画面サイズが767px以下の場合読み込む（スマホ）*/
-  .salesBooksUpdate{ 
-    word-break:normal;
-  }
-  .salesBooksUpdate{
-    word-break:break-word;
-  }
     .font{
       color: #34495E;
       font-weight:bold;
-      font-size: 24px;
+      font-size: 22px;
     }
-    .salesItem{
+    .complete{
       font-weight:bold;
     }
-    .salesBook{
+    .comminng{
       font-weight:bold;
     }
-    .limit{
-      color: #888888;
-      font-size: 13px;
+    .top{
+      font-size: 16px;
+    }
+    .top:hover {
+      color: #ec7906;
     }
   }
 @media screen and (min-width:768px){
   /*画面サイズが768px以上の場合読み込む（PC）*/
-  .salesBooksUpdate{ 
-    word-break:normal;
-  }
-  .salesBooksUpdate{
-    word-break:break-word;
-  }
     .font{
       color: #34495E;
       font-size: 32px;
       font-weight:bold;
     }
-    .salesItem{
+    .complete{
+      font-size: 22px;
       font-weight:bold;
     }
-    .salesBook{
-      font-size: 25px;
+    .comminng{
+      font-size: 20px;
       font-weight:bold;
     }
-    .limit{
-      color: #888888;
-      font-size: 15px;
+    .top{
+      font-size: 18px;
+    }
+    .top:hover {
+      color: #ec7906;
     }
   }

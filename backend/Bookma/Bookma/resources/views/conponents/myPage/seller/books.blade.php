@@ -9,7 +9,7 @@
   <div class="card">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="{{ $book->BookImages[0]->book_images_url }}" class="my-3" style="height:190px; width:290px;">
+        <img src="{{ $book->BookImages[0]->book_images_url }}" class="book_images">
       </div>
       
       <div class="col-md-8">
