@@ -32,7 +32,7 @@
           @method('DELETE')
           @csrf
             <input type="hidden" name="matching_user_id" value="{{ $to_user_id }}">
-            <button class="btn btn-danger" type="submit" onclick="deletePost(this);" data-id="{{ $message->id }}">削除</button>
+            <button class="btn btn-danger" type="button" onclick="deletePost(this);" data-id="{{ $message->id }}">削除</button>
           </form>
             </div>
             

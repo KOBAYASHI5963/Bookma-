@@ -1,0 +1,31 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .mypage-menu-left{
+      word-break:normal;
+    }
+    .mypage-menu-left{
+      word-break:break-word;
+    }
+    .user_image img{
+      width: 80%;
+      height: 190px;
+      margin-left: 35px;
+      justify-content:space-between;
+      display:flex;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .mypage-menu-left{ 
+      word-break:normal;
+    }
+    .mypage-menu-left{
+      word-break:break-word;
+    }
+    .user_image img{
+      width: 260px;
+      height: 180px;
+      justify-content:space-between;
+      display:flex;
+    }
+  }

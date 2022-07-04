@@ -1,0 +1,54 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .profileEdit{
+      word-break:normal;
+    }
+    .profileEdit{
+      word-break:break-word;
+    }
+    .user_profile_image img{
+      width: 80%;
+      height: 170px;
+      margin-left: 35px;
+      justify-content:space-between;
+      display:flex;
+    }
+    .font{
+      font-size: 20px;
+      color: #888;
+    }
+    .form-label{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 15px;
+    }
+    .limit{
+      color: #888888;
+      font-size: 13px;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .profileEdit{ 
+      word-break:normal;
+    }
+    .profileEdit{
+      word-break:break-word;
+    }
+    .user_profile_image img{
+      width: 260px;
+      height: 180px;
+      justify-content:space-between;
+      display:flex;
+    }
+    .font{
+      color: #888;
+    }
+    .form-label{
+      color: #34495E;
+      font-weight:bold;
+    }
+    .limit{
+      color: #888888;
+    }
+  }

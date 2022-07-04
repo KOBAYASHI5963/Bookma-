@@ -1,0 +1,28 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .font{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 22px;
+    }
+    .notApplication{
+      color: #888;
+      font-size: 16px;
+    }
+    .payment {
+      font-size: 10.8px;
+      padding-top: 20px;
+      padding-bottom: 10px;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .font{
+      color: #34495E;
+      font-size: 32px;
+      font-weight:bold;
+    }
+    .notApplication{
+      color: #888;
+    }
+  }

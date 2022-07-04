@@ -1,5 +1,5 @@
 <div class="mb-3">
-  <h3>お届け先の住所編集</h3>
+  <h3 class="font">お届け先の住所編集</h3>
 </div>
 
 <div class="card mb-3 mt-3">
@@ -12,7 +12,7 @@
         
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">氏名</label>
+          <label for="exampleInputEmail1" class="line-item">氏名</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $shippingAddress->name }}" name="name">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：本田 熊雄</small></div>
         </div>
@@ -24,7 +24,7 @@
         
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">郵便番号(7桁)</label>
+          <label for="exampleInputEmail1" class="line-item">郵便番号(7桁)</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $shippingAddress->post_code }}" name="post_code">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：1234567</small></div>
         </div>
@@ -36,7 +36,7 @@
         
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">都道府県</label>
+          <label for="exampleInputEmail1" class="line-item">都道府県</label>
           <div>
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" name="prefecture">
             <option value="">選択してください</option>
@@ -58,7 +58,7 @@
 
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">市区町村</label>
+          <label for="exampleInputEmail1" class="line-item">市区町村</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $shippingAddress->city }}" name="city">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：港区</small></div>
         </div>
@@ -70,7 +70,7 @@
 
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">番地</label>
+          <label for="exampleInputEmail1" class="line-item">番地</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $shippingAddress->street }}" name="street">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：青山1-2-3</small></div>
         </div>
@@ -82,7 +82,7 @@
         
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">任意</button>
-          <label for="exampleInputEmail1" class="form-label">建物名</label>
+          <label for="exampleInputEmail1" class="line-item">建物名</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $shippingAddress->building_name }}" name="building_name">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：レブロンハイツ325</small></div>
         </div>
@@ -94,7 +94,7 @@
 
         <div class="mb-3">
           <button type="button" class="btn btn-danger btn-sm mb-2" style="pointer-events: none">必須</button>
-          <label for="exampleInputEmail1" class="form-label">電話番号</label>
+          <label for="exampleInputEmail1" class="line-item">電話番号</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $shippingAddress->phone_number }}" name="phone_number">
           <div id="emailHelp" class="form-text"><small class="text-muted">例：09012345678</small></div>
         </div>
@@ -112,3 +112,10 @@
     </div>
   </div>
 </div>
+
+
+@push('css')
+
+<link rel="stylesheet" href="{{ asset('css/shippingAddressUpdate.css') }}">
+
+@endpush

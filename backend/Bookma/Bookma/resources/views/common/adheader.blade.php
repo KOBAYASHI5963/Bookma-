@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="navbar-brand text-white">管理者ページ</li>
-        <li class="navbar-brand text-white ml-2"><a href="{{ route('logout.get') }}" >ログアウト</a></li>
+        <li class="navbar-brand ml-2"><a class="text-white" href="{{ route('logout.get') }}" >ログアウト</a></li>
       </ul>
     </div>
   </nav>

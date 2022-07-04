@@ -1,7 +1,7 @@
 <div class="genre">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">ジャンル一覧</li>
+      <li class="breadcrumb-item active" aria-current="page">カテゴリー一覧</li>
     </ol>
   </nav>
   <nav aria-label="breadcrumb">
@@ -13,11 +13,6 @@
   </nav>
 </div>
 
-<style>
-.genre {
-  margin-top:100px;
-}
-</style>
 
 <div class="search py-2">
   <form class="d-flex" method="GET" action="{{ route('searchFunction') }}">
@@ -30,9 +25,9 @@
   </form>
 </div>
 
-  <style scoped>
-  .search {
-    background-color: #25324F;
-    text-align: center;
-  }
-  </style>
+
+@push('css')
+
+<link rel="stylesheet" href="{{ asset('css/genreSarch.css') }}">
+
+@endpush

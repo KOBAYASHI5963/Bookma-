@@ -1,0 +1,104 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .book-title{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 24px;
+    }
+    .book-price{
+      font-weight:bold;
+    }
+    .book-favorite{
+      font-weight:bold;
+    }
+    .item-explanation{
+      color: #34495E;
+      font-weight:bold;
+    }
+    .infomation{
+      font-weight:bold;
+    }
+    .inCart{
+      color: #888888;
+    }
+    .cart-list{
+      font-size: 18px;
+    }
+    .cart-list:hover{
+      color: #ec7906;
+    }
+    .rounded-circle{
+      width: 120px;
+      height: 90px
+    }
+    .user-name{
+      font-size: 22px;
+      color: #34495E;
+      margin-left: 30px;
+    }
+    .user_name{
+      font-size: 22px;
+      color: #34495E;
+      margin-left: 30px;
+    }
+    .btn_follow{
+      font-size: 13px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-top: 20px;
+      margin-right: 3px;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .book-title{
+      color: #34495E;
+      font-size: 32px;
+      font-weight:bold;
+    }
+    .book-price{
+      font-weight:bold;
+    }
+    .book-favorite{
+      font-size: 17px;
+      font-weight:bold;
+    }
+    .item-explanation{
+      color: #34495E;
+      font-size: 27px;
+      font-weight:bold;
+    }
+    .explanation{
+      font-size: 20px;
+    }
+    .infomation{
+      font-weight:bold;
+    }
+    .inCart{
+      color: #888888;
+    }
+    .cart-list{
+      font-size: 18px;
+    }
+    .cart-list:hover{
+      color: #ec7906;
+    }
+    .rounded-circle{
+      width: 160px;
+      height: 110px
+    }
+    .user-name{
+      font-size: 25px;
+      color: #34495E;
+    }
+    .user_name{
+      font-size: 25px;
+      color: #34495E;
+      margin-left: 20px;
+    }
+    .btn_follow {
+      font-size: 14px;
+      margin-top: 20px;
+      margin-right: 3px;
+    }
+  }

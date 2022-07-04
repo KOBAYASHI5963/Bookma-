@@ -1,16 +1,16 @@
 <div class="mb-3">
-  <h3>手数料についての説明</h3>
+  <h3 class="font">手数料についての説明</h3>
 </div>
 
 <div class="card text-center">
   <div class="card-body">
-    <h4 class="card-title">出品・振込申請について</h4>
+    <h4 class="commission">出品・振込申請について</h4>
   </div>
 </div>
 
-<div class="card  mb-5">
+<div class="card mb-5">
   <div class="card-header">
-    <h5>出品手数料について</h5>
+    <h5 class="commission-item">出品手数料について</h5>
   </div>
   <div class="card-body">
     <div>
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div>
-      <h7 class="card-text">販売価格の3.6%（<a href="#">Stripe</a>の決済手数料に準拠しています。）</h7>
+      <h7 class="card-text">販売価格の3.6%（<a class="stripe" href="#">Stripe</a>の決済手数料に準拠しています。）</h7>
     </div>
     <div class="mt-3">
       <div>
@@ -51,7 +51,7 @@
 
 
   <div class="card-header">
-    <h5>売上金はいつ振り込まれるのか</h5>
+    <h5 class="commission-item">売上金はいつ振り込まれるのか</h5>
   </div>
     <div class="card-body">
       <div>
@@ -61,7 +61,7 @@
     </div>
 
   <div class="card-header">
-    <h5>設定可能な金額</h5>
+    <h5 class="commission-item">設定可能な金額</h5>
   </div>
     <div class="card-body">
       <div> 
@@ -70,3 +70,10 @@
       </div>
     </div>
 </div>
+
+
+@push('css')
+
+<link rel="stylesheet" href="{{ asset('css/commission.css') }}">
+
+@endpush

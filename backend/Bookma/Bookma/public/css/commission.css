@@ -1,0 +1,48 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .font{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 24px;
+    }
+    .commission{
+      color: #34495E;
+      font-size: 22px;
+      font-weight:bold;
+    }
+    .commission-item{
+      color: #34495E;
+      font-size: 21px;
+      font-weight:bold;
+    }
+    .stripe{
+      font-size: 17px;
+    }
+    .stripe:hover {
+      color: #ec7906;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .font{
+      color: #34495E;
+      font-size: 32px;
+      font-weight:bold;
+    }
+    .commission{
+      color: #34495E;
+      font-size: 25px;
+      font-weight:bold;
+    }
+    .commission-item{
+      color: #34495E;
+      font-size: 22px;
+      font-weight:bold;
+    }
+    .stripe{
+      font-size: 18px;
+    }
+    .stripe:hover {
+      color: #ec7906;
+    }
+  }

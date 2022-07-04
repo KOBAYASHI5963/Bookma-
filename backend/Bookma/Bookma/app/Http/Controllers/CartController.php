@@ -83,6 +83,7 @@ class CartController extends Controller
 
     public function destroy($id)
     {
+
         $cart = Cart::where('user_id', Auth::id())
         ->first();
 
@@ -93,7 +94,7 @@ class CartController extends Controller
     public function checkout(CheckoutRequest $request)
     {
         $shippingAddressID = $request->shipping_address_id;
-
+        
         $cart = Cart::where('user_id', Auth::id())
         ->first();
         

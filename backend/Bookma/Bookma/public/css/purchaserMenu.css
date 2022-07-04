@@ -1,0 +1,41 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .select-user{
+      justify-content:center;
+      display:flex;
+    }
+    .user_image img{
+      width: 80%;
+      height: 170px;
+      justify-content:space-between;
+      display:flex;
+    }
+    .pointer{
+      color: #34495E;
+      font-size: 15px;
+    }
+    .pointer:hover {
+      color: #ec7906;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .select-user{
+      justify-content:end;
+      display:flex;
+    }
+    .pointer{
+      color: #34495E;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .pointer:hover {
+      color: orange;
+    }
+    .user_image img{
+      width: 260px;
+      height: 180px;
+      justify-content:space-between;
+      display:flex;
+    }
+  }

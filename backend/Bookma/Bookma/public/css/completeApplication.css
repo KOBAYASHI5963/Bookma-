@@ -1,0 +1,42 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .font{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 22px;
+    }
+    .complete{
+      font-weight:bold;
+    }
+    .comminng{
+      font-weight:bold;
+    }
+    .top{
+      font-size: 16px;
+    }
+    .top:hover {
+      color: #ec7906;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .font{
+      color: #34495E;
+      font-size: 32px;
+      font-weight:bold;
+    }
+    .complete{
+      font-size: 22px;
+      font-weight:bold;
+    }
+    .comminng{
+      font-size: 20px;
+      font-weight:bold;
+    }
+    .top{
+      font-size: 18px;
+    }
+    .top:hover {
+      color: #ec7906;
+    }
+  }
