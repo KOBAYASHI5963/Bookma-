@@ -14,10 +14,10 @@
         @endif
         </a>
         <a href="{{ route('user.show', ['id' => $chat_user->User->id]) }}">
-          <div class="user mt-3 ml-3"><h4>{{ $chat_user->user->name }}</h4></div>
+          <div class="user"><h4>{{ $chat_user->user->name }}</h4></div>
         </a>
-        <div class="mt-3 ml-5">
-          <a type="submit" href="{{ route('chat.room', $chat_user->User->id) }}" class=" btn btn-primary">チャットする</a>
+        <div>
+          <a type="submit" href="{{ route('chat.room', $chat_user->User->id) }}" class=" btn btn-primary chat">チャットする</a>
         </div>
       </div>
     @endforeach
@@ -33,3 +33,8 @@
 <link rel="stylesheet" href="{{ asset('css/messages.css') }}">
 
 @endpush
+
+<script>
+var user_id = "{{ $chat_user->user->name }}";
+var current_user_name = "{{ $chat_user->user->name }}";
+</script>
