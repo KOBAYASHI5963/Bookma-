@@ -1,6 +1,6 @@
 <div class="card" style="width: 20rem;">
   <div class="card-body">
-    <h4 class="card-title">詳細検索</h4>
+    <h4 class="card-title searchFunction">詳細検索</h4>
     <form class="d-flex" method="GET" action="{{ route('searchFunction') }}">
     <div>
       <input class="form-control me-2" id="keyword" name="keyword" type="text" placeholder="キーワードを検索" aria-label="Search">
@@ -44,3 +44,10 @@
 </div>
 
 <script src="{{ asset('/js/seachForm.js') }}"></script>
+
+
+@push('css')
+
+<link rel="stylesheet" href="{{ asset('css/searchForm.css') }}">
+
+@endpush

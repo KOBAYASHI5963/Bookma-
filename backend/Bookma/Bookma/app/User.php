@@ -127,4 +127,18 @@ class User extends Authenticatable
     return $this->belongsToMany('App\Book', 'product_purchases', 'user_id', 'book_id');
   }
   
+  Public function applications()
+  {
+    return $this->hasMany('App\Application');
+  }
+
+  public function chatMessages()
+    {
+        return $this->hasMany('App\ChatMessage');
+    }
+
+    public function chatRoomUsers()
+    {
+        return $this->hasMany('App\ChatRoomUsers');
+    }
 }

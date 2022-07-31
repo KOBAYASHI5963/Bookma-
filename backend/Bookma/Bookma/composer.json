@@ -18,6 +18,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "2",
         "league/flysystem-aws-s3-v3": "~1.0",
+        "pusher/pusher-php-server": "~4.0",
         "stripe/stripe-php": "^7.123"
     },
     "require-dev": {

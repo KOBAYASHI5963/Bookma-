@@ -1,0 +1,88 @@
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .purchasedItem{
+      word-break:normal;
+    }
+    .purchasedItem{
+      word-break:break-word;
+    }
+    .purchasedItem img{
+      width: 100%;
+      height: 190px;
+      justify-content:space-between;
+    }
+    .font{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 22px;
+    }
+    .title{
+      color: #34495E;
+      font-size: 20px;
+      font-weight:bold;
+    }
+    .user{
+      color: #34495E;
+      font-size: 18px;
+    }
+    .price{
+      font-weight:bold;
+    }
+    .notTransaction{
+      color: #888;
+      font-size: 19px;
+    }
+    .notPurchasedBook{
+      color: #888;
+      font-size: 17px;
+    }
+    .top{
+      font-size: 15px;
+    }
+    .top:hover {
+      color: #ec7906;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .purchasedItem{ 
+      word-break:normal;
+    }
+    .purchasedItem{
+      word-break:break-word;
+    }
+    .purchasedItem img{
+      width: 280px;
+      height: 210px;
+      justify-content:space-between;
+    }
+    .font{
+      color: #34495E;
+      font-size: 32px;
+      font-weight:bold;
+    }
+    .title{
+      color: #34495E;
+      font-size: 27px;
+      font-weight:bold;
+    }
+    .user{
+      color: #34495E;
+      font-size: 20px;
+    }
+    .price{
+      font-weight:bold;
+    }
+    .notTransaction{
+      color: #888;
+    }
+    .notPurchasedBook{
+      color: #888;
+    }
+    .top{
+      font-size: 18px;
+    }
+    .top:hover {
+      color: #ec7906;
+    }
+  }

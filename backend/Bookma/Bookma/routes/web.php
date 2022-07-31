@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Events\ChatPusher;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +28,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
-
 
     // 購入者メニュー
     //プロフィール編集ページ表示
@@ -59,8 +58,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/user/{id}/unfollow', 'FollowController@destroy')->name('user.unfollow');
     Route::get('followings', 'UsersController@followings')->name('users.followings');
     Route::get('followers', 'UsersController@followers')->name('users.followers');
-    //メッセージ
+
+    //メッセージ一覧
     Route::get('/myPage/messagesList', 'MypageController@messages')->name('messagesList');
+    // リアルチャット
+    Route::get('/ChatRoom/user/{id}/json', 'ChatController@roomJson')->name('chat.room.json');
+    // チャットルーム
+    Route::get('/ChatRoom/user/{id}', 'ChatController@room')->name('chat.room');
+    //チャット送受信
+    Route::post('/ChatRoom/user/{id}/store', 'ChatController@store')->name('chat.store');
+    //チャット削除
+    Route::delete('/ChatRoom/user/{id}/destroy/{userId}', 'ChatController@destroy')->name('chat.destroy');
 
     //お届け先の住所一覧
     Route::get('/myPage/shippingAddressList', 'MypageController@shippingAddressList')->name('shippingAddressList');
@@ -77,21 +85,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/myPage/shippingAddress/{id}/destroy', 'MypageController@shippingAddressDestroy')->name('shippingAddressDestroy');
 
     
-
     // 出品者メニュー
     //出品本
     Route::get('/myPage/seller/books', 'MypageController@sellerbooks')->name('sellerbooks');
     
     //振込口座設定
     Route::get('/myPage/seller/TransferAccountSetting', 'MypageController@sellerTransferAccountSetting')->name('sellerTransferAccountSetting');
-
-
     //振込口座設定(編集更新)
     Route::post('/myPage/seller/TransferAccountSetting/update', 'MypageController@sellerTransferAccountSettingUpdate')->name('sellerTransferAccountSettingUpdate');
-    
     //振込口座設定(新規作成)
     Route::post('/myPage/seller/TransferAccountSetting', 'MypageController@sellerTransferAccountSettingCreate')->name('sellerTransferAccountSettingCreate');
-    
     //売上履歴
     Route::get('/myPage/seller/salesHistory', 'MypageController@sellerSalesHistory')->name('sellerSalesHistory');
     //振込申請履歴
@@ -100,6 +103,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/myPage/seller/transferApplication', 'MypageController@sellerTransferApplication')->name('sellerTransferApplication');
     //手数料について説明
     Route::get('/myPage/seller/commission', 'MypageController@sellerCommission')->name('sellerCommission');
+
+    //振込申請完了ページ
+    Route::post('/Application/complete', 'ApplicationController@completeApplication')->name('completeApplication');
 
     //出品フォームページ
     Route::get('/myPage/seller/salesBooks', 'MypageController@sellerSalesBooks')->name('sellerSalesBooks');
@@ -131,7 +137,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/book/checkout/{id}', 'BookController@checkout')->name('book.checkout');
     // 単品（商品詳細ページ）からの決済成功
     Route::get('/book/success/{id}/{shippingAddressID}', 'BookController@success')->name('book.success');
-    
+
+    //管理者画面
+    //出金申請中
+    Route::get('/Administrator/application', 'AdministratorController@application')->name('application');
+    //出金済
+    Route::get('/Administrator/pay', 'AdministratorController@pay')->name('pay');
+    //ユーザーへ入金する
+    Route::post('/Administrator/{id}/payment', 'AdministratorController@payment')->name('payment');
 });
 
 

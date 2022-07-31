@@ -31,7 +31,7 @@ class CheckoutRequest extends FormRequest
     public function messages()
     {
         return [
-            'shipping_address_id.required' => 'お届け先を選択して下さい。',
+            'shipping_address_id.required' => 'お届け先を選択して下さい。決済ページに進むにはお届け先の住所登録が必須となります。 '
         ];
     }
 }

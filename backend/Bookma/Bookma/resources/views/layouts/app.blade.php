@@ -24,9 +24,11 @@
         display: flex;
         flex-flow: column;
         min-height: 100vh;
+        background:#F9F8F2;
       }
       main {
         flex: 1;
       }
     </style>
 </html>
+

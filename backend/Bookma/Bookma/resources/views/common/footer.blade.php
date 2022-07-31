@@ -1,82 +1,28 @@
-<footer id="footer" class="footer outer-block">
-  <div class="inner-block">
-          <div class="wrap">
-            <div class="logo">
-              <a href="{{ route('top') }}">Bookma! ʕ•ᴥ•ʔ</a>
-            </div>
-            <div class="cont">
-                <div class="c-btn">
-                  <a href="{{ route('sellerSalesBooks') }}">出品する</a>
-                </div>
-                <ul class="nav">
-                  <li><a href="#">会員登録</a></li>
-                  <li><a href="{{ route('cart.show') }}">カートを見る</a></li>
-                  <li><a href="{{ route('favorites') }}">お気に入り</a></li>
-                  <li><a href="#">My本棚</a></li>
-                </ul>
-            </div>
-          </div>
-  </div><!-- /inner-block -->
-      <div class="copyright">
+<footer class="footer">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2">
+    <a class="navbar-brand text-white ml-4" href="{{ route('top') }}">Bookma! ʕ•ᴥ•ʔ</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+        <a href="{{ route('cart.show') }}" class="nav-item nav-link text-white">カート一覧</a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('favorites') }}" class="nav-item nav-link text-white"><i class="far fa-star text-white mr-2"></i>お気に入り</a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('sellerSalesBooks') }}" class="nav-item nav-link text-white"><i class="fas fa-book-open mr-2"></i>出品する</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="copyright navbar-dark bg-dark text-white justify-content-center d-flex align-items-center">
         COPYRIGHT © Bookma Inc. All rights Reserved.
-      </div>
+  </div>
+  
 </footer>
 
-
-
-    <style scoped>
-  
-#footer {
-  background: #222;
-}
- 
-#footer .logo a {
-  display: inline-block;
-  width: 120px;
-  color: #ffffff
-}
- 
-#footer .nav li a {
-  padding: 15px;
-  color: #ffffff
-}
- 
-#footer .c-btn {
-  margin-left: 25px;
-}
- 
-  #footer .wrap {
-    padding: 20px 0;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
- 
-  #footer .cont {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-  }
- 
-  #footer .nav {
-    display: inline-block;
-  }
- 
-  #footer .nav li {
-    display: inline-block;
-  }
- 
-  #footer .nav li a:hover {
-    color: #ca353b;
-  }
-
-  #footer .copyright {
-    color: #ffffff;
-    text-align: center
-    
-  }
-
-  </style>

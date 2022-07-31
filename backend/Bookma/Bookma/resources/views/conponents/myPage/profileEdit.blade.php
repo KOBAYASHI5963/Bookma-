@@ -1,13 +1,13 @@
-<div class="mb-3">
-  <label for="exampleInputEmail1" class="form-label">プロフィール編集</label>
+<div class="profileEdit mb-3">
+  <h5 class="form-label">プロフィール編集</h5>
 
-  <h3>基本情報</h3>
+  <h3 class="font">基本情報</h3>
 
   <form method="POST" action="{{ route('profileEditStore') }}" enctype="multipart/form-data">
    {{ csrf_field() }}
-    <label for="exampleInputEmail1" class="form-label">ニックネーム</label>
+    <h5 class="form-label">ニックネーム</h5>
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$user->name}}" name="name">
-    <p>※20文字以内</p>
+    <p class="limit">※20文字以内</p>
     @if($errors->has('name'))
     <div class="alert alert-success" role="alert">
         {{ $errors->first('name') }}
@@ -16,9 +16,9 @@
 
 
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">自己紹介</label>
+      <h5 class="form-label">自己紹介</h5>
       <textarea class="form-control" name='introduce' id="exampleFormControlTextarea1" rows="3">{{$userProfile->introduce}}</textarea>
-      <p>※1000文字以内</p>
+      <p class="limit">※1000文字以内</p>
       @if($errors->has('introduce'))
       <div class="alert alert-success" role="alert">
           {{ $errors->first('introduce') }}
@@ -27,20 +27,20 @@
     </div>
    
 
-    <h3>プロフィールアイコン</h3>
+    <h3 class="font">プロフィールアイコン</h3>
     <div class="mypage-profileEdit-left">
-      <div class="user_image mb-3">
+      <div class="user_profile_image mb-3">
         @if(isset( $userProfile->profile_image ))
-        <img src="{{$userProfile->profile_image}}" class="rounded-circle" style="width: 250px;">
+        <img src="{{$userProfile->profile_image}}" class="rounded-circle">
         @else
-        <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle" style="width: 250px;">
+        <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle">
         @endif
       </div>
     </div>
 
 
     <input id="file-sample" type="file" name="profile_image">
-    <img id="file-preview" class="my-4" style="height: 230px; width:400px;">
+    <img id="file-preview" class="my-4">
     @if($errors->has('profile_image'))
     <div class="alert alert-success" role="alert">
         {{ $errors->first('profile_image') }}
@@ -52,7 +52,6 @@
   </form>
 
 </div>
-
 
 
 <script>
@@ -68,3 +67,9 @@
     img.src = blobUrl;
   });
 </script>
+
+@push('css')
+
+<link rel="stylesheet" href="{{ asset('css/profileEdit.css') }}">
+
+@endpush

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 // モデル
+use App\ChatRoom;
+use App\ChatRoomUser;
+use App\ChatMessage;
+use App\Application;
 use App\productPurchase;
 use App\ShippingAddress;
 use App\BookImage;
@@ -110,8 +114,22 @@ class MypageController extends Controller
     }
     public function messages()
     {
-        return view('pages.myPage.messagesList');
+
+        $user = Auth::user();
+        
+        // 自分の持っているチャットルームIDを取得
+        $current_user_chat_room_ids = ChatRoomUser::where('user_id', Auth::id())
+        ->pluck('chat_room_id');
+
+        // チャットルーム取得
+        $chat_users = ChatRoomUser::whereIn('chat_room_id', $current_user_chat_room_ids)
+        ->where('user_id', '<>', Auth::id())
+        ->latest()
+        ->get();
+
+        return view('pages.myPage.messagesList',compact('user','chat_users'));
     }
+
     public function shippingAddressList()
     {
         $user = Auth::user();
@@ -187,10 +205,10 @@ class MypageController extends Controller
         $books = Book::select('*')
                 ->where('user_id', Auth::id())
                 ->paginate(5);
-
     
         return view('pages.myPage.seller.books',compact('books','user'));
     }
+
     public function sellerTransferAccountSetting()
     {
         $user = Auth::user();
@@ -249,7 +267,7 @@ class MypageController extends Controller
         $paginator = Book::select('*')
                 ->where('user_id', Auth::id())
                 ->whereIn('id', $purchasedBookIds)
-                ->paginate(1);
+                ->paginate(5);
 
         // コレクション化
         $books =  new Collection($paginator->items());
@@ -259,7 +277,7 @@ class MypageController extends Controller
             return $this->transform($book);
         })
         ->toArray();
-// dd($bookIds,$purchasedBookIds,$paginator,$books,$viewBooks );
+
         return view('pages.myPage.seller.salesHistory',compact('viewBooks','paginator'));
     }
 
@@ -320,11 +338,56 @@ class MypageController extends Controller
 
     public function sellerTransferApplicationHistory()
     {
-        return view('pages.myPage.seller.transferApplicationHistory');
+        $applicationAmounts = Application::select('*')
+        ->where('user_id', Auth::id())
+        ->paginate(5);
+
+        return view('pages.myPage.seller.transferApplicationHistory',compact('applicationAmounts'));
     }
+
     public function sellerTransferApplication()
     {
-        return view('pages.myPage.seller.transferApplication');
+        // ユーザーが出品した本のID一覧
+        $bookIds = $this->bookIds();
+        // 上記のうち購入された本のID一覧
+        $purchasedBookIds = $this->purchasedBookIds($bookIds);
+        // ユーザーが売った本一覧
+        $sellerBooks = Book::select('*')
+                ->where('user_id', Auth::id())
+                ->whereIn('id', $purchasedBookIds)
+                ->get();
+            
+        //売却金額(初期設定)
+        $totalPrice = 0;
+
+        foreach ( $sellerBooks as $sellerBook ) {
+
+        $totalPrice += $sellerBook->price;
+
+        }
+        //申請した金額
+        $totalApplicationAmount = 0;
+
+        $applicationAmounts = Application::select('*')
+        ->where('user_id', Auth::id())
+        ->get();
+
+
+        if ($applicationAmounts) {
+            foreach ( $applicationAmounts as $applicationAmount ) {
+
+                $totalApplicationAmount += $applicationAmount->amount_money;
+            }
+        }
+        
+         $canApplicationAmount = $totalPrice - $totalApplicationAmount;
+
+         $user = Auth::user();
+         $transferAccountSetting = TransferAccountSetting::select('*')
+                             ->where('user_id', $user->id)
+                             ->first();
+                
+        return view('pages.myPage.seller.transferApplication',compact('totalPrice','canApplicationAmount','transferAccountSetting'));
     }
     public function sellerCommission()
     {
@@ -476,7 +539,7 @@ class MypageController extends Controller
                 // dd('そのまま');
                 return;
             } else {
-                // dd('対象を削除sして終了');
+                // dd('対象を削除して終了');
                 $this->deleteBookImage($id);
             }
         }
