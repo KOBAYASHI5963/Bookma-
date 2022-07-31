@@ -1,3 +1,63 @@
-.message-created-at{
-  display: inline;
-}
+@media screen and (max-width:767px) {
+  /*画面サイズが767px以下の場合読み込む（スマホ）*/
+    .chat-user{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 22px;
+    }
+    .user{
+      font-size: 18px;
+    }
+    .time{
+      color: #888;
+      font-size: 15px;
+      margin-top: 8px;
+      margin-left: 10px;
+    }
+    .message{
+      font-size: 17px;
+      margin-top: 12px;
+      color: #0d063a;
+      font-weight:bold;
+      white-space: pre-wrap;
+    }
+    .delite-btn{
+      font-size: 13px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      margin-left: 10px;
+    }
+    .notMessage{
+      color: #888;
+      font-size: 16px;
+    }
+  }
+@media screen and (min-width:768px){
+  /*画面サイズが768px以上の場合読み込む（PC）*/
+    .chat-user{
+      color: #34495E;
+      font-weight:bold;
+      font-size: 28px;
+    }
+    .user{
+      font-size: 22px;
+    }
+    .time{
+      color: #888;
+      margin-left: 10px;
+      margin-top: 9px;
+    }
+    .message{
+      font-size: 21px;
+      margin-top: 15px;
+      font-weight:bold;
+      color: #0d063a;
+      white-space: pre-wrap;
+    }
+    .delite-btn{
+      margin-left: 20px;
+    }
+    .notMessage{
+      color: #888;
+    }
+  }

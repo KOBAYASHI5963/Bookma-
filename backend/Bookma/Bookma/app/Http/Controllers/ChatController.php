@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ChatStoreRequest;
 
 use App\ChatRoom;
 use App\ChatRoomUser;
@@ -22,39 +23,10 @@ class ChatController extends Controller
     public function room($id)
     {
 
-        $user = Auth::user();
-
-        // 相手のID
-        $to_user_id = $id;
-        $to_user = User::where('id', $id)
-        ->pluck('name')
-        ->first();
-
-        // 自分の持っているチャットルームを取得
-        $user_chat_rooms = ChatRoomUser::where('user_id', Auth::id())
-        ->pluck('chat_room_id');
-
-        // 自分の持っているチャットルームからチャット相手のいるルームを探す
-        $chat_room_id = ChatRoomUser::whereIn('chat_room_id', $user_chat_rooms)
-            ->where('user_id', $to_user_id)
-            ->pluck('chat_room_id');
-
-        // 新規チャットルームの場合
-        if (!$chat_room_id->count()){
-
-            $chat_messages = [];
-
-        }else{
-
-        $chat_messages = ChatMessage::where('chat_room_id', $chat_room_id)
-        ->get();
-
-        }
-
-        return view('pages.chat.chatRoom',compact('user','to_user','to_user_id','chat_messages'));
+        return view('pages.chat.chatRoom');
     }
 
-    public function store(Request $request,$id){
+    public function store(ChatStoreRequest $request,$id){
 
         $user = Auth::user();
         $matching_user_id = $id;
@@ -100,19 +72,66 @@ class ChatController extends Controller
             $chat_messages->user_id = $user->id;
             $chat_messages->message = $request->message;
             $chat_messages->save();
+
         }
+
+        event(new ChatPusher($chat_messages));
 
         return redirect()->route('chat.room', $matching_user_id);
     
     }
 
-    public function destroy(Request $request,$id)
+    public function destroy($id,$userId)
     {
+        if(Auth::id() != $userId) {
+            return response()->json([
+                'message' => "削除する権限がありません",
+            ], 500);
+        }
 
         $chat_messages = ChatMessage::find($id);
+        event(new ChatPusher($chat_messages));
         $chat_messages->delete();
 
-        return redirect()->route('chat.room', $request->matching_user_id);
+        return response()->json([
+            'message' => "削除成功",
+        ], 200);
     }
+
+    public function roomJson($id) {
+
+        $user = Auth::user();
+
+        // 相手のID
+        $to_user_id = $id;
+        $to_user = User::where('id', $id)
+        ->first();
+
+        // 自分の持っているチャットルームを取得
+        $user_chat_rooms = ChatRoomUser::where('user_id', Auth::id())
+        ->pluck('chat_room_id');
+
+        // 自分の持っているチャットルームからチャット相手のいるルームを探す
+        $chat_room_id = ChatRoomUser::whereIn('chat_room_id', $user_chat_rooms)
+            ->where('user_id', $to_user_id)
+            ->pluck('chat_room_id');
+
+        // 新規チャットルームの場合
+        if (!$chat_room_id->count()){
+
+            $chat_messages = [];
+
+        }else{
+
+        $chat_messages = ChatMessage::with('user')->where('chat_room_id', $chat_room_id)
+        ->get();
+        }
+
+        return response()->json([
+            'chat_messages' => $chat_messages,
+            'to_user' => $to_user,
+            'auth_id' => Auth::id(),
+        ], 200);
+    } 
 
 }
