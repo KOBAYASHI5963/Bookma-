@@ -91,7 +91,7 @@
   </div>
 <div>
 
-  <div class="mt-4">
+  <div class="mt-4 ml-3">
     <h4 class="item-explanation">出品者</h>
   </div>
 
@@ -101,13 +101,13 @@
       <div class="row g-0">
 
           @if(is_null( $book->User->UserProfile->profile_image ))
-          <div class="col-4 col-sm-6 d-flex align-items-center justify-content-strat">
+          <div class="col-4 col-sm-4 d-flex align-items-center justify-content-strat">
             <a href="{{ route('user.show', ['id' => $book->User->id]) }}">
               <img src="https://photo-chips.com/user_data/00002805.jpg" class="rounded-circle">
             </a>
           </div>
           @else
-          <div class="col-4 col-sm-6 d-flex align-items-center justify-content-strat">
+          <div class="col-4 col-sm-4 d-flex align-items-center justify-content-strat">
             <a href="{{ route('user.show', ['id' => $book->User->id]) }}">
               <img src="{{ $book->User->UserProfile->profile_image }}" class="rounded-circle">
             </a>
@@ -116,7 +116,7 @@
         
           @if (Auth::id())
             @if (Auth::id() != $book->User->id)
-              <div class="col-4 col-sm-2 d-flex align-items-center justify-content-center"> 
+              <div class="col-4 col-sm-6 d-flex align-items-center justify-content-center"> 
                 <a href="{{ route('user.show', ['id' => $book->User->id]) }}">
                   <div>
                     <h5 class="user-name">{{ $book->User->name }}</h5>
@@ -124,7 +124,7 @@
                 </a>
               </div>
             @else
-              <div class="col-8 col-sm-6 d-flex align-items-center justify-content-center"> 
+              <div class="col-8 col-sm-8 d-flex align-items-center justify-content-center"> 
                 <a href="{{ route('user.show', ['id' => $book->User->id]) }}">
                   <div>
                     <h5 class="user_name">{{ $book->User->name }}</h5>
@@ -133,7 +133,7 @@
               </div>
             @endif
           @else
-            <div class="col-8 col-sm-6 d-flex align-items-center justify-content-center"> 
+            <div class="col-8 col-sm-8 d-flex align-items-center justify-content-center"> 
                 <a href="{{ route('user.show', ['id' => $book->User->id]) }}">
                   <div>
                     <h5 class="user_name">{{ $book->User->name }}</h5>

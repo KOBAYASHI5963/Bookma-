@@ -6,7 +6,7 @@
 
   @if($books->count())
   @foreach($books as $book)
-  <div class="card">
+  <div class="card mt-3 mb-3">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="{{ $book->BookImages[0]->book_images_url }}" class="book_images">
@@ -14,9 +14,8 @@
       
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title"><a class="books-title"href="{{ route('book.show', ['id' => $book->id]) }}" >{{ $book->title }}</a></h5>
+          <h5 class="card-title"><a class="books-title" href="{{ route('book.show', ['id' => $book->id]) }}" >{{ $book->title }}</a></h5>
           <p class="card-price">{{ $book->price }}円</p>
-          <div>
           <p class="card-text"><small class="text-muted">出品日時：{{ $book->created_at }}</small></p>
           <div class="d-flex justify-content-start">
             <a class="btn btn-success btn mr-2" href="{{ route('sellerSalesBooksEdit', ['id' => $book->id]) }}" >編集</a>
