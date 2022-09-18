@@ -20,6 +20,10 @@
           <a type="submit" href="{{ route('chat.room', $chat_user->User->id) }}" class=" btn btn-primary chat">チャットする</a>
         </div>
       </div>
+      <script>
+        var user_id = "{{ $chat_user->user->name }}";
+        var current_user_name = "{{ $chat_user->user->name }}";
+      </script>
     @endforeach
   @else
     <div class="mt-4">
@@ -34,7 +38,4 @@
 
 @endpush
 
-<script>
-var user_id = "{{ $chat_user->user->name }}";
-var current_user_name = "{{ $chat_user->user->name }}";
-</script>
+
