@@ -11,7 +11,7 @@ use App\Cart;
 use App\Book;
 use App\LineItem;
 use App\productPurchase;
-use App\shippingAddress;
+use App\ShippingAddress;
 
 
 class CartController extends Controller
