@@ -35,7 +35,7 @@ class ApplicationController extends Controller
         $ApplicationInformation->save();
 
 
-        return view('pages.Application.completeApplication',compact('transferAccountSetting'));
+        return view('pages.application.completeApplication',compact('transferAccountSetting'));
     }
 
 
